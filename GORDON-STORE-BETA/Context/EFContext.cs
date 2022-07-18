@@ -7,6 +7,6 @@ namespace GORDON_STORE_BETA.Context
 {
     public class EFContext
     {
-        aaa'
+      
     }
 }
