@@ -17,15 +17,21 @@
     </p>
     <table class="table">
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nome)
+            </th>
             <th></th>
         </tr>
     
     @foreach (var item in Model) {
         <tr>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.DisplayFor(modelItem => item.nome)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.clienteID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.clienteID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.clienteID })
             </td>
         </tr>
     }
