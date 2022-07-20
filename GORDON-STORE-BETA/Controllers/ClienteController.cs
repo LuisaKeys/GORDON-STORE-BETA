@@ -1,6 +1,8 @@
 ﻿using GORDON_STORE_BETA.Models;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
+using GORDON_STORE_BETA.Context;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -9,16 +11,17 @@ namespace GORDON_STORE_BETA.Controllers
 {
     public class ClienteController : Controller
     {
-        private static IList<Cliente> clientes= new List<Cliente>()
-        {
-            new Cliente() { clienteID = 1, nome = "Lindoberg"},
-            new Cliente() { clienteID = 2, nome = "Leo"},
-            new Cliente() { clienteID = 3, nome = "Luisa"},
-        };
+        public EFContext context = new EFContext(); 
+        //private static IList<Cliente> clientes= new List<Cliente>()
+        //{
+        //    new Cliente() { clienteID = 1, nome = "Lindoberg"},
+        //    new Cliente() { clienteID = 2, nome = "Leo"},
+        //    new Cliente() { clienteID = 3, nome = "Luisa"},
+        //};
         // GET: Cliente
         public ActionResult Index()
         {
-            return View(clientes);
+            return View(context.Clientes.OrderBy(c => c.nome));
         }
         public ActionResult Create() => View();
 
@@ -26,8 +29,9 @@ namespace GORDON_STORE_BETA.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(Cliente cliente)
         {
-            clientes.Add(cliente);
-            cliente.clienteID = clientes.Select(m => m.clienteID).Max() + 1;
+            context.Clientes.Add(cliente);
+            context.SaveChanges();
+            //cliente.clienteID = clientes.Select(m => m.clienteID).Max() + 1;
             return RedirectToAction("Index");
         }
 
