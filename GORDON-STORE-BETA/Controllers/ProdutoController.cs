@@ -13,11 +13,15 @@ namespace GORDON_STORE_BETA.Controllers
     public class ProdutoController : Controller
     {
         private EFContext context = new EFContext();
-        // GET: Produto
+        //GET: Produtos
         public ActionResult Index()
         {
-            return View(context.Produtos.OrderBy(c => c.Nome));
+            var produtos =
+            context.Produtos.Include(c => c.Categoria).Include(f => f.Estudio).
+            OrderBy(n => n.Nome);
+            return View(produtos);
         }
+
 
         // GET: Produto/Details/5
         public ActionResult Details(long? id)
@@ -37,17 +41,31 @@ namespace GORDON_STORE_BETA.Controllers
         // GET: Produto/Create
         public ActionResult Create()
         {
+            ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome),
+            "CategoriaId", "Nome");
+            ViewBag.FabricanteId = new SelectList(context.Estudios.OrderBy(b => b.Nome),
+            "FabricanteId", "Nome");
             return View();
         }
 
         // POST: Produto/Create
         [HttpPost]
         [ValidateAntiForgeryToken]
+        // POST: Produtos/Create
+        [HttpPost]
         public ActionResult Create(Produto produto)
         {
-            context.Produtos.Add(produto);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            try
+            {
+                // TODO: Add insert logic here
+                context.Produtos.Add(produto);
+                context.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View(produto);
+            }
         }
 
         // GET: Produto/Edit/5

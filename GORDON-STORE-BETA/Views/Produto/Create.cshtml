@@ -1,76 +1,95 @@
 ﻿@model GORDON_STORE_BETA.Models.Produto
 
-@{ Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Criar Produto"; 
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Registrando um novo Produto";
 }
-
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
     <div class="panel panel-primary">
         <div class="panel-heading">
-            Registro de um novo produto
+            Registro de um NOVO PRODUTO
         </div>
         <div class="panel-body">
-            <div class=" form-horizontal">
+            <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Nome, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                    <div class=" col-md-10">
-                        @Html.EditorFor(model => model.Nome, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.Nome, htmlAttributes:
+                    new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Nome, new
+                        {
+                            htmlAttributes =
+                        new { @class = "form-control" }
+                        })
+                        @Html.ValidationMessageFor(model => model.Nome, "",
+                        new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Preco, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                    <div class=" col-md-10">
-                        @Html.EditorFor(model => model.Preco, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Preco, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.Preco, htmlAttributes:
+                    new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Preco, new
+                        {
+                            htmlAttributes =
+                        new { @class = "form-control" }
+                        })
+                        @Html.ValidationMessageFor(model => model.Preco, "",
+                        new { @class = "text-danger" })
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.Qtd, htmlAttributes:
+                        new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.Qtd, new
+                            {
+                                htmlAttributes =
+                            new { @class = "form-control" }
+                            })
+                            @Html.ValidationMessageFor(model => model.Qtd, "",
+                            new { @class = "text-danger" })
+                        </div>
+                    </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.CategoriaId, "CategoriaId", htmlAttributes:
+                    new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("CategoriaId", null, htmlAttributes:
+                        new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CategoriaId, "",
+                        new { @class = "text-danger" })
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Qtd, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                    <div class=" col-md-10">
-                        @Html.EditorFor(model => model.Qtd, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Qtd, "", new { @class = "text-danger" })
+                    @Html.LabelFor(model => model.FabricanteId, "FabricanteId", htmlAttributes:
+                    new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("FabricanteId", null, htmlAttributes:
+                        new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.FabricanteId, "",
+                        new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.CategoriaId, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                    <div class=" col-md-10">
-                        @Html.EditorFor(model => model.CategoriaId, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.CategoriaId, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.EstudioId, htmlAttributes: new { @class = "control-label col-md-2" })
-
-                    <div class=" col-md-10">
-                        @Html.EditorFor(model => model.EstudioId, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.EstudioId, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
             </div>
-        </div>
-
-        <div class="panel-footer panel-info">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Adicionar Produto" class="btn btn-danger" />
-                @Html.ActionLink("Retornar para listagem de Produtos", "Index", null, new { @class = "btn btn-warning" })
+            <div class="panel-footer panel-info">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Adicionar Produto" class="btn btn-danger" />
+                    @Html.ActionLink("Retornar para a listagem de PRODUTOS", "Index", null,
+                    new { @class = "btn btn-warning" })
+                </div>
+                <br />
+                <br />
             </div>
-            <br />
-            <br />
         </div>
     </div>
 }
-
-
 @section ScriptPage {
-    <script src="~/Scripts/jquery.validate.min.js"></script>
-    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liProdutos').addClass("active");
+        });
+    </script>
 }
