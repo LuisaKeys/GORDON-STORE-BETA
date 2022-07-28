@@ -15,7 +15,7 @@ namespace GORDON_STORE_BETA.Context
             new DropCreateDatabaseIfModelChanges<EFContext>());
         }
         public DbSet<Categoria> Categorias { get; set; }
-        //public DbSet<Fabricante> Fabricantes { get; set; }
-        //public DbSet<Produto> Produtos { get; set; }
+        public DbSet<Estudio> Estudios { get; set; }
+        public DbSet<Produto> Produtos { get; set; }
     }
 }
