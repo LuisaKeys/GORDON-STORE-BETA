@@ -16,12 +16,9 @@ namespace GORDON_STORE_BETA.Controllers
         //GET: Produtos
         public ActionResult Index()
         {
-            var produtos =
-            context.Produtos.Include(c => c.Categoria).Include(f => f.Estudio).
-            OrderBy(n => n.Nome);
+            var produtos = context.Produtos.Include(c => c.Categoria).Include(f => f.Estudio).OrderBy(n => n.Nome);
             return View(produtos);
         }
-
 
         // GET: Produto/Details/5
         public ActionResult Details(long? id)
@@ -30,7 +27,8 @@ namespace GORDON_STORE_BETA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = context.Produtos.Find(id);
+            Produto produto = context.Produtos.Where(p => p.ProdutoId == id).
+            Include(c => c.Categoria).Include(f => f.Estudio).First();
             if (produto == null)
             {
                 return HttpNotFound();
@@ -41,16 +39,11 @@ namespace GORDON_STORE_BETA.Controllers
         // GET: Produto/Create
         public ActionResult Create()
         {
-            ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome),
-            "CategoriaId", "Nome");
-            ViewBag.FabricanteId = new SelectList(context.Estudios.OrderBy(b => b.Nome),
-            "FabricanteId", "Nome");
+            ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome), "CategoriaId", "Nome");
+            ViewBag.EstudioId = new SelectList(context.Estudios.OrderBy(b => b.Nome), "EstudioId", "Nome");
             return View();
         }
 
-        // POST: Produto/Create
-        [HttpPost]
-        [ValidateAntiForgeryToken]
         // POST: Produtos/Create
         [HttpPost]
         public ActionResult Create(Produto produto)
@@ -68,7 +61,7 @@ namespace GORDON_STORE_BETA.Controllers
             }
         }
 
-        // GET: Produto/Edit/5
+        // GET: Produtos/Edit/5
         public ActionResult Edit(long? id)
         {
             if (id == null)
@@ -80,6 +73,10 @@ namespace GORDON_STORE_BETA.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.CategoriaId = new SelectList(context.Categorias.OrderBy(b => b.Nome), "CategoriaId",
+            "Nome", produto.CategoriaId);
+            ViewBag.EstudioId = new SelectList(context.Estudios.OrderBy(b => b.Nome), "EstudioId",
+            "Nome", produto.EstudioId);
             return View(produto);
         }
 
@@ -104,7 +101,8 @@ namespace GORDON_STORE_BETA.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = context.Produtos.Find(id);
+            Produto produto = context.Produtos.Where(p => p.ProdutoId == id).
+            Include(c => c.Categoria).Include(f => f.Estudio).First();
             if (produto == null)
             {
                 return HttpNotFound();

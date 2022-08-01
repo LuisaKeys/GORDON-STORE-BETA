@@ -2,7 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Registrando um novo Produto";
+    ViewBag.Title = "Registrando um NOVO PRODUTO";
 }
 @using (Html.BeginForm())
 {
@@ -28,6 +28,26 @@
                     </div>
                 </div>
                 <div class="form-group">
+                    @Html.LabelFor(model => model.CategoriaId, "CategoriaId", htmlAttributes:
+                    new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("CategoriaId", null, htmlAttributes:
+                        new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.CategoriaId, "",
+                        new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.EstudioId, "EstudioId", htmlAttributes:
+                    new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("EstudioId", null, htmlAttributes:
+                        new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EstudioId, "",
+                        new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
                     @Html.LabelFor(model => model.Preco, htmlAttributes:
                     new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
@@ -39,39 +59,21 @@
                         @Html.ValidationMessageFor(model => model.Preco, "",
                         new { @class = "text-danger" })
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(model => model.Qtd, htmlAttributes:
-                        new { @class = "control-label col-md-2" })
-                        <div class="col-md-10">
-                            @Html.EditorFor(model => model.Qtd, new
-                            {
-                                htmlAttributes =
-                            new { @class = "form-control" }
-                            })
-                            @Html.ValidationMessageFor(model => model.Qtd, "",
-                            new { @class = "text-danger" })
-                        </div>
-                    </div>
+                </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.CategoriaId, "CategoriaId", htmlAttributes:
+                    @Html.LabelFor(model => model.Qtd, htmlAttributes:
                     new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.DropDownList("CategoriaId", null, htmlAttributes:
-                        new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.CategoriaId, "",
+                        @Html.EditorFor(model => model.Qtd, new
+                        {
+                            htmlAttributes =
+                        new { @class = "form-control" }
+                        })
+                        @Html.ValidationMessageFor(model => model.Qtd, "",
                         new { @class = "text-danger" })
                     </div>
                 </div>
-                <div class="form-group">
-                    @Html.LabelFor(model => model.FabricanteId, "FabricanteId", htmlAttributes:
-                    new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DropDownList("FabricanteId", null, htmlAttributes:
-                        new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.FabricanteId, "",
-                        new { @class = "text-danger" })
-                    </div>
-                </div>
+
             </div>
             <div class="panel-footer panel-info">
                 <div class="col-md-offset-2 col-md-10">
