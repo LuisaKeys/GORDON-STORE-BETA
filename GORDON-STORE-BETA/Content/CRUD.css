@@ -1,0 +1,106 @@
+﻿@font-face {
+    font-family: Adineue;
+    src: url('~/Imagens/adineue_PRO.ttf');
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+body {
+    background: url(../Imagens/gradient-gordon.svg);
+    background-position-x: right;
+    background-position-y: 3em;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: 'adineue PRO';
+    color: #2E0F46;
+}
+header {
+    box-sizing: border-box;
+    height: 60px;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+    nav ul {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 4em;
+        list-style: none;
+        gap: 1.3rem;
+    }
+
+        nav ul a {
+            font-family: Arial, Helvetica, sans-serif;
+            font-weight: bold;
+            text-decoration: none;
+            color: rgb(82, 19, 129);
+        }
+
+header img {
+    width: 4em;
+    padding-left: 1em;
+}
+
+nav ul a:hover {
+    color: #E0CE0D;
+    text-decoration: none;
+}
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+ .tabelainteira{
+    width: 95%;
+    background: rgba(255, 255, 255, 0.21);
+    border: 0.5px solid #2E0F46;
+    box-shadow: 8px 4px 16px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+
+    
+  }
+  .headertabela{
+    background-color: #2E0F46;
+    color: white;
+    border-radius: 8px 8px 0 0;
+    padding: 10px;
+    text-align: center;
+    
+  }
+  .itenstabela{
+      padding: 10px;
+  }
+td a {
+    color: #2E0F46;
+}
+.btn-adicionar {
+    padding: 15px;
+    background-color: #2E0F46;
+    width: 250px;
+    background: #2E0F46;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 4px 10px;
+    color: white;
+}
+    .btn-adicionar:hover {
+        color: #2E0F46;
+        text-decoration: none;
+        background-color: yellow;
+    }
+.panel-footer {
+    background: rgba(255, 255, 255, 0.09);
+    padding: 20px;
+}
+
+.form-control{
+    background: rgba(255, 255, 255, 0.09);
+}

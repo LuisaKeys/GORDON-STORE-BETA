@@ -6,40 +6,24 @@
     <title>@ViewBag.Title</title>
     <link rel="shortcut icon" href="~/assets/fideco.ico" type="image/x-icon">
     <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/content/CRUD.css")" rel="stylesheet" />
     @RenderSection("styles", false)
 
 </head>
 <body>
-
-
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-3 col-md-3 bg-success">
-                <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <li role="presentation" id="liCategorias">
-                        @Html.ActionLink("Categorias", "Index", "Categoria")
-                    </li>
-                    <li id="liEstudios" role="presentation">
-                        @Html.ActionLink("Estudios", "Index", "Estudio")
-                    </li>
-                    <li id="liProdutos" role="presentation">
-                        @Html.ActionLink("Produtos", "Index", "Produto")
-                    </li>
-                </ul>
-            </div>
-            <div class="col-xs-9 col-md-9">
-                <br />
+    <header>
+        <a href="#"><img src="~/Imagens\logo-gordonstore.png" alt="LOGO GORDON STORE"></a>
+        <nav>
+            <ul>
+                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation" class="active"><a href="#">Produtos</a></li>
+                <li role="presentation" class="active"><a href="#">Categorias</a></li>
+                <li role="presentation" class="active"><a href="#">Estúdios</a></li>
+            </ul>
+        </nav>
+    </header>
                 @RenderBody()
-            </div>
-        </div> <br />
-        <div class="row">
-            <div class="col-xs-12 col-md-12 bg-danger">
-                <small>Layout com Bootstrap</small>
-            </div>
-        </div>
-    </div>
-
+           
     <script src="@Url.Content("~/scripts/jquery-1.10.2.js")"></script>
     <script src="@Url.Content("~/scripts/bootstrap.js")"></script>
     @RenderSection("ScriptPage", false)

@@ -130,6 +130,7 @@
     <Content Include="Content\DataTables\css\colReorder.jqueryui.min.css" />
     <Content Include="Content\DataTables\css\colReorder.semanticui.css" />
     <Content Include="Content\DataTables\css\colReorder.semanticui.min.css" />
+    <Content Include="Content\CRUD.css" />
     <Content Include="Content\DataTables\css\dataTables.bootstrap.css" />
     <Content Include="Content\DataTables\css\dataTables.bootstrap.min.css" />
     <Content Include="Content\DataTables\css\dataTables.bootstrap4.css" />
@@ -264,7 +265,11 @@
     <Content Include="Content\DataTables\css\semanticui.scss" />
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
+    <Content Include="Imagens\adineue PRO.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Imagens\degrade-gordon.svg" />
+    <Content Include="Imagens\gradient-gordon.svg" />
+    <Content Include="Imagens\logo-gordonstore.png" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\DataTables\autoFill.bootstrap.js" />

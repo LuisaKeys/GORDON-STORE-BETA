@@ -4,11 +4,14 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Registrando um NOVO PRODUTO";
 }
+
+
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div class="panel panel-primary">
-        <div class="panel-heading">
+    <main>
+    <div class="tabelainteira">
+        <div class="headertabela">
             Registro de um NOVO PRODUTO
         </div>
         <div class="panel-body">
@@ -75,8 +78,8 @@
                 </div>
 
             </div>
-            <div class="panel-footer panel-info">
-                <div class="col-md-offset-2 col-md-10">
+            <div class="panel-footer">
+                <div class="col-md-offset-2 ">
                     <input type="submit" value="Adicionar Produto" class="btn btn-danger" />
                     @Html.ActionLink("Retornar para a listagem de PRODUTOS", "Index", null,
                     new { @class = "btn btn-warning" })
@@ -86,7 +89,9 @@
             </div>
         </div>
     </div>
+    </main>
 }
+
 @section ScriptPage {
     <script type="text/javascript">
         $(document).ready(function () {
