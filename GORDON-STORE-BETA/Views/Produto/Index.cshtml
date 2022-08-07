@@ -21,14 +21,24 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th>Id</th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.ProdutoId)
+                        </th>
                         <th>
                             @Html.DisplayNameFor(model => model.Nome)
                         </th>
-                        <th>Preço</th>
-                        <th>Quantidade</th>
-                        <th>Categoria</th>
-                        <th>Estúdio</th>
+                        <th>
+                            @Html.DisplayNameFor(model => model.Preco)
+                        </th>
+                        <th> 
+                            @Html.DisplayNameFor(model => model.Qtd)
+                        </th>
+                        <th> 
+                            @Html.DisplayNameFor(model => model.Categoria)
+                        </th>
+                        <th> 
+                            @Html.DisplayNameFor(model => model.Estudio)
+                        </th>
                     </tr>
                 </thead>
                 <tbody>
