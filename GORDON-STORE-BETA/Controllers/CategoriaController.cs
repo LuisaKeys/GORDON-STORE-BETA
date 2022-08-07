@@ -88,7 +88,7 @@ namespace GORDON_STORE_BETA.Controllers
             }
             return View(categoria);
         }
-        // POST: Fabricantes/Delete/5
+        // POST: Categorias/Delete/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(long id)

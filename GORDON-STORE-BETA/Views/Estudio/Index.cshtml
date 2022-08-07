@@ -5,10 +5,9 @@
     ViewBag.Title = "Listagem de Estudios";
 }
 
-<!-- Mensagem de exclusão -->
 @if (@TempData["Message"] != null)
 {
-    <div class="alert alert-success" role="alert">
+    <div class="alert" role="alert">
         @TempData["Message"]
     </div>
 }
