@@ -16,9 +16,15 @@
         <nav>
             <ul>
                 <li role="presentation" class="active"><a href="#">Home</a></li>
-                <li role="presentation" class="active"><a href="#">Produtos</a></li>
-                <li role="presentation" class="active"><a href="#">Categorias</a></li>
-                <li role="presentation" class="active"><a href="#">Estúdios</a></li>
+                <li role="presentation" id="liCategorias">
+                    @Html.ActionLink("Categorias", "Index", "Categoria")
+                </li>
+                <li id="liFabricantes" role="presentation">
+                    @Html.ActionLink("Estúdios", "Index", "Estudio")
+                </li>
+                <li id="liProdutos" role="presentation">
+                    @Html.ActionLink("Produtos", "Index", "Produto")
+                </li>
             </ul>
         </nav>
     </header>
