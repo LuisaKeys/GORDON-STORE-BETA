@@ -2,7 +2,7 @@
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
-    ViewBag.Title = "Listagem de Estudios";
+    ViewBag.Title = "Listagem de Estúdios";
 }
 
 @if (@TempData["Message"] != null)
@@ -11,47 +11,48 @@
         @TempData["Message"]
     </div>
 }
-
 <main>
-    <div class="tabelainteira">
-        <div class="headertabela">
-            RELAÇÃO DE ESTUDIOS REGISTRADOS
-        </div>
-        <div class="itenstabela">
-            <table class="table table-hover">
-                <thead>
-                    <tr>
-                        <th>@Html.DisplayNameFor(model => model.EstudioId)</th>
-                        <th>
-                            @Html.DisplayNameFor(model => model.Nome)
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach (var item in Model)
-                    {
-                        <tr>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.EstudioId)
-                            </td>
-                            <td>
-                                @Html.DisplayFor(modelItem => item.Nome)
-                            </td>
-                            <td>
-                                @Html.ActionLink("Alterar", "Edit", new { id = item.EstudioId }) |
-                                @Html.ActionLink("Detalhes", "Details", new { id = item.EstudioId }) |
-                                @Html.ActionLink("Eliminar", "Delete", new { id = item.EstudioId })
-                            </td>
-                        </tr>
-                    }
-                </tbody>
-            </table>
-        </div>
-        <div class="panel-footer">
-            @Html.ActionLink("Registrar um novo Estudio", "Create", null,
-            new { @class = "btn-adicionar" })
-        </div>
+<div class="panel tabelainteira">
+    <div class="headertabela">
+        RELAÇÃO DE ESTÚDIOS REGISTRADOS
     </div>
+    <div class="itenstabela">
+        <table class="table  table-hover">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.EstudioId)
+                    </th>
+                    <th>
+                        @Html.DisplayNameFor(model => model.Nome)
+                    </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.EstudioId)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Nome)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Alterar", "Edit", new { id = item.EstudioId }) |
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.EstudioId }) |
+                            @Html.ActionLink("Eliminar", "Delete", new { id = item.EstudioId })
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+    <div class="panel-footer">
+        @Html.ActionLink("REGISTRAR NOVO ESTÚDIO", "Create", null, new { @class = "btn btn-adicionar" })
+    </div>
+</div>
 </main>
 
 @section styles{
@@ -66,6 +67,7 @@
         });
         $('li').removeClass("active");
         $('#liEstudios').addClass("active");
+
     </script>
 }
 
