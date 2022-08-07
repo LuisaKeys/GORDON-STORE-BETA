@@ -266,6 +266,7 @@
     <Content Include="Content\DataTables\css\mixins.scss" />
     <Content Include="Content\DataTables\css\common.scss" />
     <Content Include="Imagens\adineue PRO.ttf" />
+    <Content Include="Imagens\adineue PRO_Bold.ttf" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Imagens\degrade-gordon.svg" />
     <Content Include="Imagens\gradient-gordon.svg" />

@@ -110,15 +110,23 @@ namespace GORDON_STORE_BETA.Controllers
             return View(produto);
         }
 
-        // POST: Produto/Delete/5
+        // POST: Produtos/Delete/5
         [HttpPost]
-        public ActionResult Delete(long id)
+        public ActionResult Delete(int id, FormCollection collection)
         {
-            Produto produto = context.Produtos.Find(id);
-            context.Produtos.Remove(produto);
-            context.SaveChanges();
-            TempData["Message"] = "Produto " + produto.Nome.ToUpper() + " foi removida";
-            return RedirectToAction("Index");
+            try
+            {
+                Produto produto = context.Produtos.Find(id);
+                context.Produtos.Remove(produto);
+                context.SaveChanges();
+                TempData["Message"] = "Produto " + produto.Nome.ToUpper() + " foi removido";
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
+
     }
 }

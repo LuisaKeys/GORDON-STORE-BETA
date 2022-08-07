@@ -7,9 +7,10 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            Alteração dos dados de um PRODUTO
+ <main>
+    <div class="tabelainteira">
+        <div class="headertabela">
+            ALTERAÇÃO DOS DADOS DE UM PRODUTO
         </div>
         <div class="panel-body">
             <div class="form-horizontal">
@@ -93,6 +94,7 @@
             </div>
         </div>
     </div>
+    </main>
 }
 @section ScriptPage {
     <script type="text/javascript">
