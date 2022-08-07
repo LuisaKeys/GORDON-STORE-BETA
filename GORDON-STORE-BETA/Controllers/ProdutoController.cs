@@ -95,7 +95,7 @@ namespace GORDON_STORE_BETA.Controllers
         }
 
         // GET: Produto/Delete/5
-        public ActionResult Delete(long? id)
+        public ActionResult Delete(int id)
         {
             if (id == null)
             {

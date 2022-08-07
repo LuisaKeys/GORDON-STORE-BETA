@@ -4,8 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Visualizando os dados de um PRODUTO";
 }
-<div class="panel panel-primary">
-    <div class="panel-heading">
+<main>
+<div class="tabelainteira">
+    <div class="headertabela">
         Visualizando detalhes de um PRODUTO
     </div>
     <div class="panel-body">
@@ -52,12 +53,12 @@
 
     <div class="panel-footer panel-info">
         @Html.ActionLink("Alterar", "Edit", new { id = Model.ProdutoId },
-        new { @class = "btn btn-info" })
+        new { @class = "btn btn-retornar" })
         @Html.ActionLink("Retornar para a listagem", "Index", null,
-        new { @class = "btn btn-info" })
+        new { @class = "btn btn-retornar" })
     </div>
 </div>
-
+</main>
 @section ScriptPage {
     <script type="text/javascript">
 $(document).ready(function () {

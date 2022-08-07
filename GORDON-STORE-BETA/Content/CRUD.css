@@ -10,6 +10,10 @@
     padding: 0;
     margin: 0;
 }
+.alert{
+    width: 95%;
+    margin: 10px auto;
+}
 body {
     background: url(../Imagens/gradient-gordon.svg);
     background-position-x: right;
@@ -110,7 +114,11 @@ td a:hover {
 }
 
 .form-control{
-    background: rgba(255, 255, 255, 0.09);
+    background: transparent;
+}
+.form-group{
+    padding: 0 30px;
+    background-color: transparent;
 }
 .btn-retornar {
     background-color: rgba(46, 15, 70, 1);
@@ -121,3 +129,13 @@ td a:hover {
    text-decoration: none;
    background-color: rgba(20, 8, 30, 1);
  }
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: transparent;
+    opacity: 1;
+}
+.alert {
+    color: #2E0F46;
+    background-color: rgba(46, 15, 70, 0.37);
+    border: 1px solid #2E0F46;
+}
+

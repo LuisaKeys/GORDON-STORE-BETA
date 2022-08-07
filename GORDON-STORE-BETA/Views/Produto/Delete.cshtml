@@ -4,9 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Visualizando detalhes do PRODUTO a ser removido";
 }
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        Visualizando detalhes do PRODUTO a ser removido
+<div class="tabelainteira">
+    <div class="headertabela">
+        VISUALIZANDO DETALHES DO PRODUTO A SER REMOVIDO
     </div>
     <div class="panel-body">
         <div class="form-group">
@@ -50,9 +50,9 @@
         </div>
     </div>
     <div class="panel-footer panel-info">
-        <a href="#" class="btn btn-info" data-toggle="modal"
+        <a href="#" class="btn btn-retornar" data-toggle="modal"
            data-target="#deleteConfirmationModal">Remover</a>
-        @Html.ActionLink("Retornar para a listagem", "Index", null, new { @class = "btn btn-info" })
+        @Html.ActionLink("Retornar para a listagem", "Index", null, new { @class = "btn btn-retornar" })
     </div>
 </div>
 <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-hidden="true">
@@ -75,7 +75,7 @@
                         Você está certo que deseja prosseguir?
                     </strong>
                 </p>
-                @using (Html.BeginForm("Delete", "Produtos", FormMethod.Post,
+                @using (Html.BeginForm("Delete", "Produto", FormMethod.Post,
                 new { @id = "delete-form", role = "form" }))
                 {
                     @Html.HiddenFor(m => m.ProdutoId)
@@ -86,7 +86,7 @@
                 <button type="button" class="btn btn-default" onclick="$('#delete-form').submit();">
                     Sim, exclua este produto.
                 </button>
-                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                <button type="button" class="btn btn-retornar" data-dismiss="modal">
                     Não, não exclua este produto.
                 </button>
             </div>
