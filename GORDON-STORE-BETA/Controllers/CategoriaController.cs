@@ -32,7 +32,7 @@ namespace GORDON_STORE_BETA.Controllers
             context.SaveChanges();
             return RedirectToAction("Index");
         }
-        // GET: Fabricantes/Edit/5
+        // GET: Categorias/Edit/5
         public ActionResult Edit(long? id)
         {
             if (id == null)
@@ -46,7 +46,7 @@ namespace GORDON_STORE_BETA.Controllers
             }
             return View(categoria);
         }
-        // POST: Fabricantes/Edit/5
+        // POST: Categorias/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Categoria categoria)
@@ -60,7 +60,7 @@ namespace GORDON_STORE_BETA.Controllers
             return View(categoria);
         }
 
-        // GET: Fabricantes/Details/5
+        // GET: Categorias/Details/5
         public ActionResult Details(long? id)
         {
             if (id == null)
@@ -74,7 +74,7 @@ namespace GORDON_STORE_BETA.Controllers
             }
             return View(categoria);
         }
-        // GET: Fabricantes/Delete/5
+        // GET: Categorias/Delete/5
         public ActionResult Delete(long? id)
         {
             if (id == null)

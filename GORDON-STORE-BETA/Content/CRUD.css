@@ -46,11 +46,11 @@ nav ul {
 
 }
 
- nav ul a {
-   font-family: adineue2;
-   text-decoration: none;
-   color: rgb(82, 19, 129);
-}
+    nav ul a {
+        font-weight: bold;
+        text-decoration: none;
+        color: #2E0F46;
+    }
 
 header img {
     width: 4em;
@@ -60,6 +60,9 @@ header img {
 nav ul a:hover {
     color: rgba(160, 137, 34, 1);
     text-decoration: none;
+}
+h4{
+    font-weight: bold;
 }
 main {
     width: 100%;
@@ -82,7 +85,7 @@ main {
     border-radius: 8px 8px 0 0;
     padding: 10px;
     text-align: center;
-    font-family: adineue2;
+    font-weight: bold;
     
   }
   .itenstabela{
