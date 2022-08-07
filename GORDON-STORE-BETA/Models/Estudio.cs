@@ -10,6 +10,7 @@ namespace GORDON_STORE_BETA.Models
     {
         [Display(Name = "ID")]
         public long EstudioId { get; set; }
+        [Required(ErrorMessage ="*Este campo é obrigatório")]
         public string Nome { get; set; }
         public virtual ICollection<Produto> Produtos { get; set; }
     }
