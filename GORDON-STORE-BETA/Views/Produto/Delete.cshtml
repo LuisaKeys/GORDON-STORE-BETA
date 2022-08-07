@@ -4,6 +4,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Excluir um produto";
 }
+
+<main>
 <div class="tabelainteira">
     <div class="headertabela">
         VISUALIZANDO DETALHES DO PRODUTO A SER REMOVIDO
@@ -29,6 +31,7 @@
         @Html.ActionLink("Retornar para a listagem", "Index", null, new { @class = "btn btn-retornar" })
     </div>
 </div>
+</main>
 <div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">

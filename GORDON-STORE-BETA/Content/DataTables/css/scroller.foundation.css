@@ -11,7 +11,6 @@ div.DTS div.dataTables_scrollBody {
 div.DTS div.dataTables_scrollBody table {
   z-index: 2;
 }
-div.DTS div.dataTables_paginate,
-div.DTS div.dataTables_length {
+div.DTS div.dataTables_paginate {
   display: none;
 }
