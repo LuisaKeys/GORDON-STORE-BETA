@@ -364,7 +364,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Avaliação.cs" />
-    <Compile Include="Models\Carrinho.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
     <Compile Include="Models\Estudio.cs" />
