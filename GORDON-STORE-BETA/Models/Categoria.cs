@@ -11,7 +11,7 @@ namespace GORDON_STORE_BETA.Models
         
         [Display(Name="ID")]
         public long CategoriaId { get; set; }
-        [Required(ErrorMessage = "*Este campo é obrigatório")]
+        [Display(Name = "Nome da categoria")]
         public string Nome { get; set; }
         public virtual ICollection<Produto> Produtos { get; set; }
     }

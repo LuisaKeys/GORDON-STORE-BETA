@@ -12,7 +12,7 @@ namespace GORDON_STORE_BETA.Models
         [Display(Name = "Código")]
         public long ProdutoId { get; set; }
   
-        [Required(ErrorMessage = "*Este campo é obrigatório")]
+        
         public string Nome { get; set; }
         [Display(Name = "Preço")]
         public double Preco { get; set; }
