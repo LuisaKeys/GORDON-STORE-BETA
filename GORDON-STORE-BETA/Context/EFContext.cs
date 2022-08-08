@@ -17,5 +17,7 @@ namespace GORDON_STORE_BETA.Context
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Estudio> Estudios { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+        public Dbset<Pedido> Pedidos { get; set; }
+        public Dbset<Avaliação> Avaliacoes { get; set; }
     }
 }
