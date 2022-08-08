@@ -4,7 +4,9 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Alterando os dados de uma Categoria";}
 
-@Html.AntiForgeryToken()
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
 <main>
     <div class="tabelainteira">
         <div class="headertabela">

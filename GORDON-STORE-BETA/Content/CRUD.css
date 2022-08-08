@@ -1,11 +1,4 @@
-﻿@font-face {
-    font-family: Adineue;
-    src: url('~/Imagens/adineue_PRO.ttf');
-}
-@font-face {
-    font-family: Adineue2;
-    src: url('~/Imagens/adineue PRO_Bold.ttf');
-}
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap');
 * {
     padding: 0;
     margin: 0;
@@ -20,7 +13,7 @@ body {
     background-position-y: 3em;
     background-repeat: no-repeat;
     height: 100vh;
-    font-family: 'adineue PRO';
+    font-family: 'Roboto', sans-serif;
     color: #2E0F46;
 }
 header {
