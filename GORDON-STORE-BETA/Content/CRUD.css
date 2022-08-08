@@ -1,14 +1,11 @@
-﻿@font-face {
-    font-family: Adineue;
-    src: url('~/Imagens/adineue_PRO.ttf');
-}
-@font-face {
-    font-family: Adineue2;
-    src: url('~/Imagens/adineue PRO_Bold.ttf');
-}
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap');
 * {
     padding: 0;
     margin: 0;
+}
+.alert{
+    width: 95%;
+    margin: 10px auto;
 }
 body {
     background: url(../Imagens/gradient-gordon.svg);
@@ -16,7 +13,7 @@ body {
     background-position-y: 3em;
     background-repeat: no-repeat;
     height: 100vh;
-    font-family: 'adineue PRO';
+    font-family: 'Roboto', sans-serif;
     color: #2E0F46;
 }
 header {
@@ -42,11 +39,11 @@ nav ul {
 
 }
 
- nav ul a {
-   font-family: adineue2;
-   text-decoration: none;
-   color: rgb(82, 19, 129);
-}
+    nav ul a {
+        font-weight: bold;
+        text-decoration: none;
+        color: #2E0F46;
+    }
 
 header img {
     width: 4em;
@@ -56,6 +53,15 @@ header img {
 nav ul a:hover {
     color: rgba(160, 137, 34, 1);
     text-decoration: none;
+}
+h2{
+    font-weight: bold;
+    font-size: 20px;
+}
+h4 {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: -15px;
 }
 main {
     width: 100%;
@@ -78,7 +84,7 @@ main {
     border-radius: 8px 8px 0 0;
     padding: 10px;
     text-align: center;
-    font-family: adineue2;
+    font-weight: bold;
     
   }
   .itenstabela{
@@ -110,8 +116,13 @@ td a:hover {
 }
 
 .form-control{
-    background: rgba(255, 255, 255, 0.09);
+    background: transparent;
 }
+.form-group{
+    padding: 0 30px;
+    background-color: transparent;
+}
+
 .btn-retornar {
     background-color: rgba(46, 15, 70, 1);
     color: white;
@@ -121,3 +132,38 @@ td a:hover {
    text-decoration: none;
    background-color: rgba(20, 8, 30, 1);
  }
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: transparent;
+    opacity: 1;
+}
+.alert {
+    color: #2E0F46;
+    background-color: rgba(46, 15, 70, 0.37);
+    border: 1px solid #2E0F46;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #2E0F46;
+    border-color: #2E0F46;
+}
+.pagination > li > a,
+.pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #2E0F46;
+    border: 1px solid #2E0F46;
+}
+

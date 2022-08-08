@@ -1,16 +1,16 @@
-/*! FixedHeader 3.1.2
- * ©2009-2016 SpryMedia Ltd - datatables.net/license
+/*! FixedHeader 3.1.0
+ * ©2009-2015 SpryMedia Ltd - datatables.net/license
  */
 
 /**
  * @summary     FixedHeader
  * @description Fix a table's header or footer, so it is always visible while
  *              scrolling
- * @version     3.1.2
+ * @version     3.1.0
  * @file        dataTables.fixedHeader.js
  * @author      SpryMedia Ltd (www.sprymedia.co.uk)
  * @contact     www.sprymedia.co.uk/contact
- * @copyright   Copyright 2009-2016 SpryMedia Ltd.
+ * @copyright   Copyright 2009-2015 SpryMedia Ltd.
  *
  * This source file is free software, available under the following license:
  *   MIT license - http://datatables.net/license/mit
@@ -220,17 +220,7 @@ $.extend( FixedHeader.prototype, {
 				that.update();
 			} );
 
-		var autoHeader = $('.fh-fixedHeader');
-		if ( ! this.c.headerOffset && autoHeader.length ) {
-			this.c.headerOffset = autoHeader.outerHeight();
-		}
-
-		var autoFooter = $('.fh-fixedFooter');
-		if ( ! this.c.footerOffset && autoFooter.length ) {
-			this.c.footerOffset = autoFooter.outerHeight();
-		}
-
-		dt.on( 'column-reorder.dt.dtfc column-visibility.dt.dtfc draw.dt.dtfc column-sizing.dt.dtfc', function () {
+		dt.on( 'column-reorder.dt.dtfc column-visibility.dt.dtfc draw.dt.dtfc', function () {
 			that.update();
 		} );
 
@@ -273,20 +263,18 @@ $.extend( FixedHeader.prototype, {
 		else {
 			if ( itemDom.floating ) {
 				itemDom.placeholder.remove();
-				this._unsize( item );
 				itemDom.floating.children().detach();
 				itemDom.floating.remove();
 			}
 
 			itemDom.floating = $( dt.table().node().cloneNode( false ) )
-				.css( 'table-layout', 'fixed' )
 				.removeAttr( 'id' )
 				.append( itemElement )
 				.appendTo( 'body' );
 
 			// Insert a fake thead/tfoot into the DataTable to stop it jumping around
 			itemDom.placeholder = itemElement.clone( false );
-			itemDom.host.prepend( itemDom.placeholder );
+			itemDom.host.append( itemDom.placeholder );
 
 			// Clone widths
 			this._matchWidths( itemDom.placeholder, itemDom.floating );
@@ -305,27 +293,19 @@ $.extend( FixedHeader.prototype, {
 	 * @private
 	 */
 	_matchWidths: function ( from, to ) {
-		var get = function ( name ) {
-			return $(name, from)
+		var type = function ( name ) {
+			var toWidths = $(name, from)
 				.map( function () {
 					return $(this).width();
 				} ).toArray();
-		};
 
-		var set = function ( name, toWidths ) {
 			$(name, to).each( function ( i ) {
-				$(this).css( {
-					width: toWidths[i],
-					minWidth: toWidths[i]
-				} );
+				$(this).width( toWidths[i] ).css("min-width", toWidths[i] );
 			} );
 		};
 
-		var thWidths = get( 'th' );
-		var tdWidths = get( 'td' );
-
-		set( 'th', thWidths );
-		set( 'td', tdWidths );
+		type( 'th' );
+		type( 'td' );
 	},
 
 	/**
@@ -341,13 +321,7 @@ $.extend( FixedHeader.prototype, {
 		var el = this.dom[ item ].floating;
 
 		if ( el && (item === 'footer' || (item === 'header' && ! this.s.autoWidth)) ) {
-			$('th, td', el).css( {
-				width: '',
-				minWidth: ''
-			} );
-		}
-		else if ( el && item === 'header' ) {
-			$('th, td', el).css( 'min-width', '' );
+			$('th, td', el).css( 'width', '' );
 		}
 	},
 
@@ -393,13 +367,6 @@ $.extend( FixedHeader.prototype, {
 		var itemDom = this.dom[ item ];
 		var position = this.s.position;
 
-		// Record focus. Browser's will cause input elements to loose focus if
-		// they are inserted else where in the doc
-		var tablePart = this.dom[ item==='footer' ? 'tfoot' : 'thead' ];
-		var focus = $.contains( tablePart[0], document.activeElement ) ?
-			document.activeElement :
-			null;
-
 		if ( mode === 'in-place' ) {
 			// Insert the header back into the table's real header
 			if ( itemDom.placeholder ) {
@@ -409,12 +376,10 @@ $.extend( FixedHeader.prototype, {
 
 			this._unsize( item );
 
-			if ( item === 'header' ) {
-				itemDom.host.prepend( this.dom.thead );
-			}
-			else {
-				itemDom.host.append( this.dom.tfoot );
-			}
+			itemDom.host.append( item === 'header' ?
+				this.dom.thead :
+				this.dom.tfoot
+			);
 
 			if ( itemDom.floating ) {
 				itemDom.floating.remove();
@@ -455,11 +420,6 @@ $.extend( FixedHeader.prototype, {
 				.css( 'top', position.tbodyTop )
 				.css( 'left', position.left+'px' )
 				.css( 'width', position.width+'px' );
-		}
-
-		// Restore focus if it was lost
-		if ( focus && focus !== document.activeElement ) {
-			focus.focus();
 		}
 
 		this.s.scrollLeft.header = -1;
@@ -571,7 +531,7 @@ $.extend( FixedHeader.prototype, {
  * @type {String}
  * @static
  */
-FixedHeader.version = "3.1.2";
+FixedHeader.version = "3.1.0";
 
 /**
  * Defaults
@@ -597,20 +557,15 @@ $.fn.DataTable.FixedHeader = FixedHeader;
 
 // DataTables creation - check if the FixedHeader option has been defined on the
 // table and if so, initialise
-$(document).on( 'init.dt.dtfh', function (e, settings, json) {
+$(document).on( 'init.dt.dtb', function (e, settings, json) {
 	if ( e.namespace !== 'dt' ) {
 		return;
 	}
 
-	var init = settings.oInit.fixedHeader;
-	var defaults = DataTable.defaults.fixedHeader;
+	var opts = settings.oInit.fixedHeader || DataTable.defaults.fixedHeader;
 
-	if ( (init || defaults) && ! settings._fixedHeader ) {
-		var opts = $.extend( {}, defaults, init );
-
-		if ( init !== false ) {
-			new FixedHeader( settings, opts );
-		}
+	if ( opts && ! settings._fixedHeader ) {
+		new FixedHeader( settings, opts );
 	}
 } );
 

@@ -5,20 +5,19 @@
     ViewBag.Title = "Listagem de Categorias";
 }
 
-<!-- Mensagem de exclusão -->
 @if (@TempData["Message"] != null)
 {
-    <div class="alert alert-success" role="alert">
+    <div class="alert" role="alert">
         @TempData["Message"]
     </div>
 }
-
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        Relação de Categorias registradas
+<main>
+<div class="panel tabelainteira">
+    <div class="headertabela">
+        RELAÇÃO DE CATEGORIAS REGISTRADAS
     </div>
-    <div class="panel-body">
-        <table class="table table-striped table-hover">
+    <div class="itenstabela">
+        <table class="table  table-hover">
             <thead>
                 <tr>
                     <th>
@@ -50,11 +49,11 @@
             </tbody>
         </table>
     </div>
-    <div class="panel-footer panel-info">
-        @Html.ActionLink("Registrar uma nova Categoria", "Create", null, new { @class = "btn btn-success" })
+    <div class="panel-footer">
+        @Html.ActionLink("REGISTRAR NOVA CATEGORIA", "Create", null, new { @class = "btn btn-adicionar" })
     </div>
 </div>
-
+</main>
 @section styles{
     <link href="@Url.Content("~/content/DataTables/css/dataTables.bootstrap.css")" rel="stylesheet" />
 }
@@ -67,5 +66,6 @@
         });
         $('li').removeClass("active");
         $('#liCategorias').addClass("active");
+
     </script>
 }

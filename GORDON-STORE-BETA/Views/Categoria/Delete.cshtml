@@ -4,9 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Visualizando detalhes de uma categoria";
 }
-<div class="panel panel-primary">
-    <div class="panel-heading">
-        Dados da a categoria a ser removida
+
+<main>
+<div class="tabelainteira">
+    <div class="headertabela">
+        DADOS DA CATEGORIA A SER REMOVIDA
     </div>
     <div class="panel-body">
         <div class="form-group">
@@ -24,13 +26,23 @@
             </div>
         </div>
     </div>
-    <div class="panel-footer panel-info">
+    <div class="panel-footer">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-            <input type="submit" value="Remover Categoria" class="btn btn-danger" />
+            <input type="submit" value="Remover Categoria" class="btn" />
             @Html.ActionLink("Retornar para a listagem", "Index", null,
-            new { @class = "btn btn-info" })
+            new { @class = "btn btn-retornar" })
         }
     </div>
 </div>
+</main>
+
+@section ScriptPage {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liProdutos').addClass("active");
+        });
+    </script>
+}
