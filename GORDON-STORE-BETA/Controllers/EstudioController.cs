@@ -3,35 +3,55 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using GORDON_STORE_BETA.Models;
-using GORDON_STORE_BETA.Context;
 using System.Net;
 using System.Data.Entity;
+using Modelo.Cadastro;
+using Servico.Cadastro;
 
 namespace GORDON_STORE_BETA.Controllers
 {
     public class EstudioController : Controller
     {
-        private EFContext context = new EFContext();
-        // GET: Estudio
-        public ActionResult Index()
-        {
-            return View(context.Estudios.OrderBy(c => c.Nome));
-        }
+        private EstudioServico estudioServico = new EstudioServico();
 
-        // GET: Estudio/Details/5
-        public ActionResult Details(long? id)
+        //Pega os detalhes do produto de acordo com o id, serve para diminuir a redundância na hora de mostrar vz
+        private ActionResult ObterVisaoEstudioPorId(long? id)
         {
             if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                return new HttpStatusCodeResult(
+                HttpStatusCode.BadRequest);
             }
-            Estudio estudio = context.Estudios.Find(id);
+            Estudio estudio = estudioServico.ObterEstudioPorId((long) id);
             if (estudio == null)
             {
                 return HttpNotFound();
             }
             return View(estudio);
+        }
+        //Salva dados do Estúdio
+        private ActionResult GravarEstudio(Estudio estudio)
+        {
+            try
+            {
+                if (ModelState.IsValid)
+                {
+                    estudioServico.GravarEstudio(estudio);
+                    return RedirectToAction("Index");
+                }
+                return View(estudio);
+            }
+            catch
+            {
+                return View(estudio);
+            }
+        }
+
+        //---------------------- ACTIONS ABAIXO -----------------------//
+        // GET: Estudio
+        public ActionResult Index()
+        {
+            return View(estudioServico.ObterEstudiosClassificadosPorNome());
         }
 
         // GET: Estudio/Create
@@ -40,70 +60,50 @@ namespace GORDON_STORE_BETA.Controllers
             return View();
         }
 
-        // POST: Estudio/Create
+        // POST: Create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(Estudio estudio)
         {
-            context.Estudios.Add(estudio);
-            context.SaveChanges();
-            return RedirectToAction("Index");
+            return GravarEstudio(estudio);
         }
-
-        // GET: Estudio/Edit/5
+        // GET: Edit
         public ActionResult Edit(long? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Estudio estudio = context.Estudios.Find(id);
-            if (estudio == null)
-            {
-                return HttpNotFound();
-            }
-            return View(estudio);
+            return ObterVisaoEstudioPorId(id);
         }
-
-        // POST: Estudio/Edit/5
+        // POST: Edit
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit(Estudio estudio)
         {
-            if (ModelState.IsValid)
-            {
-                context.Entry(estudio).State = EntityState.Modified;
-                context.SaveChanges();
-                return RedirectToAction("Index");
-            }
-            return View(estudio);
+            return GravarEstudio(estudio);
         }
-
-        // GET: Estudio/Delete/5
+        // GET: Details
+        public ActionResult Details(long? id)
+        {
+            return ObterVisaoEstudioPorId(id);
+        }
+        // GET: Delete
         public ActionResult Delete(long? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            Estudio estudio = context.Estudios.Find(id);
-            if (estudio == null)
-            {
-                return HttpNotFound();
-            }
-            return View(estudio);
+            return ObterVisaoEstudioPorId(id);
         }
-
-        // POST: Estudio/Delete/5
+        // POST: Delete
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Delete(long id)
         {
-            Estudio estudio = context.Estudios.Find(id);
-            context.Estudios.Remove(estudio);
-            context.SaveChanges();
-            TempData["Message"] = "Estúdio " + estudio.Nome.ToUpper() + " foi removida";
-            return RedirectToAction("Index");
+            try
+            {
+                Estudio estudio = estudioServico.EliminarEstudioPorId(id);
+                TempData["Message"] = "Estúdio " + estudio.Nome.ToUpper() + " foi removido";
+                return RedirectToAction("Index");
+            }
+            catch
+            {
+                return View();
+            }
         }
     }
 }

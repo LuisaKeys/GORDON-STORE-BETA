@@ -1,64 +1,66 @@
-﻿@model GORDON_STORE_BETA.Models.Produto
+﻿@model Modelo.Cadastro.Produto
 
 @{
-    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Visualizando detalhes do PRODUTO a ser removido";
 }
-
-<h2>Delete</h2>
-
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Produto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Categoria.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Categoria.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Estudio.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Estudio.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Preco)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Preco)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Qtd)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Qtd)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
-        </div>
-    }
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Visualizando detalhes do PRODUTO a ser removido
+    </div>
+    <div class="panel-body">
+        @Html.Partial("~/Views/Produtos/_PartialDetailsContentPanel.cshtml", Model)
+    </div>
+    <div class="panel-footer panel-info">
+        <a href="#" class="btn btn-info" data-toggle="modal"
+           data-target="#deleteConfirmationModal">Remover</a>
+        @Html.ActionLink("Retornar para a listagem", "Index", null, new { @class = "btn btn-info" })
+    </div>
 </div>
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">
+                    Confirmação de exclusão de PRODUTO
+                </h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Você está prestes a remover o produto @Model.Nome.ToUpper() do cadastro.
+                </p>
+                <p>
+                    <strong>
+                        Você está certo que deseja prosseguir?
+                    </strong>
+                </p>
+                @using (Html.BeginForm("Delete", "Produto", FormMethod.Post,
+                new { @id = "delete-form", role = "form" }))
+                {
+                    @Html.HiddenFor(m => m.ProdutoId)
+                    @Html.AntiForgeryToken()
+                }
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" onclick="$('#delete-form').submit();">
+                    Sim, exclua este produto.
+                </button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">
+                    Não, não exclua este produto.
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section ScriptPage {
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('li').removeClass("active");
+            $('#liProdutos').addClass("active");
+        });
+    </script>
+}

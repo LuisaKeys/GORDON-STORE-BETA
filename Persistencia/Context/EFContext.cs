@@ -5,8 +5,9 @@ using System.Web;
 using System.Data.Entity;
 using Modelo.Tabelas;
 using Modelo.Cadastro;
+using System.Data.Entity.ModelConfiguration.Conventions;
 
-namespace GORDON_STORE_BETA.Context
+namespace Persistencia.Context
 {
     public class EFContext : DbContext
     {
@@ -18,5 +19,11 @@ namespace GORDON_STORE_BETA.Context
         public DbSet<Categoria> Categorias { get; set; }
         public DbSet<Estudio> Estudios { get; set; }
         public DbSet<Produto> Produtos { get; set; }
+
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        }
     }
 }

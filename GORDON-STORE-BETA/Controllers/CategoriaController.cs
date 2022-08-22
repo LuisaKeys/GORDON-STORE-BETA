@@ -3,10 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using GORDON_STORE_BETA.Models;
 using GORDON_STORE_BETA.Context;
 using System.Net;
 using System.Data.Entity;
+using Modelo.Tabelas;
 
 namespace GORDON_STORE_BETA.Controllers
 {

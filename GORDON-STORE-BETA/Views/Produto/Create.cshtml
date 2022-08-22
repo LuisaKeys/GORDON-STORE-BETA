@@ -1,4 +1,4 @@
-﻿@model GORDON_STORE_BETA.Models.Produto
+﻿@model Modelo.Cadastro.Produto
 
 @{
     Layout = "~/Views/Shared/_Layout.cshtml";
@@ -63,12 +63,12 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.FabricanteId, "FabricanteId", htmlAttributes:
+                    @Html.LabelFor(model => model.EstudioId, "FabricanteId", htmlAttributes:
                     new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
                         @Html.DropDownList("FabricanteId", null, htmlAttributes:
                         new { @class = "form-control" })
-                        @Html.ValidationMessageFor(model => model.FabricanteId, "",
+                        @Html.ValidationMessageFor(model => model.EstudioId, "",
                         new { @class = "text-danger" })
                     </div>
                 </div>
@@ -84,6 +84,7 @@
             </div>
         </div>
     </div>
+</div>
 }
 @section ScriptPage {
     <script type="text/javascript">

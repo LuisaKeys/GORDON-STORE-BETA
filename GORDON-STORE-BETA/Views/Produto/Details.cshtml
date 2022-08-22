@@ -1,58 +1,29 @@
-﻿@model GORDON_STORE_BETA.Models.Produto
+﻿@model Modelo.Cadastro.Produto
 
 @{
-    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Visualizando os dados de um PRODUTO";
 }
-
-<h2>Details</h2>
-
-<div>
-    <h4>Produto</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Categoria.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Categoria.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Estudio.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Estudio.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Nome)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Nome)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Preco)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Preco)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Qtd)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Qtd)
-        </dd>
-
-    </dl>
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        Visualizando detalhes de um PRODUTO
+    </div>
+    <div class="panel-body">
+        @Html.Partial("~/Views/Produtos/_PartialDetailsContentPanel.cshtml", Model)
+    </div>
+    <div class="panel-footer panel-info">
+        @Html.ActionLink("Alterar", "Edit", new { id = Model.ProdutoId },
+        new { @class = "btn btn-info" })
+        @Html.ActionLink("Retornar para a listagem", "Index", null,
+        new { @class = "btn btn-info" })
+    </div>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ProdutoId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
+@section ScriptPage {
+    <script type="text/javascript">
+$(document).ready(function () {
+$('li').removeClass("active");
+$('#liProdutos').addClass("active");
+});
+    </script>
+}
