@@ -52,6 +52,7 @@
     <Compile Include="DAL\Cadastro\EstudioDAL.cs" />
     <Compile Include="DAL\Cadastro\ProdutoDAL.cs" />
     <Compile Include="DAL\Tabelas\CategoriaDAL.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
