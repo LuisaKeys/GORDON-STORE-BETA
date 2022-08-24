@@ -1,0 +1,172 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500;900&display=swap');
+* {
+    padding: 0;
+    margin: 0;
+}
+.alert{
+    width: 95%;
+    margin: 10px auto;
+}
+body {
+    background: url(../Imagens/gradient-gordon.svg);
+    background-position-x: right;
+    background-position-y: 3em;
+    background-repeat: no-repeat;
+    height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    color: #2E0F46;
+}
+header {
+    box-sizing: border-box;
+    height: 60px;
+    padding: 1rem;
+    width: 100%;
+    display: flex;
+}
+
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul {
+        display: flex;
+        justify-content: flex-end;
+        padding-right: 4em;
+        list-style: none;
+        gap: 1.3rem;
+
+}
+
+    nav ul a {
+        font-weight: bold;
+        text-decoration: none;
+        color: #2E0F46;
+    }
+
+header img {
+    width: 4em;
+    padding-left: 1em;
+}
+
+nav ul a:hover {
+    color: rgba(160, 137, 34, 1);
+    text-decoration: none;
+}
+h2{
+    font-weight: bold;
+    font-size: 20px;
+}
+h4 {
+    font-weight: bold;
+    font-size: 14px;
+    margin-bottom: -15px;
+}
+main {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+ .tabelainteira{
+    width: 95%;
+    background: rgba(255, 255, 255, 0.21);
+    border: 0.5px solid #2E0F46;
+    box-shadow: 8px 4px 16px rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(3px);
+    border-radius: 10px;
+
+    
+  }
+  .headertabela{
+    background-color: #2E0F46;
+    color: white;
+    border-radius: 8px 8px 0 0;
+    padding: 10px;
+    text-align: center;
+    font-weight: bold;
+    
+  }
+  .itenstabela{
+      padding: 10px;
+  }
+td a {
+    color: #2E0F46;
+}
+td a:hover {
+   color: rgba(160, 137, 34, 1);
+}
+.btn-adicionar {
+    padding: 15px;
+    background-color: #2E0F46;
+    width: 250px;
+    background: #2E0F46;
+    box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.25);
+    border-radius: 4px 10px;
+    color: white;
+}
+    .btn-adicionar:hover {
+        color: white;
+        text-decoration: none;
+        background-color: rgba(20, 8, 30, 1);
+    }
+.panel-footer {
+    background: transparent;
+    padding: 15px;
+}
+
+.form-control{
+    background: transparent;
+}
+.form-group{
+    padding: 0 30px;
+    background-color: transparent;
+}
+
+.btn-retornar {
+    background-color: rgba(46, 15, 70, 1);
+    color: white;
+}
+.btn-retornar:hover {
+   color: white;
+   text-decoration: none;
+   background-color: rgba(20, 8, 30, 1);
+ }
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control {
+    background-color: transparent;
+    opacity: 1;
+}
+.alert {
+    color: #2E0F46;
+    background-color: rgba(46, 15, 70, 0.37);
+    border: 1px solid #2E0F46;
+}
+
+.pagination > .active > a,
+.pagination > .active > span,
+.pagination > .active > a:hover,
+.pagination > .active > span:hover,
+.pagination > .active > a:focus,
+.pagination > .active > span:focus {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #2E0F46;
+    border-color: #2E0F46;
+}
+.pagination > li > a,
+.pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #337ab7;
+    text-decoration: none;
+    background-color: #2E0F46;
+    border: 1px solid #2E0F46;
+}
+.text-erro{
+    margin: 10px;
+}
+
