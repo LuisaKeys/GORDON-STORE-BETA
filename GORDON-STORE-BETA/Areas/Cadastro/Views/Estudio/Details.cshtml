@@ -1,0 +1,22 @@
+﻿@model Modelo.Cadastro.Estudio
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Visualizando detalhes de um Estúdio";
+}
+<main>
+    <div class="tabelainteira">
+        <div class="headertabela">
+            VISUALIZANDO DADOS DE UM ESTÚDIO
+        </div>
+        <div class="panel-body">
+            @Html.Partial("~/Views/Estudio/_PartialDetailsContentPanel.cshtml", Model)
+        </div>
+        <div class="panel-footer">
+            @Html.ActionLink("Alterar", "Edit", new { id = Model.EstudioId },
+            new { @class = "btn btn-retornar" })
+            @Html.ActionLink("Retornar para a listagem", "Index", null,
+            new { @class = "btn btn-retornar" })
+        </div>
+    </div>
+</main>

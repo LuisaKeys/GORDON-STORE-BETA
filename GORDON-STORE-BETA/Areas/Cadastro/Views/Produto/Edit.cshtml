@@ -1,0 +1,35 @@
+﻿@model Modelo.Cadastro.Produto
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Alterando os dados de um Produto";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <main>
+        <div class="tabelainteira">
+            <div class="headertabela">
+                ALTERANDO DADOS DE UM PRODUTO
+            </div>
+            <div class="panel-body">
+                @Html.Partial("~/Areas/Cadastro/Views/Produto/_PartialEditContentPanel.cshtml", Model)
+            </div>
+            <div class="panel-footer">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Gravar alterações" class="btn btn-default" />
+                    @Html.ActionLink("Retornar para a listagem de PRODUTOS", "Index", null,
+                new { @class = "btn btn-retornar" })
+                </div>
+                <br />
+                <br />
+            </div>
+        </div>
+
+    </main>
+}
+@section ScriptPage {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+
+

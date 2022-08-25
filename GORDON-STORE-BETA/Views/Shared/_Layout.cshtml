@@ -4,48 +4,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"
           charset="utf-8" />
     <title>@ViewBag.Title</title>
-    <link rel="shortcut icon" href="~/assets/fideco.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="~/Imagens/logo-gordonstore.png" type="image/x-icon">
     <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/content/CRUD.css")" rel="stylesheet" />
     @RenderSection("styles", false)
 
 </head>
 <body>
+    <header>
+        <a href="#"><img src="~/Imagens\logo-gordonstore.png" alt="LOGO GORDON STORE"></a>
+        <nav>
+            <ul>
+                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation" id="liCategorias">
+                    @Html.ActionLink("Categorias", "Index", "Categoria")
+                </li>
+                <li id="liEstudios" role="presentation">
+                    @Html.ActionLink("Estúdios", "Index", "Estudio")
+                </li>
+                <li id="liProdutos" role="presentation">
+                    @Html.ActionLink("Produtos", "Index", "Produto")
+                </li>
+            </ul>
+        </nav>
+    </header>
+    @RenderBody()
 
-
-    <div class="container">
-        <div class="row">
-            <div class="col-xs-3 col-md-3 bg-success">
-                <ul class="nav nav-pills nav-stacked">
-                    <li role="presentation" class="active"><a href="#">Home</a></li>
-                    <li role="presentation" id="liCategorias">
-                        @Html.ActionLink("Categorias", "Index", "Categoria")
-                    </li>
-                    <li id="liEstudios" role="presentation">
-                        @Html.ActionLink("Estudios", "Index", "Estudio")
-                    </li>
-                    <li id="liProdutos" role="presentation">
-                        @Html.ActionLink("Produtos", "Index", "Produto")
-                    </li>
-                </ul>
-            </div>
-            <div class="col-xs-9 col-md-9">
-                <br />
-                @RenderBody()
-            </div>
-        </div> <br />
-        <div class="row">
-            <div class="col-xs-12 col-md-12 bg-danger">
-                <small>Layout com Bootstrap</small>
-            </div>
-        </div>
-    </div>
-
-    <script src="@Url.Content("~/scripts/jquery-1.10.2.js")"></script>
+    <script src="@Url.Content("~/scripts/jquery-1.10.1.js")"></script>
     <script src="@Url.Content("~/scripts/bootstrap.js")"></script>
-    <script src="@Url.Content("~/Scripts/jquery.validate.js")">
-    </script>
-    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")">
-    </script>
     @RenderSection("ScriptPage", false)
 </body>
 </html>

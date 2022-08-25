@@ -1,0 +1,25 @@
+﻿@model Modelo.Tabelas.Categoria
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Visualizando detalhes de uma categoria";
+}
+<main>
+    <div class="tabelainteira">
+        <div class="headertabela">
+            DADOS DA CATEGORIA A SER REMOVIDA
+        </div>
+        <div class="panel-body">
+            @Html.Partial("~/Areas/Tabelas/Views/Categoria/_PartialDetailsContentPanel.cshtml", Model)
+        </div>
+        <div class="panel-footer">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Remover Categoria" class="btn" />
+                @Html.ActionLink("Retornar para a listagem", "Index", null,
+                new { @class = "btn btn-retornar" })
+            }
+        </div>
+    </div>
+</main>

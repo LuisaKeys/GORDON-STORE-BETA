@@ -1,0 +1,22 @@
+﻿@model Modelo.Cadastro.Produto
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Visualizando os dados de um PRODUTO";
+}
+<main>
+    <div class="tabelainteira">
+        <div class="headertabela">
+            VISUALIZANDO DETALHES DO PRODUTO
+        </div>
+        <div class="panel-body">
+            @Html.Partial("~/Areas/Cadastro/Views/Produto/_PartialDetailsContentPanel.cshtml", Model)
+        </div>
+        <div class="panel-footer">
+            @Html.ActionLink("Alterar", "Edit", new { id = Model.ProdutoId },
+            new { @class = "btn btn-retornar" })
+            @Html.ActionLink("Retornar para a listagem", "Index", null,
+            new { @class = "btn btn-retornar" })
+        </div>
+    </div>
+</main>

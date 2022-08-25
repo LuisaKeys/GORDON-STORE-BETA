@@ -1,0 +1,25 @@
+﻿@model Modelo.Cadastro.Estudio
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Visualizando detalhes de uma estudio";
+}
+<main>
+    <div class="tabelainteira">
+        <div class="headertabela">
+            DADOS DO ESTÚDIO A SER REMOVIDO
+        </div>
+        <div class="panel-body">
+            @Html.Partial("~/Areas/Cadastro/Views/Estudio/_PartialDetailsContentPanel.cshtml", Model)
+        </div>
+        <div class="panel-footer">
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+                <input type="submit" value="Remover Estúdio" class="btn" />
+                @Html.ActionLink("Retornar para a listagem", "Index", null,
+                new { @class = "btn btn-retornar" })
+            }
+        </div>
+    </div>
+</main>

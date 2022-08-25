@@ -1,0 +1,21 @@
+﻿@model Modelo.Tabelas.Categoria
+
+@if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Count() > 0))
+{
+    <div class="alert alert-danger alert-dismissable">
+        @Html.ValidationSummary(true, "Verifique os seguintes erros",
+        new { @class = "text-erros" })
+    </div>
+}
+<div class="form-horizontal">
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nome, htmlAttributes:
+        new { @class = "control-label col-md-3" })
+        <div class="col-md-9">
+            @Html.EditorFor(model => model.Nome,
+            new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Nome, "",
+            new { @class = "text-danger" })
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+﻿@model Modelo.Cadastro.Estudio
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Alterando os dados de um Estúdio";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <main>
+        <div class="tabelainteira">
+            <div class="headertabela">
+                ALTERAÇÃO DOS DADOS DE UM ESTÚDIO
+            </div>
+            <div class="panel-body">
+                @Html.Partial("~/Areas/Cadastro/Views/Estudio/_PartialEditContentPanel.cshtml", Model)
+            </div>
+            <div class="panel-footer">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Gravar alterações" class="btn btn-default" />
+                    @Html.ActionLink("Retornar para a listagem de Estúdios", "Index", null,
+                new { @class = "btn btn-retornar" })
+                </div>
+                <br />
+                <br />
+            </div>
+        </div>
+    </main>
+}
+@section ScriptPage {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}

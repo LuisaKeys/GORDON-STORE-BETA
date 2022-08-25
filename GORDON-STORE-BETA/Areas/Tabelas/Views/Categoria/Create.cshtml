@@ -1,0 +1,32 @@
+﻿@model Modelo.Tabelas.Categoria
+
+@{ Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Listagem de Categorias"; }
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <main>
+        <div class="tabelainteira">
+            <div class="headertabela">
+                REGISTRO DE UMA NOVA CATEGORIA
+            </div>
+            <div class="panel-body">
+                @Html.Partial("~/Areas/Tabelas/Views/Categoria/_PartialEditContentPanel.cshtml", Model)
+            </div>
+            <div class="panel-footer">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Adicionar Categoria" class="btn" />
+                    @Html.ActionLink("Retornar para a listagem de Categorias", "Index", null,
+                    new { @class = "btn btn-retornar" })
+                </div>
+                <br />
+                <br />
+            </div>
+        </div>
+    </main>
+}
+@section ScriptPage {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
