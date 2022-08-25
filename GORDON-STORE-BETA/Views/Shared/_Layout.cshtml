@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="~/Imagens/logo-gordonstore.png" type="image/x-icon">
     <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />
     <link href="@Url.Content("~/content/CRUD.css")" rel="stylesheet" />
+    @using GORDON_STORE_BETA.Infraestrutura
     @RenderSection("styles", false)
 
 </head>
@@ -17,17 +18,36 @@
             <ul>
                 <li role="presentation" class="active"><a href="#">Home</a></li>
                 <li role="presentation" id="liCategorias">
-                    @Html.ActionLink("Categorias", "Index", "Categoria")
+                    <a href="~/Tabelas/Categoria/Index">Categorias</a>
                 </li>
                 <li id="liEstudios" role="presentation">
-                    @Html.ActionLink("Estúdios", "Index", "Estudio")
+                    <a href="~/Cadastro/Estudio/Index">Estúdios</a>
                 </li>
                 <li id="liProdutos" role="presentation">
-                    @Html.ActionLink("Produtos", "Index", "Produto")
+                    <a href="~/Cadastro/Produto/Index">Produtos</a>
+                </li>
+                <li id="liUsuarios" role="presentation">
+                    <a href="~/Seguranca/Admin/Index">Usuários</a>
                 </li>
             </ul>
         </nav>
     </header>
+    <div style="text-align:right;">
+        @{
+            if (Html.GetAuthenticatedUser().ToString() != "")
+            {
+                @Html.GetAuthenticatedUser();
+                @Html.ActionLink(" - Sair", "Logout", "Account")
+            }
+            else
+            {
+                @Html.ActionLink("Acessar", "Login", "Account",
+                new { area = "Seguranca" }, null);
+
+            }
+        }
+    </div>
+    </div>
     @RenderBody()
 
     <script src="@Url.Content("~/scripts/jquery-1.10.1.js")"></script>

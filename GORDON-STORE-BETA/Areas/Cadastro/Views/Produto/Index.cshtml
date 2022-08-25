@@ -73,6 +73,7 @@
 </main>
 @section styles{
     <link href="@Url.Content("~/content/DataTables/css/dataTables.bootstrap.css")" rel="stylesheet" />
+    
 }
 @section ScriptPage{
     <script src="@Url.Content("~/scripts/DataTables/jquery.dataTables.js")"></script>
@@ -80,6 +81,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             $('.table').dataTable();
+            $("#datepicker").datepicker();
         });
     </script>
 }

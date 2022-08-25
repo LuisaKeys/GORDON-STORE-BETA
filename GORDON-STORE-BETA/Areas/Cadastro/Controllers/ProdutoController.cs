@@ -8,7 +8,7 @@ using System.Data.Entity;
 using Modelo.Cadastro;
 using Servico.Cadastro;
 using Servico.Tabelas;
-//comentario
+
 namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
 {
     public class ProdutoController : Controller
@@ -60,12 +60,6 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
                     produtoServico.GravarProduto(produto);
                     return RedirectToAction("Index");
                 }
-                if (ModelState.IsValid)
-                {
-                    produtoServico.GravarProduto(produto);
-                    return RedirectToAction("Index");
-                }
-                PopularViewBag(produto);
                 return View(produto);
             }
             catch
@@ -76,6 +70,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
 
         //---------------------- ACTIONS ABAIXO -----------------------//
         //GET: Produtos
+        [Authorize]
         public ActionResult Index()
         {
             return View(produtoServico.ObterProdutosClassificadosPorNome());
@@ -83,16 +78,18 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
 
 
         // GET: Produto/Details/5
+        [Authorize]
         public ActionResult Details(long? id)
         {
             return ObterVisaoProdutoPorId(id);
         }
 
         // GET: Produto/Create
+        [Authorize]
         public ActionResult Create()
         {
             PopularViewBag();
-                return View();
+            return View();
         }
            
         // POST: Produtos/Create
@@ -103,6 +100,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
         }
 
         // GET: Produto/Edit/5
+        [Authorize]
         public ActionResult Edit(long? id)
         {
             PopularViewBag(produtoServico.ObterProdutoPorId((long)id));
@@ -118,6 +116,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
         }
 
         // GET: Produto/Delete/5
+        [Authorize]
         public ActionResult Delete(long? id)
         {
             return ObterVisaoProdutoPorId(id);

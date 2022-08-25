@@ -48,7 +48,37 @@
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.3\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.3\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.3\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -232,6 +262,18 @@
     <Content Include="Areas\Cadastro\Views\Estudio\Delete.cshtml" />
     <Content Include="Areas\Cadastro\Views\Estudio\_PartialEditContentPanel.cshtml" />
     <Content Include="Areas\Cadastro\Views\Estudio\_PartialDetailsContentPanel.cshtml" />
+    <Content Include="Areas\Seguranca\Views\web.config" />
+    <Content Include="Areas\Seguranca\Views\_ViewStart.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Shared\_Layout.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Admin\Index.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Admin\Create.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Admin\Edit.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Admin\Delete.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Admin\Details.cshtml" />
+    <Content Include="Areas\Seguranca\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Seguranca\Views\PapelAdmin\Index.cshtml" />
+    <Content Include="Areas\Seguranca\Views\PapelAdmin\Create.cshtml" />
+    <Content Include="Areas\Seguranca\Views\PapelAdmin\Edit.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -316,16 +358,31 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Cadastro\CadastroAreaRegistration.cs" />
     <Compile Include="Areas\Cadastro\Controllers\EstudioController.cs" />
+    <Compile Include="Areas\Seguranca\Controllers\PapelAdminController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\ProdutoController.cs" />
+    <Compile Include="Areas\Seguranca\Controllers\AccountController.cs" />
+    <Compile Include="Areas\Seguranca\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Seguranca\Models\LoginViewModel.cs" />
+    <Compile Include="Areas\Seguranca\Models\Papel.cs" />
+    <Compile Include="Areas\Seguranca\Models\PapelEditModel.cs" />
+    <Compile Include="Areas\Seguranca\Models\PapelModificationModel.cs" />
+    <Compile Include="Areas\Seguranca\Models\UsuarioAdm.cs" />
+    <Compile Include="Areas\Seguranca\Models\UsuarioViewModel.cs" />
+    <Compile Include="Areas\Seguranca\SegurancaAreaRegistration.cs" />
     <Compile Include="Areas\Tabelas\Controllers\CategoriaController.cs" />
     <Compile Include="Areas\Tabelas\TabelasAreaRegistration.cs" />
     <Compile Include="Context\EFContext.cs" />
+    <Compile Include="DAL\IdentityDbContextAplicacao.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infraestrutura\GerenciadorPapel.cs" />
+    <Compile Include="Infraestrutura\GerenciadorUsuario.cs" />
+    <Compile Include="Infraestrutura\IdentityHelpers.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Categoria.cs" />
     <Compile Include="Models\Cliente.cs" />
@@ -348,6 +405,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Cadastro\Data\" />
+    <Folder Include="Areas\Cadastro\Views\PapelAdmin\" />
     <Folder Include="Areas\Tabelas\Data\" />
     <Folder Include="Controllers\" />
   </ItemGroup>
