@@ -10,11 +10,11 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 
-
 namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
 {
     public class PapelAdminController : Controller
     {
+        // GET: Seguranca/PapelAdmin
         private GerenciadorPapel RoleManager
         {
             get
@@ -40,14 +40,13 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
                 GetUserManager<GerenciadorUsuario>();
             }
         }
-        
-        // ------------------ ACTIONS ABAIXO ------------------
+        //-------------- ACTIONS ABAIXO --------------
         // GET: Seguranca/PapelAdmin
         public ActionResult Index()
         {
             return View(RoleManager.Roles);
         }
-        //GET: Create
+        //FET: Create
         public ActionResult Create()
         {
             return View();
@@ -89,7 +88,6 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
         }
         //POST: Edit
         [HttpPost]
-        
         public ActionResult Edit(PapelModificationModel model)
         {
             IdentityResult result;
@@ -104,21 +102,20 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
                         return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                     }
                 }
-                foreach (string userId in model.IdsParaRemover ?? new string[] { })
+            }
+            foreach (string userId in model.IdsParaRemover ?? new string[] { })
+            {
+                result = UserManager.RemoveFromRole(userId, model.NomePapel);
+                if (!result.Succeeded)
                 {
-                    result = UserManager.RemoveFromRole(userId, model.NomePapel);
-                    if (!result.Succeeded)
-                    {
-                        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-                    }
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
                 }
                 return RedirectToAction("Index");
             }
             return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
         }
+        
+
     }
+
 }
-
-
-
-                                

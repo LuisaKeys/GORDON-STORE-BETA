@@ -12,7 +12,7 @@ namespace Persistencia.Context
 {
     public class EFContext : DbContext
     {
-        public EFContext() : base("Asp_Net_MVC_CS")
+        public EFContext() : base("GORDON_STORE")
         {
             Database.SetInitializer<EFContext>(new
             MigrateDatabaseToLatestVersion<EFContext, Configuration>());

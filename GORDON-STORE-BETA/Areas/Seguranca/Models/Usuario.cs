@@ -6,8 +6,7 @@ using System.Web;
 
 namespace GORDON_STORE_BETA.Areas.Seguranca.Models
 {
-    public class UsuarioAdm : IdentityUser
+    public class Usuario : IdentityUser
     {
-        
     }
 }

@@ -21,11 +21,13 @@ namespace Servico.Cadastro
         }
         public void GravarProduto(Produto produto)
         {
-            produtoDAL.GravarProduto(produto);
+           produtoDAL.GravarProduto(produto);
         }
         public Produto EliminarProdutoPorId(long id)
         {
             return produtoDAL.EliminarProdutoPorId(id);
         }
+        
+        
     }
 }

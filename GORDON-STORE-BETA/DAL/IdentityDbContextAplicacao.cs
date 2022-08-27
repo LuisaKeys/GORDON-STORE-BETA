@@ -10,7 +10,7 @@ namespace GORDON_STORE_BETA.DAL
 {
     public class IdentityDbContextAplicacao : IdentityDbContext<UsuarioAdm>
     {
-        public IdentityDbContextAplicacao() : base("Asp_Net_MVC_CS")
+        public IdentityDbContextAplicacao() : base("GORDON_STORE")
         { }
         static IdentityDbContextAplicacao()
         {
@@ -21,6 +21,8 @@ namespace GORDON_STORE_BETA.DAL
         {
             return new IdentityDbContextAplicacao();
         }
+
+        public System.Data.Entity.DbSet<GORDON_STORE_BETA.Areas.Seguranca.Models.Papel> IdentityRoles { get; set; }
     }
     public class IdentityDbInit : DropCreateDatabaseIfModelChanges <IdentityDbContextAplicacao>
     {

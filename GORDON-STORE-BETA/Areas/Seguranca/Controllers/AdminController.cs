@@ -51,7 +51,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
                 UsuarioAdm user = new UsuarioAdm
                 {
                     UserName = model.Nome,
-                    Matricula = model.Matricula,
+                    Email = model.Email,
 
 
                 };
@@ -82,7 +82,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
             var uvm = new UsuarioViewModel();
             uvm.Id = usuario.Id;
             uvm.Nome = usuario.UserName;
-            uvm.Matricula = usuario.Matricula;
+            uvm.Email = usuario.Email;
             return View(uvm);
         }
         [HttpPost]
@@ -92,7 +92,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
             {
                 UsuarioAdm usuario = GerenciadorUsuario.FindById(uvm.Id);
                 usuario.UserName = uvm.Nome;
-                usuario.Matricula = uvm.Matricula;
+                usuario.Email = uvm.Email;
                 usuario.PasswordHash = GerenciadorUsuario.PasswordHasher.
                 HashPassword(uvm.Senha);
                 IdentityResult result = GerenciadorUsuario.Update(usuario);

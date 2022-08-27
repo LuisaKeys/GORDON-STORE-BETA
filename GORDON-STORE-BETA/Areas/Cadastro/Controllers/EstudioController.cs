@@ -49,7 +49,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
 
         //---------------------- ACTIONS ABAIXO -----------------------//
         // GET: Estudio
-        [Authorize]
+        [Authorize(Roles = "Administradores")]
         public ActionResult Index()
         {
             return View(estudioServico.ObterEstudiosClassificadosPorNome());

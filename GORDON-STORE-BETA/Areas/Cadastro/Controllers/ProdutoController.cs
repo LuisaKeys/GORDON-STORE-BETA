@@ -8,16 +8,17 @@ using System.Data.Entity;
 using Modelo.Cadastro;
 using Servico.Cadastro;
 using Servico.Tabelas;
+using GORDON_STORE_BETA.Context;
 
 namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
 {
     public class ProdutoController : Controller
     {
-
+        
         private ProdutoServico produtoServico = new ProdutoServico();
         private CategoriaServico categoriaServico = new CategoriaServico();
         private EstudioServico estudioServico = new EstudioServico();
-        
+
         //Pega os detalhes do produto de acordo com o id, serve para diminuir a redundância na hora de mostrar vz
         private ActionResult ObterVisaoProdutoPorId(long? id)
         {
@@ -50,6 +51,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
                 "EstudioId", "Nome", produto.EstudioId);
             }
         }
+        
         // Salva os produtos
         private ActionResult GravarProduto(Produto produto)
         {
@@ -67,10 +69,11 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
                 return View(produto);
             }
         }
+       
 
         //---------------------- ACTIONS ABAIXO -----------------------//
         //GET: Produtos
-        [Authorize]
+        [Authorize(Roles = "Administradores")]
         public ActionResult Index()
         {
             return View(produtoServico.ObterProdutosClassificadosPorNome());
@@ -91,7 +94,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
             PopularViewBag();
             return View();
         }
-           
+
         // POST: Produtos/Create
         [HttpPost]
         public ActionResult Create(Produto produto)
@@ -101,7 +104,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
 
         // GET: Produto/Edit/5
         [Authorize]
-        public ActionResult Edit(long? id)
+        public ActionResult Edit(long id)
         {
             PopularViewBag(produtoServico.ObterProdutoPorId((long)id));
             return ObterVisaoProdutoPorId(id);
@@ -137,5 +140,6 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
                 return View();
             }
         }
+
     }
 }

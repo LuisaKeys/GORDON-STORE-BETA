@@ -12,7 +12,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Models
         [Required]
         public string Nome { get; set; }
         [Required]
-        public long Matricula { get; set; }
+        public string Email { get; set; }
         [Required]
         public string Senha { get; set; }
     }

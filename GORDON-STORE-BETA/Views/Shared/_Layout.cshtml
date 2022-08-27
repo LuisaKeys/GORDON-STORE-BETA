@@ -12,11 +12,14 @@
 
 </head>
 <body>
+
     <header>
         <a href="#"><img src="~/Imagens\logo-gordonstore.png" alt="LOGO GORDON STORE"></a>
         <nav>
             <ul>
-                <li role="presentation" class="active"><a href="#">Home</a></li>
+                <li role="presentation">
+                    @Html.ActionLink("Home", "Index", "Home")
+                </li>
                 <li role="presentation" id="liCategorias">
                     <a href="~/Tabelas/Categoria/Index">Categorias</a>
                 </li>
@@ -29,27 +32,34 @@
                 <li id="liUsuarios" role="presentation">
                     <a href="~/Seguranca/Admin/Index">Usuários</a>
                 </li>
+                <li id="liPapeis" role="presentation">
+                    <a href="~/Seguranca/PapelAdmin/Index">Papéis</a>
+                </li>
+
+                <li role="presentation" class="perfil-adm">
+                    @{
+                        if (Html.GetAuthenticatedUser().ToString() != "")
+                        {
+                            <img></img>
+                            @Html.GetAuthenticatedUser();
+                            @Html.ActionLink("Sair", "Logout", "Account")
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Acessar", "Login", "Account",
+                               new { area = "Seguranca" }, null);
+
+                        }
+                    }
+                </li>
             </ul>
         </nav>
     </header>
-    <div style="text-align:right;">
-        @{
-            if (Html.GetAuthenticatedUser().ToString() != "")
-            {
-                @Html.GetAuthenticatedUser();
-                @Html.ActionLink(" - Sair", "Logout", "Account")
-            }
-            else
-            {
-                @Html.ActionLink("Acessar", "Login", "Account",
-                new { area = "Seguranca" }, null);
-
-            }
-        }
-    </div>
-    </div>
     @RenderBody()
-
+    
+<footer>
+    © 2022 –  Criado por Gordão Histórias
+</footer>
     <script src="@Url.Content("~/scripts/jquery-1.10.1.js")"></script>
     <script src="@Url.Content("~/scripts/bootstrap.js")"></script>
     @RenderSection("ScriptPage", false)

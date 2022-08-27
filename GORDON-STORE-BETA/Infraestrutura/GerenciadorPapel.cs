@@ -22,5 +22,6 @@ namespace GORDON_STORE_BETA.Infraestrutura
             return new GerenciadorPapel(new RoleStore<Papel>
             (context.Get<IdentityDbContextAplicacao>()));
         }
+        
     }
 }

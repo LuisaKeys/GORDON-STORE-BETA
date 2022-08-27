@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 using Persistencia.Context;
 using System.Data.Entity;
 using Modelo.Cadastro;
+using System.Net;
+
 
 namespace Persistencia.DAL.Cadastros
 {
@@ -34,6 +36,7 @@ namespace Persistencia.DAL.Cadastros
             }
             context.SaveChanges();
         }
+
         public Produto EliminarProdutoPorId(long id)
         {
             Produto produto = ObterProdutoPorId(id);
@@ -41,5 +44,6 @@ namespace Persistencia.DAL.Cadastros
             context.SaveChanges();
             return produto;
         }
+        
     }
 }

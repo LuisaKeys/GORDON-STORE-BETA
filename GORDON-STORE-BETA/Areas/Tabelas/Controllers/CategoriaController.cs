@@ -49,13 +49,14 @@ namespace GORDON_STORE_BETA.Areas.Tabelas.Controllers
         }
 
         //---------------------- ACTIONS ABAIXO -----------------------//
-        // GET: Estudio
+        // GET: Categoria
+        [Authorize(Roles = "Administradores")]
         public ActionResult Index()
         {
             return View(categoriaServico.ObterCategoriasClassificadasPorNome());
         }
 
-        // GET: Estudio/Create
+        // GET: Categoria/Create
         public ActionResult Create()
         {
             return View();

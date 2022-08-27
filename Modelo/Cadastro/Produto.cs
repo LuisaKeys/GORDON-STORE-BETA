@@ -13,14 +13,15 @@ namespace Modelo.Cadastro
         [DataType(DataType.Date)]
         [DisplayName("Data de Cadastro")]
         [Required(ErrorMessage = "Informe data de cadastro do produto")]
-        public DateTime? DataCadastro
-        { get; set; }
+        public DateTime? DataCadastro { get; set; }
         [DisplayName("Id")]
         public long? ProdutoId { get; set; }
         [StringLength(100, ErrorMessage = "O nome do produto precisa ter no mínimo 10 caracteres", MinimumLength = 10)]
         [Required(ErrorMessage = "Informe o nome do produto")]
         public string Nome { get; set; }
         [DisplayName("Preço")]
+        [Range(1, Double.PositiveInfinity)]
+        [Required(ErrorMessage = "O preço deve conter um valor válido")]
         public float Preco { get; set; }
         [DisplayName("Quantidade")]
         public int Qtd { get; set; }

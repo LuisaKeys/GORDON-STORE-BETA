@@ -30,6 +30,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
           HttpContext.GetOwinContext().GetUserManager<GerenciadorUsuario>();
             }
         }
+
         // Metodos
         public ActionResult Login(string returnUrl)
         {

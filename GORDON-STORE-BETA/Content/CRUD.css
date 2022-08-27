@@ -166,4 +166,22 @@ td a:hover {
     background-color: #2E0F46;
     border: 1px solid #2E0F46;
 }
-
+.perfil-adm a {
+    background-color: #2E0F46;
+    border-radius: 4px;
+    color: white;
+    padding: 5px 13px;
+    margin-left: 7px;
+}
+    .perfil-adm a:hover {
+        color: white;
+        background-color: rgba(20, 8, 30, 1);
+    }
+.homeh1 {
+    font-size: 90px;
+    font-weight: bolder;
+    margin-left: 30px;
+}
+.telahome{
+    margin: 20px;
+}

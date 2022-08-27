@@ -274,6 +274,7 @@
     <Content Include="Areas\Seguranca\Views\PapelAdmin\Index.cshtml" />
     <Content Include="Areas\Seguranca\Views\PapelAdmin\Create.cshtml" />
     <Content Include="Areas\Seguranca\Views\PapelAdmin\Edit.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -362,16 +363,18 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Cadastro\CadastroAreaRegistration.cs" />
     <Compile Include="Areas\Cadastro\Controllers\EstudioController.cs" />
-    <Compile Include="Areas\Seguranca\Controllers\PapelAdminController.cs" />
     <Compile Include="Areas\Cadastro\Controllers\ProdutoController.cs" />
     <Compile Include="Areas\Seguranca\Controllers\AccountController.cs" />
     <Compile Include="Areas\Seguranca\Controllers\AdminController.cs" />
-    <Compile Include="Areas\Seguranca\Models\LoginViewModel.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Areas\Seguranca\Controllers\PapelAdminController.cs" />
+    <Compile Include="Models\Home.cs" />
+    <Compile Include="Areas\Seguranca\Models\SegurancaViewModels\LoginViewModel.cs" />
     <Compile Include="Areas\Seguranca\Models\Papel.cs" />
-    <Compile Include="Areas\Seguranca\Models\PapelEditModel.cs" />
-    <Compile Include="Areas\Seguranca\Models\PapelModificationModel.cs" />
+    <Compile Include="Areas\Seguranca\Models\SegurancaViewModels\PapelEditModel.cs" />
+    <Compile Include="Areas\Seguranca\Models\SegurancaViewModels\PapelModificationModel.cs" />
     <Compile Include="Areas\Seguranca\Models\UsuarioAdm.cs" />
-    <Compile Include="Areas\Seguranca\Models\UsuarioViewModel.cs" />
+    <Compile Include="Areas\Seguranca\Models\SegurancaViewModels\UsuarioViewModel.cs" />
     <Compile Include="Areas\Seguranca\SegurancaAreaRegistration.cs" />
     <Compile Include="Areas\Tabelas\Controllers\CategoriaController.cs" />
     <Compile Include="Areas\Tabelas\TabelasAreaRegistration.cs" />
@@ -407,7 +410,6 @@
     <Folder Include="Areas\Cadastro\Data\" />
     <Folder Include="Areas\Cadastro\Views\PapelAdmin\" />
     <Folder Include="Areas\Tabelas\Data\" />
-    <Folder Include="Controllers\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Modelo\Modelo.csproj">
