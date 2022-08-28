@@ -6,10 +6,13 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            Acessando o sistema
+    <main>
+    <div class="formlogin">
+        <div class="cabecalhologin">
+            <img src="~/Imagens/login-cabecalho.png" />
+           
         </div>
+        
         <div class="panel-body">
             <div class="form-horizontal">
                 @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Count() > 0))
@@ -21,9 +24,9 @@
                     </div>
                 }
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Nome, htmlAttributes:
-                    new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                    <p>NOME</p>
+                   
+                    <div class="">
                         @Html.EditorFor(model => model.Nome,
                         new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Nome, "",
@@ -31,9 +34,9 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Senha, htmlAttributes:
-                    new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
+                 <p>SENHA </p>
+                
+                    <div class="senha">
                         @Html.PasswordFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
                         @Html.ValidationMessageFor(model => model.Senha, "",
                         new { @class = "text-danger" })
@@ -41,13 +44,14 @@
                 </div>
             </div>
         </div>
-        <div class="panel-footer panel-info">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Acessar" class="btn btn-danger" />
+        <div>
+            <div class="footerlogin">
+                <input type="submit" value="ACESSARR" class="btn btn-adicionar" />
             </div>
             <br />
             <br />
         </div>
     </div>
+ </main>
 }
 
