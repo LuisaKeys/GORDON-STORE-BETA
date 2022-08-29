@@ -19,7 +19,7 @@ namespace Persistencia.DAL.Cadastros
             return context.Produtos.Include(c => c.Categoria).Include(f => f.Estudio).
             OrderBy(n => n.Nome);
         }
-        public Produto ObterProdutoPorId(long id)
+        public Produto ObterProdutoPorId(long? id)
         {
             return context.Produtos.Where(p => p.ProdutoId == id).Include(c => c.Categoria).
             Include(f => f.Estudio).First();

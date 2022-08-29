@@ -6,8 +6,9 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    <div class="panel panel-primary">
-        <div class="panel-heading">
+    <main>
+    <div class="tabelainteira">
+        <div class="headertabela">
             Registro de um NOVO PAPEL
         </div>
         <div class="panel-body">
@@ -20,17 +21,18 @@
                 </div>
             </div>
         </div>
-        <div class="panel-footer panel-info">
-            <div class="col-md-offset-2 col-md-10">
+        <div class="panel-footer">
+            <div class="col-md-10">
                 <input type="submit" value="Adicionar Papel"
-                       class="btn btn-danger" />
+                       class="btn btn-retornar" />
 
                 @Html.ActionLink("Retornar para a listagem de PAPÉIS", "Index",
-                null, new { @class = "btn btn-warning" })
+                null, new { @class = "btn btn-retornar" })
 
             </div>
             <br />
             <br />
         </div>
     </div>
+    </main>
 }

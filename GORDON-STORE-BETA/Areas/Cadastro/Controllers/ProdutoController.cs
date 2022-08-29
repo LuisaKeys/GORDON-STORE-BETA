@@ -26,7 +26,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Produto produto = produtoServico.ObterProdutoPorId((long)id);
+            Produto produto = produtoServico.ObterProdutoPorId((long?)id);
             if (produto == null)
             {
                 return HttpNotFound();
@@ -62,6 +62,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
                     produtoServico.GravarProduto(produto);
                     return RedirectToAction("Index");
                 }
+                PopularViewBag(produto);
                 return View(produto);
             }
             catch
@@ -104,7 +105,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
 
         // GET: Produto/Edit/5
         [Authorize]
-        public ActionResult Edit(long id)
+        public ActionResult Edit(long? id)
         {
             PopularViewBag(produtoServico.ObterProdutoPorId((long)id));
             return ObterVisaoProdutoPorId(id);

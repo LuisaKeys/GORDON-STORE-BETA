@@ -15,7 +15,7 @@ namespace Servico.Cadastro
         {
             return produtoDAL.ObterProdutosClassificadosPorNome();
         }
-        public Produto ObterProdutoPorId(long id)
+        public Produto ObterProdutoPorId(long? id)
         {
             return produtoDAL.ObterProdutoPorId(id);
         }

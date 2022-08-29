@@ -7,12 +7,13 @@
 @Html.ValidationSummary()
 @using (Html.BeginForm())
 {
+  
     <input type="hidden" name="nomePapel" value="@Model.Papel.Name" />
     <div class="tabelainteira">
-        <div class="heandertabela">
-            Adicionar	para @Model.Papel. Name
+        <div class="headertabela">
+            Adicionar para @Model.Papel.Name
         </div>
-        <table class="table	table-striped">
+        <table class="table	">
             @if (Model.NaoMembros.Count() == 0)
             {
                 <tr>
@@ -41,40 +42,41 @@
             }
         </table>
     </div>
-    <div class="panel	panel-primary">
-        <div class="panel-heading">
-            Remover	de	@Model.Papel.Name
-        </div>
-        <table class="table	table-striped">
-            @if (Model.Membros.Count() == 0)
-            {
-                <tr><td colspan="2">Sem	usuários	membros</td></tr>
-            }
-            else
-            {
-                <tr>
-                    <td>Usuários</td>
-                    <td>Remover	do	Papel</td>
-                </tr>
-                foreach (UsuarioAdm usuario in Model.Membros)
+        <br />
+        <div class="tabelainteira">
+            <div class="headertabela">
+                Remover	de	@Model.Papel.Name
+            </div>
+            <table class="table">
+                @if (Model.Membros.Count() == 0)
+                {
+                    <tr><td colspan="2">Sem	usuários	membros</td></tr>
+                }
+                else
                 {
                     <tr>
-                        <td>@usuario.UserName</td>
-                        <td>
-                            <input type="checkbox"
-                                   name="IdsParaRemover" value="@usuario.Id">
-                        </td>
+                        <td>Usuários</td>
+                        <td>Remover	do	Papel</td>
                     </tr>
+                    foreach (UsuarioAdm usuario in Model.Membros)
+                    {
+                        <tr>
+                            <td>@usuario.UserName</td>
+                            <td>
+                                <input type="checkbox"
+                                       name="IdsParaRemover" value="@usuario.Id">
+                            </td>
+                        </tr>
+                    }
                 }
+            </table>
+        </div>
+       
+        <div class="btns">
+            <input type="submit" value="Gravar alterações" class="btn btn-retornar" />
+            @Html.ActionLink("Cancelar", "Index", null, new
+            {
+                @class = "btn btn-default"
+            })
+        </div>
             }
-        </table>
-    </div>
-    <button type="submit" class="btn	btn-primary">
-        Gravar
-        alterações
-    </button>
-    @Html.ActionLink("Cancelar", "Index", null, new
-    {
-        @class ="btn btn-default"
-    })
-}

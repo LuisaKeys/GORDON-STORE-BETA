@@ -4759,17 +4759,18 @@ fieldset[disabled] .navbar-inverse .btn-link:focus {
         background-color: #2E0F46;
         border-color: #2E0F46;
     }
-.pagination > .disabled > span,
-.pagination > .disabled > span:hover,
-.pagination > .disabled > span:focus,
-.pagination > .disabled > a,
-.pagination > .disabled > a:hover,
-.pagination > .disabled > a:focus {
-  color: #777;
-  cursor: not-allowed;
-  background-color: #fff;
-  border-color: #ddd;
-}
+    .pagination > .disabled > span,
+    .pagination > .disabled > span:hover,
+    .pagination > .disabled > span:focus,
+    .pagination > .disabled > a,
+    .pagination > .disabled > a:hover,
+    .pagination > .disabled > a:focus {
+        color: #777;
+        cursor: not-allowed;
+        background-color: #fff;
+        border-color: #2E0F46;
+        ;
+    }
 .pagination-lg > li > a,
 .pagination-lg > li > span {
   padding: 10px 16px;
