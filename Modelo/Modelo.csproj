@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Sistema\Cidade.cs" />
     <Compile Include="Tabelas\Categoria.cs" />
     <Compile Include="Cadastro\Estudio.cs" />
     <Compile Include="Cadastro\Produto.cs" />

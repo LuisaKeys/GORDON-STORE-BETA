@@ -366,6 +366,11 @@
     <Compile Include="Areas\Cadastro\Controllers\ProdutoController.cs" />
     <Compile Include="Areas\Seguranca\Controllers\AccountController.cs" />
     <Compile Include="Areas\Seguranca\Controllers\AdminController.cs" />
+    <Compile Include="Areas\Seguranca\Controllers\ClientAccountController.cs" />
+    <Compile Include="Areas\Seguranca\Controllers\ClienteController.cs" />
+    <Compile Include="Areas\Seguranca\Models\SegurancaViewModels\ClienteViewModel.cs" />
+    <Compile Include="Areas\Seguranca\Models\SegurancaViewModels\LoginClienteViewModel.cs" />
+    <Compile Include="Areas\Seguranca\Models\UsuarioCliente.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Seguranca\Controllers\PapelAdminController.cs" />
     <Compile Include="Models\Home.cs" />
@@ -409,6 +414,8 @@
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Cadastro\Data\" />
     <Folder Include="Areas\Cadastro\Views\PapelAdmin\" />
+    <Folder Include="Areas\Seguranca\Views\ClientAccount\" />
+    <Folder Include="Areas\Seguranca\Views\Cliente\" />
     <Folder Include="Areas\Tabelas\Data\" />
   </ItemGroup>
   <ItemGroup>
