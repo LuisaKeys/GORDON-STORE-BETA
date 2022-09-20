@@ -2,7 +2,8 @@
 <p align="center">:construction: Projeto em construção :construction:</p> <hr>
 
  🔗[Link projeto de referência na organização](https://github.com/PI-InfoWeb-CNAT/comercioeletronico)
-
+ 
+  🔗[Link projeto Alpha](https://github.com/LuisaKeys/GORDON-STORE-ALPHA/blob/main/README.md?plain=1)
 ## Menu - organização📂
   <img align="right" width="280" src="https://c.tenor.com/X8S2wOTLQWsAAAAC/bolsonaroarminha-bolsonaro.gif" />
   
