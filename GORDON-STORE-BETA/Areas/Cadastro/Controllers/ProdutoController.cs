@@ -9,6 +9,8 @@ using Modelo.Cadastro;
 using Servico.Cadastro;
 using Servico.Tabelas;
 using GORDON_STORE_BETA.Context;
+using System.Net.NetworkInformation;
+using System.IO;
 
 namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
 {
@@ -51,26 +53,73 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
                 "EstudioId", "Nome", produto.EstudioId);
             }
         }
-        
+
         // Salva os produtos
-        private ActionResult GravarProduto(Produto produto)
+        private ActionResult GravarProduto(Produto produto, HttpPostedFileBase upimg, string chkRemoverImagem)
         {
             try
             {
                 if (ModelState.IsValid)
                 {
+                    if (chkRemoverImagem != null)
+                    {
+                        produto.UpImg = null;
+                    }
+                    if (upimg != null)
+                    {
+                        produto.UpImgMimeType = upimg.ContentType;
+                        produto.UpImg = SetUpImg(upimg);
+                    }
                     produtoServico.GravarProduto(produto);
                     return RedirectToAction("Index");
                 }
+                if (upimg != null)
+                {
+                    produto.UpImgMimeType = upimg.ContentType;
+                    produto.UpImg = SetUpImg(upimg);
+                    produto.NomeArquivo = upimg.FileName;
+                    produto.TamanhoArquivo = upimg.ContentLength;
+                }
+                produtoServico.GravarProduto(produto);
                 PopularViewBag(produto);
                 return View(produto);
             }
             catch
             {
+                PopularViewBag(produto);
                 return View(produto);
             }
         }
-       
+
+        //transfrma o arquivo recebido em um vetor de bytes
+        private byte[] SetUpImg(HttpPostedFileBase upimg)
+        {
+            var bytesUpImg = new byte[upimg.ContentLength];
+            upimg.InputStream.Read(bytesUpImg, 0, upimg.ContentLength);
+            return bytesUpImg;
+        }
+
+        //contém a imagem para a exibição na visão
+        public FileContentResult GetUpImg(long id)
+        {
+            Produto produto = produtoServico.ObterProdutoPorId(id);
+            if (produto != null)
+            {
+                return File(produto.UpImg, produto.UpImgMimeType);
+            }
+            return null;
+        }
+
+        //transferece o arquivo copiado do banco de dados para a pasta de download
+        public ActionResult DownloadArquivo(long id)
+        {
+            Produto produto = produtoServico.ObterProdutoPorId(id);
+            FileStream fileStream = new FileStream(Server.MapPath("~/App_Data/" + produto.NomeArquivo), FileMode.Create, FileAccess.Write);
+            fileStream.Write(produto.UpImg, 0, Convert.ToInt32(produto.TamanhoArquivo));
+            fileStream.Close();
+            return File(fileStream.Name, produto.UpImgMimeType, produto.NomeArquivo);
+        }
+
 
         //---------------------- ACTIONS ABAIXO -----------------------//
         //GET: Produtos
@@ -98,9 +147,9 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
 
         // POST: Produtos/Create
         [HttpPost]
-        public ActionResult Create(Produto produto)
+        public ActionResult Create(Produto produto, HttpPostedFileBase upimg = null, string chkRemoverImagem = null)
         {
-            return GravarProduto(produto);
+            return GravarProduto(produto, upimg, chkRemoverImagem);
         }
 
         // GET: Produto/Edit/5
@@ -114,9 +163,9 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
         // POST: Produto/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(Produto produto)
+        public ActionResult Edit(Produto produto, HttpPostedFileBase upimg = null, string chkRemoverImagem = null)
         {
-            return GravarProduto(produto);
+            return GravarProduto(produto, upimg, chkRemoverImagem);
         }
 
         // GET: Produto/Delete/5

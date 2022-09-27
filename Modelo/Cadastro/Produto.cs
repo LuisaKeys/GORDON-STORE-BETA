@@ -32,5 +32,9 @@ namespace Modelo.Cadastro
         public long? EstudioId { get; set; }
         public Categoria Categoria { get; set; }
         public Estudio Estudio { get; set; }
+        public string UpImgMimeType { get; set; }
+        public byte[] UpImg { get; set; }
+        public string NomeArquivo { get; set; }
+        public long TamanhoArquivo { get; set; }
     }
 }

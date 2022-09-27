@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Registrando um novo Produto";
 }
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <main>
@@ -15,6 +15,9 @@
             <div class="panel-body">
                 @Html.Partial("~/Areas/Cadastro/Views/Produto/_PartialEditContentPanel.cshtml", Model)
             </div>
+
+            
+
             <div class="panel-footer">
                 <div class="col-md-offset-2">
                     <input type="submit" value="Adicionar Produto" class="btn" />
@@ -27,4 +30,8 @@
         </div>
     </main>
 
+}
+@section ScriptPage {
+    <script src="@Url.Content("~/Scripts/jquery.validate.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.js")"></script>
 }

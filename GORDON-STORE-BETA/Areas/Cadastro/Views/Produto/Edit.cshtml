@@ -3,7 +3,8 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Alterando os dados de um Produto";
 }
-@using (Html.BeginForm())
+
+@using (Html.BeginForm("Edit", "Produto", FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
     <main>
@@ -14,6 +15,41 @@
             <div class="panel-body">
                 @Html.Partial("~/Areas/Cadastro/Views/Produto/_PartialEditContentPanel.cshtml", Model)
             </div>
+
+            @Html.HiddenFor(model => model.ProdutoId)
+            @Html.HiddenFor(model => model.UpImgMimeType)
+            @Html.HiddenFor(model => model.UpImg)
+            <div class="col-md-offset-2">
+                <div class="form-group">
+                    @Html.TextBox("upimg", "", new { type = "file" }) <br />
+                </div>
+                <div class="form-group">
+                    @if (Model.UpImg == null)
+                    {
+                        <div class="form-control-static">
+                            Nenhuma imagem adicionada
+                        </div>
+                    }
+                    else
+                    {
+                        <div class="panel-body">
+                            <img class="img-thumbnail" src="@Url.Action("GetUpImg", "Produto", new { id = Model.ProdutoId })"
+                                 style="display: block; max-width: 200px;" />
+                        </div>
+                        <div>
+                            <div class="checkbox">
+                                <label>
+                                    <input type="checkbox" name="chkRemoverImagem" value="Sim">Remover imagem
+
+                                </label>
+                            </div>
+                            @Html.ActionLink("Baixar o arquivo : " + Model.NomeArquivo, "DownloadArquivo",
+"Produto", new { area = "Cadastro", id = Model.ProdutoId }, null)
+                        </div>
+                    }
+                </div>
+            </div>
+
             <div class="panel-footer">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Gravar alterações" class="btn btn-default" />
@@ -25,7 +61,7 @@
             </div>
         </div>
 
-    </main>
+</main>
 }
 @section ScriptPage {
     <script src="~/Scripts/jquery.validate.min.js"></script>
