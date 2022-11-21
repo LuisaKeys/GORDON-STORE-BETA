@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.32413.511
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32819.101
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GORDON-STORE-BETA", "GORDON-STORE-BETA\GORDON-STORE-BETA.csproj", "{9E9160BC-B155-412F-9E84-C21E652A2874}"
 EndProject
@@ -10,6 +10,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Persistencia", "Persistencia\Persistencia.csproj", "{8A65BA7D-8DEE-4213-939E-1AD44E5A0D63}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Servico", "Servico\Servico.csproj", "{16864167-725A-4EC1-8721-366C7FD1E272}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GORDON-STORE-ALPHA", "GORDON-STORE-ALPHA\GORDON-STORE-ALPHA.csproj", "{18D3C6AE-3F20-4183-9959-97BB0C041B37}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{16864167-725A-4EC1-8721-366C7FD1E272}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{16864167-725A-4EC1-8721-366C7FD1E272}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{16864167-725A-4EC1-8721-366C7FD1E272}.Release|Any CPU.Build.0 = Release|Any CPU
+		{18D3C6AE-3F20-4183-9959-97BB0C041B37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{18D3C6AE-3F20-4183-9959-97BB0C041B37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{18D3C6AE-3F20-4183-9959-97BB0C041B37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{18D3C6AE-3F20-4183-9959-97BB0C041B37}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
