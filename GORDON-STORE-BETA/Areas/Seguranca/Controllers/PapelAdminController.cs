@@ -42,7 +42,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
         }
         //-------------- ACTIONS ABAIXO --------------
         // GET: Seguranca/PapelAdmin
-        [Authorize(Roles = "Administradores")]
+        [Authorize/*(Roles = "Administradores")*/]
         public ActionResult Index()
         {
             return View(RoleManager.Roles);

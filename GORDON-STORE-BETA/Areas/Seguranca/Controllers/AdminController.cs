@@ -33,7 +33,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
 
         //---------------- ACTIONS ABAIXO ----------------
         // GET: Seguranca/Admin
-        [Authorize(Roles = "Administradores")]
+        [Authorize/*(Roles = "Administradores")*/]
         public ActionResult Index()
         {
             return View(GerenciadorUsuario.Users);
@@ -52,6 +52,8 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
                 {
                     UserName = model.Nome,
                     Email = model.Email,
+                    Nome = model.Nome
+
 
 
                 };

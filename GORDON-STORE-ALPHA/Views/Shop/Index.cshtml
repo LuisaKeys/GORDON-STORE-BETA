@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<GORDON_STORE_ALPHA.Models.ViewModels.ProdutoVM>
 
 @{
-    Layout = "~/Views/Shared/_Layout2.cshtml";
+    //Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewBag.Title = "Listagem de PRODUTOS";
 }
 
@@ -23,7 +23,7 @@
                             <h6>@Html.DisplayFor(modelItem => item.ProdutoId)</h6>
                             <span>@Html.DisplayFor(modelItem => item.Categoria.Nome)</span>
                         </div>
-                        <a href="/shop/Product-details/@item.ProdutoId" class="primary-btn" style="margin-top:35px">Details</a>
+                        <a href="/Shop/product-details/@item.ProdutoId" class="primary-btn" style="margin-top:35px">Details</a>
                     </div>
                 </div>
             }

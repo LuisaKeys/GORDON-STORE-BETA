@@ -69,6 +69,8 @@ namespace GORDON_STORE_ALPHA.Models
         [Display(Name = "Email")]
         public string Email { get; set; }
 
+        public string Nome { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]
         [DataType(DataType.Password)]

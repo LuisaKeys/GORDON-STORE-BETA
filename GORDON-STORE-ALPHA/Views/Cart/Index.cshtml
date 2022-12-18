@@ -1,0 +1,267 @@
+﻿@model IEnumerable<GORDON_STORE_ALPHA.Models.ViewModels.CartVM>
+
+@{
+    ViewBag.Title = "Cart Details";
+    int count = 1;
+}
+<!-- BREADCRUMB -->
+<div id="breadcrumb">
+    <div class="container">
+        <ul class="breadcrumb">
+            <li><a href="/Home/Index">Home</a></li>
+            <li class="active">Checkout</li>
+        </ul>
+    </div>
+
+</div>
+<!-- /BREADCRUMB -->
+
+@if (ViewBag.Message != null)
+{
+    <div class="text-center " style="min-height:150px">
+        <h3>@ViewBag.Message</h3>
+    </div>
+    <hr />
+}
+else
+{
+    <div class="ajaxbg">
+        <span>
+            <img src="~/Content/img/ajax-loader.gif" />
+        </span>
+    </div>
+    <!-- section -->
+    <div class="section">
+        <!-- container -->
+        <div class="container">
+            <!-- row -->
+            <div class="row">
+                <form id="checkout-form" class="clearfix">
+                    <div class="col-md-12">
+                        <div class="order-summary clearfix">
+                            <div class="section-title">
+                                <h3 class="title">Order Review</h3>
+                            </div>
+                            <table class="shopping-cart-table table">
+                                <thead>
+                                    <tr>
+                                        <th class="text-center">
+                                            Image
+                                        </th>
+                                        <th class="text-center">
+                                            Name
+                                        </th>
+                                        <th class="text-center">
+                                            Price
+                                        </th>
+                                        <th class="text-center">
+                                            Quantity
+
+                                        </th>
+
+                                        <th class="text-center">
+                                            Total
+                                        </th>
+                                        <th>
+
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+                                        <tr>
+                                            <td class=" text-center h4">
+                                                <a href="/shop/product-details/@item.ProdutoNome">
+                                                    <img src="/Images/Uploads/Products/@item.ProdutoId/Thumbs/@item.Image" class="img-circle" />
+                                                </a>
+                                            </td>
+                                            <td class="details  text-center h4">
+                                                @Html.DisplayFor(modelItem => item.ProdutoNome)
+                                            </td>
+                                            <td class="price text-center h4">
+                                                $@Html.DisplayFor(modelItem => item.Preco)
+                                            </td>
+                                            <td class="qty@(item.ProdutoId) qty text-center h4">
+                                                @Html.DisplayFor(modelItem => item.Quantidade)
+                                            </td>
+
+                                            <td class="total@(item.ProdutoId) text-center h4">
+                                                $@Html.DisplayFor(modelItem => item.Total)
+                                            </td>
+                                            <td class=" text-center">
+                                                <a href="#" class="incrproduct" data-id="@item.ProdutoId"><i class="fa fa-cart-plus fa-3x"></i></a>
+                                                <a href="#" class="decrproduct" data-id="@item.ProdutoId"><i class="fa fa-cart-arrow-down fa-3x"></i></a>
+                                                <a href="#" class="removeproduct " data-id="@item.ProdutoId"><i class="fa fa-trash fa-3x"></i></a>
+                                                @*<a href="/shop/product-details/@item.ProductName.Replace("","-").ToLower()">
+                                                    <i class="fa fa-undo fa-3x"></i>
+                                                </a>*@
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                                <tfoot>
+                                    <tr>
+                                        <th class="empty" colspan="3"></th>
+                                        <th>TOTAL</th>
+                                        <th colspan="2" class="grandtotal"><span>@ViewBag.GrandTotal</span></th>
+                                    </tr>
+                                </tfoot>
+                            </table>
+
+                            <div class="pull-right">
+                                <a href="#" class="placeorder primary-btn ">Place Order</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <!-- /row -->
+        </div>
+        <!-- /container -->
+    </div>
+    <!-- /section -->
+    <div class="paypaldiv">
+        <input class="paypalform" type="hidden" name="cmd" value="_ext-enter">
+        <form class="paypalform" action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post">
+            <input type="hidden" name="cmd" value="_cart">
+            <input type="hidden" name="upload" value="1">
+            <input type="hidden" name="business" value="ao.ahmed-facilitator@outlook.com">
+
+            @foreach (var item in Model)
+            {
+                <input type="hidden" name="item_name_@count" value="@item.ProdutoNome">
+                <input type="hidden" name="amount_@count" value="@item.Preco">
+                <input type="hidden" name="quantity_@count" value="@item.Quantidade">
+                count++;
+            }
+            <input type="hidden" name="currency_code" value="USD">
+            <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit"
+                   alt="Make payments with PayPal - it's fast, free and secure!">
+        </form>
+    </div>
+
+}
+
+@section Scripts {
+    <script>
+
+        $(function () {
+
+            /*
+            * Increment product
+            */
+
+            $("a.incrproduct").click(function (e) {
+                e.preventDefault();
+
+                var productId = $(this).data("id");
+                var url = "/cart/IncrementProduct";
+
+                $.getJSON(url, { produtoId: produtoId }, function (data) {
+
+                    $("td.qty" + produtoId).html(data.qty);
+
+                    var price = data.qty * data.preco;
+                    var precoHtml = "$" + preco.toFixed(2);
+
+                    $("td.total" + produtoId).html(precoHtml);
+
+                    var gt = parseFloat($("th.grandtotal span").text());
+                    var grandtotal = (gt + data.preco).toFixed(2);
+
+                    $("th.grandtotal span").text(grandtotal);
+                }).done(function () {
+                    var url2 = "/cart/PaypalPartial";
+
+                    $.get(url2, {}, function (data) {
+                        $("div.paypaldiv").html(data);
+                    });
+                });
+            });
+
+            //////////////////////////////////////////////////////////////
+
+            /*
+            * Decrement product
+            */
+
+            $("a.decrproduct").click(function (e) {
+                e.preventDefault();
+
+                var productId = $(this).data("id");
+                var url = "/cart/DecrementProduct";
+
+                $.getJSON(url, { produtoId: produtoId }, function (data) {
+                    if (data.qty == 0) {
+                        $this.parent().parent().fadeOut("fast", function () {
+                            location.reload();
+                        });
+                    }
+                    else {
+                        $("td.qty" + produtoId).html(data.qty);
+
+                        var preco = data.qty * data.preco;
+                        var precoHtml = "$" + preco.toFixed(2);
+
+                        $("td.total" + produtoId).html(priceHtml);
+
+                        var gt = parseFloat($("th.grandtotal span").text());
+                        var grandtotal = (gt - data.preco).toFixed(2);
+
+                        $("th.grandtotal span").text(grandtotal);
+                    }
+
+                }).done(function (data) {
+                    var url2 = "/cart/PaypalPartial";
+
+                    $.get(url2, {}, function (data) {
+                        $('div.paypaldiv').html(data);
+                    });
+                });
+            });
+
+            //////////////////////////////////////////////////////////////
+
+            /*
+            * Remove product
+            */
+
+            $("a.removeproduct").click(function (e) {
+                e.preventDefault();
+
+                var produtoId = $(this).data("id");
+                var url = "/cart/RemoveProduct";
+
+                $.get(url, { produtoId: produtoId }, function (data) {
+                    location.reload();
+                });
+            });
+
+            //////////////////////////////////////////////////////////////
+
+            /*
+            * Place order
+            */
+
+            $("a.placeorder").click(function (e) {
+                e.preventDefault();
+                var url = "/cart/MakeOrder";
+
+                $(".ajaxbg").show();
+
+                $.post(url, {}, function (data) {
+                    $(".ajaxbg span").html("<h3>Thank you. You will automatically be redirected to paypal.</h1>");
+                    setTimeout(function () {
+                        $('form input[name="submit"]').click();
+                    }, 2000);
+                });
+            });
+
+            //////////////////////////////////////////////////////////////
+
+        });
+
+    </script>
+
+}

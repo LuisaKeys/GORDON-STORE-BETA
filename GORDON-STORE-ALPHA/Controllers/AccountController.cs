@@ -9,6 +9,12 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using GORDON_STORE_ALPHA.Models;
+using GORDON_STORE_ALPHA.Models.Cart;
+using GORDON_STORE_ALPHA.Models.ViewModels;
+using System.Collections.Generic;
+using GORDON_STORE_ALPHA.Context;
+using Persistencia.Context;
+using Modelo.Cadastro;
 
 namespace GORDON_STORE_ALPHA.Controllers
 {
@@ -17,6 +23,9 @@ namespace GORDON_STORE_ALPHA.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private ApplicationDbContext db = new ApplicationDbContext();
+        private ContextCart context = new ContextCart();
+        private EFContext cadcontext = new EFContext();
 
         public AccountController()
         {
@@ -151,7 +160,7 @@ namespace GORDON_STORE_ALPHA.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Nome = model.Nome };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
@@ -421,6 +430,64 @@ namespace GORDON_STORE_ALPHA.Controllers
             }
 
             base.Dispose(disposing);
+        }
+
+        public ActionResult Orders()
+        {
+            // Init list of OrdersForUserVM
+            List<OrdersForUserVM> ordersForUser = new List<OrdersForUserVM>();
+
+                // Get user id
+                ApplicationUser user = db.Users.Where(x => x.Email == User.Identity.Name).FirstOrDefault();
+                string userId = user.Id;
+
+                // Init list of OrderVM
+                List<OrderVM> orders = context.Orders.Where(x => x.UserId == userId).ToArray().Select(x => new OrderVM(x)).ToList();
+
+                // Loop through list of OrderVM
+                foreach (var order in orders)
+                {
+                    // Init products dict
+                    Dictionary<string, int> produtosAndQty = new Dictionary<string, int>();
+
+                    // Declare total
+                    double total = 0;
+
+                    // Init list of OrderDetailsDTO
+                    List<OrderDetails> orderDetailsDTO = context.OrderDetails.Where(x => x.OrderId == order.OrderId).ToList();
+
+                    // Loop though list of OrderDetailsDTO
+                    foreach (var orderDetails in orderDetailsDTO)
+                    {
+                        // Get product
+                        Produto produto = cadcontext.Produtos.Where(x => x.ProdutoId == orderDetails.ProdutoId).FirstOrDefault();
+
+                        // Get product price
+                        double preco = produto.Preco;
+
+                        // Get product name
+                        string produtoNome = produto.Nome;
+
+                        // Add to products dict
+                        produtosAndQty.Add(produtoNome, orderDetails.Quantidade);
+
+                        // Get total
+                        total += orderDetails.Quantidade * preco;
+                    }
+
+                    // Add to OrdersForUserVM list
+                    ordersForUser.Add(new OrdersForUserVM()
+                    {
+                        OrderNumber = order.OrderId,
+                        Total = total,
+                        ProdutosAndQty = produtosAndQty,
+                        CreatedAt = order.CreatedAt
+                    });
+                }
+
+
+            // Return view with list of OrdersForUserVM
+            return View(ordersForUser);
         }
 
         #region Auxiliares
