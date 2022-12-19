@@ -113,7 +113,8 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
                 }
                 return RedirectToAction("Index");
             }
-            return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            //return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            return RedirectToAction("Index");
         }
        
 
