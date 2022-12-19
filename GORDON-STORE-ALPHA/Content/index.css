@@ -1,5 +1,8 @@
 ﻿@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
+@font-face {
+    font-family: "Batman";
+    src: url("../fonts/batmfa__.ttf") format("ttf");
+}
 * {
     margin: 0;
     padding: 0;
@@ -97,7 +100,7 @@ header {
 }
 
 #gordon {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Batman';
     font-style: normal;
     font-weight: 400;
     font-size: 96px;
