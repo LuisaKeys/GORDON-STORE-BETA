@@ -10,9 +10,9 @@
 
     @foreach (var item in Model)
     {
-        <input type="hidden" name="item_name_@count" value="@item.ProductName">
-        <input type="hidden" name="amount_@count" value="@item.Price">
-        <input type="hidden" name="quantity_@count" value="@item.Quantity">
+        <input type="hidden" name="item_name_@count" value="@item.ProdutoNome">
+        <input type="hidden" name="amount_@count" value="@item.Preco">
+        <input type="hidden" name="quantity_@count" value="@item.Quantidade">
         count++;
     }
 

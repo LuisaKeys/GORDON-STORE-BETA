@@ -1,0 +1,63 @@
+﻿@model MVC.Project.OnlineFurnitureSystem.Models.ViewModels.Pages.SidebarVM
+
+@{
+    ViewBag.Title = "Edit Sidebar";
+}
+<br />
+@if (TempData["Success Message"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["Success Message"]
+    </div>
+}
+<br />
+<h2>Edit Sidebar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Edit" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@section scripts{
+    <script src="~/Scripts/ckeditor/ckeditor.js"></script>
+    <script>
+        CKEDITOR.replace("Body")
+    </script>
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

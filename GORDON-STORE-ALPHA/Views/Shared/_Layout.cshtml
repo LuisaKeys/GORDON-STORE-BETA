@@ -1,42 +1,97 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Meu Aplicativo ASP.NET</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
+    <link type="text/css" rel="stylesheet" href="/Template/css/bootstrap.min.css" />
+    <!-- Slick -->
+    <link type="text/css" rel="stylesheet" href="/Template/css/slick.css" />
+    <link type="text/css" rel="stylesheet" href="/Template/css/slick-theme.css" />
+    <!-- nouislider -->
+
+    <link type="text/css" rel="stylesheet" href="/Template/css/nouislider.min.css" />
+
+    <!-- Font Awesome Icon -->
+    <link rel="stylesheet" href="/Template/css/font-awesome.min.css">
+    <link rel="stylesheet" href="~/Content/index.css">
+
+    <!-- Custom stlylesheet -->
+    <link type="text/css" rel="stylesheet" href="/Template/css/style.css" />
+
+
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse" title="mais opções">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Nome do aplicativo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Página Inicial", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Sobre", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contato", "Contact", "Home")</li>
+    <header>
+        <section>
+            <section id="logo-header">
+                <h1><a href="#"><img src="~/Images/logo.svg" alt="logo-gordon-store" id="logo"></a></h1>
+            </section>
+
+            <section id="links-header">
+                <ul>
+                    <li><a href="#">JOGOS</a></li>
+                    <li><a href="#">HQS</a></li>
+                    <li><a href="#">ESTUDIOS</a></li>
                 </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
-        </div>
-    </div>
-    <div class="container body-content">
+            </section>
+            <section id="lista-itens-header">
+                <ul>
+                    <li><a href="#"><img src="~/images/search.svg" alt="pesquisar" class="itens-header1"></a></li>
+                    <li><a href="#"><img src="~/images/cart.svg" alt="carrinho" class="itens-header"></a></li>
+                    <li><a href="#"><img src="~/images/profile.svg" alt="perfil" class="itens-header"></a></li>
+                    <li><a href="#"><img src="~/images/arrow.svg" alt="seta" class="itens-header2"></a></li>
+                </ul>
+            </section>
+        </section>
+    </header>
+    
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Meu Aplicativo ASP.NET</p>
-        </footer>
-    </div>
+    <footer>
+        <div class="conteudofooter">
+            <figure>
+                <img src="~/images/logo.svg" alt="">
+            </figure>
+            <section>
+                <h5>Institucional</h5>
+                <ul>
+                    <li><p>Quem somos</p></li>
+                    <li><p>Contato</p></li>
+                    <li><p>Equipe</p></li>
+                </ul>
+            </section>
+            <section>
+                <h5>Suporte</h5>
+                <ul>
+                    <li><p>Fale conosco</p></li>
+                    <li><p>Dúvidas frequentes</p></li>
+                    <li><p>Política de privacidade</p></li>
+                </ul>
+            </section>
+            <section>
+                <h5>Siga-nos</h5>
+                <ul id="redessociais">
+                    <li><img src="~/images/insta.svg" alt=""></li>
+                    <li><img src="~/images/face.svg" alt=""></li>
+                    <li><img src="~/images/link.svg" alt=""></li>
+                    <li><img src="~/images/youtube.svg" alt=""></li>
+                    <li><img src="~/images/twitter.svg" alt=""></li>
+                </ul>
+            </section>
+            <section id="formaspagamento">
+                <h5>Formas de pagamento</h5>
+                <ul>
+                    <li><img src="~/images/credito.svg" alt=""><p>Credito</p></li>
+                    <li><img src="~/images/debito.svg" alt=""><p>Debito</p></li>
+                    <li><img src="~/images/boleto.svg" alt=""><p>Boleto</p></li>
+                </ul>
+            </section>
+        </div>
+    </footer>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")

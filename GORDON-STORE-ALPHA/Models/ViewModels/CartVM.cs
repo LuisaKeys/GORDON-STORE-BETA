@@ -9,7 +9,7 @@ namespace GORDON_STORE_ALPHA.Models.ViewModels
 {
     public class CartVM
     {
-        public long ProdutoId { get; set; }
+        public long? ProdutoId { get; set; }
 
         [Display(Name = "Nome do Produto")]
         public string ProdutoNome { get; set; }

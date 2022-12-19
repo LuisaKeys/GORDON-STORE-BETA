@@ -24,10 +24,11 @@ namespace GORDON_STORE_ALPHA.Models.ViewModels
             Categoria = row.Categoria;
             CategoriaId = row.CategoriaId;
             NomeArquivo = row.NomeArquivo;
+            Slug = row.Slug;
         }
 
         [DisplayName("Id")]
-        public long ProdutoId { get; set; }
+        public long? ProdutoId { get; set; }
         [StringLength(100, ErrorMessage = "O nome do produto precisa ter no mínimo 10 caracteres", MinimumLength = 10)]
         [Required(ErrorMessage = "Informe o nome do produto")]
         public string Nome { get; set; }
@@ -40,6 +41,7 @@ namespace GORDON_STORE_ALPHA.Models.ViewModels
         public Categoria Categoria { get; set; }
         public string NomeArquivo { get; set; }
         public IEnumerable<string> GalleryImages { get; set; }
+        public string Slug { get; set; }
 
     }
 }

@@ -12,7 +12,7 @@ namespace Modelo.Cadastro
     {
        
         [DisplayName("Id")]
-        public long ProdutoId { get; set; }
+        public long? ProdutoId { get; set; }
         [StringLength(100, ErrorMessage = "O nome do produto precisa ter no mínimo 10 caracteres", MinimumLength = 10)]
         [Required(ErrorMessage = "Informe o nome do produto")]
         public string Nome { get; set; }
@@ -37,5 +37,6 @@ namespace Modelo.Cadastro
         public byte[] UpImg { get; set; }
         public string NomeArquivo { get; set; }
         public long TamanhoArquivo { get; set; }
+        public string Slug { get; set; }
     }
 }

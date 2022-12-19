@@ -1,9 +1,25 @@
-﻿@model IEnumerable<GORDON_STORE_ALPHA.Models.ViewModels.ProdutoVM>
+﻿@model GORDON_STORE_ALPHA.Models.ViewModels.HomeClass
 
 @{
-    Layout = "~/Views/Shared/_Layout2.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
     ViewBag.Title = "Listagem de PRODUTOS";
 }
+
+<section id="banner">
+    <div id="container1">
+        <h2 id="gordon">Gordon<br>Store</h2>
+        <div id="areabotao">
+            <div class="botao1">
+                <p>COMPRE<br>AGORA</p>
+                <img id="setacompre" src="./images/Arrow right.png" alt="seta">
+            </div>
+        </div>
+    </div>
+    <div id="divimagemcapa">
+        <img id="imagemcapa" src="~/Images/capa11_dc 1.png" alt="imagemcapa">
+    </div>
+</section>
+
 
 <div class="latest-products">
     <div class="container">
@@ -14,16 +30,17 @@
                     <a href="~/Produtos/Index">ver todos os produtos -></a>
                 </div>
             </div>
-            @foreach (var item in Model)
+            @foreach (var item in Model.listaprodutos)
             {
                 <div class="col-md-4">
                     <div class="product-item">
+                        <a href="#"><img src="@Url.Action("GetLogotipo", "Produtos", new { id = item.ProdutoId })" style="display: block; margin-left: auto; margin-right: auto; height: 200px" /></a>
                         <div class="down-content">
                             <a href="#"><h4>@Html.DisplayFor(modelItem => item.Nome)</h4></a>
                             <h6>@Html.DisplayFor(modelItem => item.ProdutoId)</h6>
+                            <p>Fabricante: @Html.DisplayFor(modelItem => item.Estudio.Nome)</p>
                             <span>@Html.DisplayFor(modelItem => item.Categoria.Nome)</span>
                         </div>
-                        <a href="/shop/Product-details/@item.ProdutoId" class="primary-btn" style="margin-top:35px">Details</a>
                     </div>
                 </div>
             }
@@ -31,3 +48,30 @@
     </div>
 </div>
 
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Últimos 30 dias</h2>
+                    <a href="~/Produtos/Index">ver todos os produtos -></a>
+                </div>
+            </div>
+            @foreach (var item in Model.listaProdutoLancamento)
+            {
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <a href="#"><img src="@Url.Action("GetLogotipo", "Produtos", new { id = item.ProdutoId })" style="display: block; margin-left: auto; margin-right: auto; height: 200px" /></a>
+                        <div class="down-content">
+                            <a href="#"><h4>@Html.DisplayFor(modelItem => item.Nome)</h4></a>
+                            <h6>@Html.DisplayFor(modelItem => item.ProdutoId)</h6>
+                            <p>Fabricante: @Html.DisplayFor(modelItem => item.Estudio.Nome)</p>
+                            <span>@Html.DisplayFor(modelItem => item.Categoria.Nome)</span>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>

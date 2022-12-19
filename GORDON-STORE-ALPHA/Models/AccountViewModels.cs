@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 
 namespace GORDON_STORE_ALPHA.Models
@@ -68,8 +70,17 @@ namespace GORDON_STORE_ALPHA.Models
         [EmailAddress]
         [Display(Name = "Email")]
         public string Email { get; set; }
-
+        public string Cpf { get; set; }
         public string Nome { get; set; }
+        public string Sobrenome { get; set; }
+        public string Estado { get; set; }
+        public string Cidade { get; set; }
+        public string Rua { get; set; }
+        public string Numero { get; set; }
+        public string Complemento { get; set; }
+        [DataType(DataType.Date)]
+        [DisplayName("Data de nascimento")]
+        public DateTime? DataNascimento { get; set; }
 
         [Required]
         [StringLength(100, ErrorMessage = "O {0} deve ter pelo menos {2} caracteres.", MinimumLength = 6)]

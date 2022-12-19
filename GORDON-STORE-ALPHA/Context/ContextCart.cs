@@ -16,7 +16,8 @@ namespace GORDON_STORE_ALPHA.Context
     {
         public ContextCart() : base("GORDON_STORE")
         {
-            Database.SetInitializer<EFContext>(new DropCreateDatabaseIfModelChanges<EFContext>());
+            Database.SetInitializer<EFContext>(
+    new DropCreateDatabaseAlways<EFContext>());
         }
         public DbSet<Order> Orders { get; set; }
         public DbSet<OrderDetails> OrderDetails { get; set; }

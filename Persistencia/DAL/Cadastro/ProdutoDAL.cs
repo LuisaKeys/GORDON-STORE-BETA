@@ -19,6 +19,11 @@ namespace Persistencia.DAL.Cadastros
             return context.Produtos.Include(c => c.Categoria).Include(f => f.Estudio).
             OrderBy(n => n.Nome);
         }
+        public IQueryable<Produto> ObterProdutosClassificadosPorData()
+        {
+            var lancamento = DateTime.Today.AddMonths(-1);
+            return context.Produtos.Where(p => p.DataCadastro >= lancamento).Include(c => c.Categoria).Include(f => f.Estudio).OrderBy(n => n.Nome);
+        }
         public Produto ObterProdutoPorId(long? id)
         {
             return context.Produtos.Where(p => p.ProdutoId == id).Include(c => c.Categoria).

@@ -1,0 +1,184 @@
+﻿@model ProductVM
+
+@{
+    ViewBag.Title = "Edit Product";
+}
+<br />
+<h2>Edit Product</h2>
+
+<div>
+    @Html.ActionLink("Back to Products", "Products")
+</div>
+
+@if (TempData["SM"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SM"]
+    </div>
+}
+
+
+@using (Html.BeginForm("EditProduct", "Shop", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Name, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Price, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="category">Category</label>
+            <div class="col-md-10">
+                @Html.DropDownListFor(model => model.CategoryId, Model.Categories, new { @class = "form-control", @id = "category" })
+                @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-md-2" for="HasSidebar">Image</label>
+            <div class="col-md-10">
+                <img src="/Images/Uploads/Products/@Model.Id/Thumbs/@Model.ImageName" />
+                <br /><br />
+                <img id="imgpreview" src="#" />
+                <br /><br />
+                <div class="col-md-10">
+                    <input type="file" name="file" id="ImageUpload" />
+                </div>
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+@if (!Model.GalleryImages.Any())
+{
+    <h3>There are no gallery images for this product.</h3>
+}
+
+<form action="/Admin/Shop/SaveGalleryImages" method="post" enctype="multipart/form-data" class="dropzone" id="dropzoneForm">
+    <div class="fallback">
+        <input type="file" name="file" multiple />
+        <input type="submit" value="Upload" />
+    </div>
+</form>
+
+<br /><br />
+
+@foreach (var image in Model.GalleryImages)
+{
+    <div style="display: inline-block;margin-right: 15px;">
+        <img src="/Images/Uploads/Products/@Model.Id/Gallery/Thumbs/@image" />
+        @Html.ActionLink("delete", "DeleteImage", "Shop", new { @class = "deleteimage", data_name = image })
+    </div>
+}
+<link href="~/Scripts/dropzone/basic.css" rel="stylesheet" />
+<link href="~/Scripts/dropzone/dropzone.css" rel="stylesheet" />
+
+@section scripts {
+    <script src="~/Scripts/dropzone/dropzone.js"></script>
+    <script>
+
+$(function () {
+
+    /*
+    * Preview selected image
+    */
+
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $("img#imgpreview")
+                    .attr("src", e.target.result)
+                    .width(200)
+                    .height(200);
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#ImageUpload").change(function () {
+        readURL(this);
+    });
+
+    //////////////////////////////////////////////////////////////
+
+    /*
+    * Dropzone js
+    */
+
+    Dropzone.options.dropzoneForm = {
+        acceptedFiles: "image/*",
+        init: function() {
+            this.on("complete", function (file) {
+                if (this.getUploadingFiles().length === 0 && this.getQueuedFiles().length === 0) {
+                    location.reload();
+                }
+            });
+
+            this.on("sending", function (file, xhr, formData) {
+                formData.append("id",@Model.Id);
+            });
+        }
+    };
+
+    //////////////////////////////////////////////////////////////
+
+    /*
+    * Dropzone js
+    */
+
+    $("a.deleteimage").click(function (e) {
+        e.preventDefault();
+
+        if (!confirm("Confirm deletion")) return false;
+
+        var $this = $(this);
+        var url = "/admin/shop/DeleteImage";
+        var imageName = $this.data("name");
+
+        $.post(url, { id: @Model.Id, imageName: imageName }, function(data) {
+            $this.parent().fadeOut("fast");
+        });
+
+    });
+
+    //////////////////////////////////////////////////////////////
+
+
+});
+
+    </script>
+
+}

@@ -1,33 +1,65 @@
 ﻿@model IEnumerable<GORDON_STORE_ALPHA.Models.ViewModels.ProdutoVM>
 
-@{
-    //Layout = "~/Views/Shared/_Layout2.cshtml";
-    ViewBag.Title = "Listagem de PRODUTOS";
-}
+@using GridMvc.Html
 
-<div class="latest-products">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-heading">
-                    <h2>Em destaque</h2>
-                    <a href="~/Produtos/Index">ver todos os produtos -></a>
-                </div>
-            </div>
-            @foreach (var item in Model)
-            {
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <div class="down-content">
-                            <a href="#"><h4>@Html.DisplayFor(modelItem => item.Nome)</h4></a>
-                            <h6>@Html.DisplayFor(modelItem => item.ProdutoId)</h6>
-                            <span>@Html.DisplayFor(modelItem => item.Categoria.Nome)</span>
-                        </div>
-                        <a href="/Shop/product-details/@item.ProdutoId" class="primary-btn" style="margin-top:35px">Details</a>
-                    </div>
-                </div>
-            }
-        </div>
-    </div>
+@{
+    ViewBag.Title = "Produtos";
+}
+<br />
+<div class="text-center">
+    <h2>Search Results</h2>
 </div>
+
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+<link href="@Url.Content("~/Content/Gridmvc.css")" rel="stylesheet" type="text/css" />
+<script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<link href="@Url.Content("~/Content/Css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+<style>
+    ul.pagination:last-child {
+        display: flex;
+        justify-content: center;
+    }
+
+    .myClass1 {
+        text-align: center;
+        width: 8.33%;
+    }
+
+    .myClass2 {
+        text-align: center;
+        width: 25%;
+    }
+
+    .myClass3 {
+        text-align: center;
+        width: 16.66%;
+    }
+
+    .myClass4 {
+        text-align: center;
+        width: 40%;
+    }
+
+    .myClass5 {
+        text-align: center;
+        width: 10%
+    }
+</style>
+
+<h2>@ViewBag.CategoryName</h2>
+
+
+@Html.Grid(Model).Columns(columns =>
+                        {
+                            columns.Add(foo => foo.Nome).Titled("Product Name").Sortable(true).Filterable(true).Css("myClass1");
+                            columns.Add(foo => foo.Preco).Sortable(true).Filterable(true).Css("myClass3");
+                            columns.Add().Titled("Details").Encoded(false)
+.Sanitized(false).RenderValueAs(o =>@<a href="/shop/product-details/@o.Slug" class="primary-btn" style="margin-top:35px">Details</a>).Css("myClass5");
+}).WithPaging(3)
+
+<br />
+<hr />
+<br />
+
 

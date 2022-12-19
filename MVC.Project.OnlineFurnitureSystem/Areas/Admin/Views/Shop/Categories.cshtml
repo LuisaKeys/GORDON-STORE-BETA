@@ -1,0 +1,105 @@
+﻿@model List<CategoryVM>
+
+@{
+    ViewBag.Title = "Categories";
+}
+@using (Html.BeginForm("Edit", "Shop", FormMethod.Post))
+{
+    <br />
+    <h2>Categories</h2>
+    @Html.ActionLink("Add new Category", "AddCategory", "", new { @class = "" })
+    <br /><br />
+    if (!Model.Any())
+    {
+        <div class="text-center h1">There are no Categories. </div>
+    }
+    else
+    {
+        <table class="table sorting" id="pages">
+            <tr class="home">
+                <th>Category Name</th>
+                <th></th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                if (Model.Any(x => x.inlineEdit == item.Id))
+                {
+                    <tr id="id_@item.Id" class="@item.Slug ">
+                        <td class="new-cat">
+                            @Html.Hidden("id", item.Id)
+                            @Html.TextBoxFor(x => item.Name, new { @class = "form-control newcatname", @id = "txtCatName" })
+                            @Html.Hidden("txtCatName", item.Name)
+                            @Html.ValidationMessageFor(model => item.Name, "", new { @class = "text-danger" })
+
+                        </td>
+                        <td>
+                            <input type="submit" value="Save" class="btn btn-success save" onclick="Save" />
+                            @Html.ActionLink("Cancel", "Categories", new { Id = "" }, new { @class = "btn btn-danger" })
+                        </td>
+                    </tr>
+                }
+                else
+                {
+                    <tr id="id_@item.Id" class="@item.Slug">
+                        <td>
+                            @item.Name
+                        </td>
+                        <td>
+                            @Html.ActionLink("Delete", "DeleteCategory", new { id = item.Id }, new { @class = " delete" })
+                            @Html.ActionLink("Edit", "Categories", new { id = item.Id })
+
+                        </td>
+                    </tr>
+                }
+
+            }
+        </table>
+    }
+}
+@section scripts{
+    <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+    <script>
+        var catName = document.getElementById("txtCatName");
+
+        //function save(e) {
+        //    if (catName.length < 2) {
+        //        e.preventDefault();
+        //        $('form .save').attr('onclick','').unbind('click');
+        //        alert("The category name must be greater than 2 characters");
+        //        return false;
+        //    }
+        //}
+
+
+        $(function () {
+
+
+            /*
+            * Confirm page deletion
+            */
+
+            $(".delete").click(function () {
+                if (!confirm("Confirm category deletion")) return false;
+            });
+
+            //////////////////////////////////////////////////////////////
+
+            /*
+            *Sorting the pages
+            */
+            $("table#pages tbody").sortable({
+                items: "tr:not(.home)",
+                placeholder: "ui-state-highlight",
+                update: function () {
+                    var ids = $("table#pages tbody").sortable("serialize");
+                    var url = "/Admin/Shop/ReoderCategories";
+                    console.log(ids)
+                    $.post(url, ids, function (data) {
+                    });
+                }
+            });
+            //////////////////////////////
+        });
+    </script>
+}
+

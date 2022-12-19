@@ -19,6 +19,10 @@ namespace Servico.Cadastro
         {
             return produtoDAL.ObterProdutoPorId(id);
         }
+        public IQueryable<Produto> ObterProdutosClassificadosPorData()
+        {
+            return produtoDAL.ObterProdutosClassificadosPorData();
+        }
         public void GravarProduto(Produto produto)
         {
            produtoDAL.GravarProduto(produto);

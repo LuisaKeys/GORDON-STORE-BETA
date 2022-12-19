@@ -29,35 +29,38 @@ namespace WebAppECartDemo.Controllers
 
         //    // Init the list
 
-        //    categoryVMList = cadcontext.Categorias.ToArray().OrderBy(x => x.Sorting).Select(x => new CategoryVM(x, 0)).ToList();
+        //    using (EFContext cadcontext = new EFContext())
+        //    {
+        //        categoryVMList = cadcontext.Categorias.ToArray().OrderBy(x => x.Nome)/*.Select(x => new CategoriaVM(x, 0)).ToList()*/;
+        //    }
 
 
         //    // Return partial with list
         //    return PartialView(categoryVMList);
         //}
 
-        // GET: /shop/category/name
-        //public ActionResult Category(string name)
-        //{
-        //    // Declare a list of ProductVM
-        //    List<ProductVM> productVMList;
+        //GET: /shop/category/name
+        public ActionResult Category(long id)
+        {
+            // Declare a list of ProductVM
+            List<ProdutoVM> productVMList;
 
-        //    using (Db db = new Db())
-        //    {
-        //        // Get category id
-        //        CategoryDTO categoryDTO = db.Categories.Where(x => x.Slug == name).FirstOrDefault();
-        //        int catId = categoryDTO.Id;
+            using (EFContext cadcontext = new EFContext())
+            {
+                // Get category id
+                Categoria categoriaDTO = cadcontext.Categorias.Where(x => x.CategoriaId == id).FirstOrDefault();
+                long catId = categoriaDTO.CategoriaId;
 
-        //        // Init the list
-        //        productVMList = db.Products.ToArray().Where(x => x.CategoryId == catId).Select(x => new ProductVM(x)).ToList();
+                // Init the list
+                productVMList = cadcontext.Produtos.ToArray().Where(x => x.CategoriaId == catId).Select(x => new ProdutoVM(x)).ToList();
 
-        //        // Get category name
-        //        ViewBag.CategoryName = categoryDTO.Name;
-        //    }
+                // Get category name
+                ViewBag.CategoriaNome = categoriaDTO.Nome;
+            }
 
-        //    // Return view with list
-        //    return View(productVMList);
-        //}
+            // Return view with list
+            return View(productVMList);
+        }
 
         // GET: /shop/product-details/name
         [ActionName("product-details")]
@@ -66,18 +69,18 @@ namespace WebAppECartDemo.Controllers
             // Declare the VM, DTO, and id
             ProdutoVM model;
             Produto dto;
-            long id;
+            long? id;
 
             using (EFContext cadcontext = new EFContext())
             {
                 // Check if product exists
-                if (!cadcontext.Produtos.Any(x => x.Nome.Equals(name)))
-                {
-                    return RedirectToAction("Category", "Shop");
-                }
+                //if (!cadcontext.Produtos.Any(x => x.Slug.Equals(name)))
+                //{
+                //    return RedirectToAction("Category", "Shop");
+                //}
 
                 // Init productDTO
-                dto = cadcontext.Produtos.Where(x => x.Nome == name).FirstOrDefault();
+                dto = cadcontext.Produtos.Where(x => x.Slug == name).FirstOrDefault();
 
                 // Get id
                 id = dto.ProdutoId;

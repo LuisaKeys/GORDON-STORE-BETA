@@ -17,7 +17,7 @@ namespace GORDON_STORE_ALPHA.Models.Cart
         public long Id { get; set; }
         public long OrderId { get; set; }
         public string UserId { get; set; }
-        public long ProdutoId { get; set; }
+        public long? ProdutoId { get; set; }
         public int Quantidade { get; set; }
 
         [ForeignKey("OrderId")]

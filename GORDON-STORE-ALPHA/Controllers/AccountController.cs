@@ -160,7 +160,7 @@ namespace GORDON_STORE_ALPHA.Controllers
         {
             if (ModelState.IsValid)
             {
-                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Nome = model.Nome };
+                var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Nome = model.Nome, Sobrenome = model.Sobrenome, Cpf = model.Cpf, Cidade = model.Cidade, Estado = model.Estado, Rua = model.Rua, Complemento = model.Complemento, Numero = model.Numero, DataNascimento = model.DataNascimento };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {

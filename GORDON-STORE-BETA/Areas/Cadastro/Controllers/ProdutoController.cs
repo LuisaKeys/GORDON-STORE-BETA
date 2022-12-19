@@ -11,6 +11,7 @@ using Servico.Tabelas;
 using GORDON_STORE_BETA.Context;
 using System.Net.NetworkInformation;
 using System.IO;
+using GORDON_STORE_BETA.Models;
 
 namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
 {
@@ -80,6 +81,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
                     produto.NomeArquivo = upimg.FileName;
                     produto.TamanhoArquivo = upimg.ContentLength;
                 }
+                
                 produtoServico.GravarProduto(produto);
                 PopularViewBag(produto);
                 return View(produto);
@@ -141,6 +143,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
         [Authorize]
         public ActionResult Create()
         {
+            
             PopularViewBag();
             return View();
         }
@@ -149,6 +152,7 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
         [HttpPost]
         public ActionResult Create(Produto produto, HttpPostedFileBase upimg = null, string chkRemoverImagem = null)
         {
+            produto.Slug = produto.Nome;
             return GravarProduto(produto, upimg, chkRemoverImagem);
         }
 

@@ -10,7 +10,7 @@ namespace GORDON_STORE_BETA.DAL
 {
     public class IdentityDbContextAplicacao : IdentityDbContext<UsuarioAdm>
     {
-        public IdentityDbContextAplicacao() : base("GORDON_STORE")
+        public IdentityDbContextAplicacao() : base("GORDON_STORE_BETA")
         { }
         static IdentityDbContextAplicacao()
         {
