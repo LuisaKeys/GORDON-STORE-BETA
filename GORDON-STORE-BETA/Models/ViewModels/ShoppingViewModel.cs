@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebAppECartDemo.ViewModel
+namespace GORDON_STORE_BETA.ViewModel
 {
     public class ShoppingViewModel
     {
@@ -13,6 +13,6 @@ namespace WebAppECartDemo.ViewModel
         public string ImagePath { get; set; }
         public string Description { get; set; }
         public string ItemCode { get; set; }
-        public string Category { get; set; }
+        public string Categoria { get; set; }
     }
 }

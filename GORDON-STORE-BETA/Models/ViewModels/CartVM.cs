@@ -5,7 +5,7 @@ using System.Linq;
 using System.Web;
 
 
-namespace GORDON_STORE_ALPHA.Models.ViewModels
+namespace GORDON_STORE_BETA.Models.ViewModels
 {
     public class CartVM
     {

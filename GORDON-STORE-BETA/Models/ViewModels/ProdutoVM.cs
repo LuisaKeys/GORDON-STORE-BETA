@@ -9,7 +9,7 @@ using System.Xml.Linq;
 using Modelo.Cadastro;
 using Modelo.Tabelas;
 
-namespace GORDON_STORE_ALPHA.Models.ViewModels
+namespace GORDON_STORE_BETA.Models.ViewModels
 {
     public class ProdutoVM
     {

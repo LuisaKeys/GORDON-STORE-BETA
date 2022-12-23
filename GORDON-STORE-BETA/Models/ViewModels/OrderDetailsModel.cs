@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebAppECartDemo.ViewModel
-{
-    public class OrderDetailsModel
-    {
-    }
-}
+//namespace o.ViewModel
+//{
+//    public class OrderDetailsModel
+//    {
+//    }
+//}
