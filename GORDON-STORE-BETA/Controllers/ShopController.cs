@@ -7,7 +7,6 @@ using System.Web.Mvc;
 using Modelo.Cadastro;
 using Modelo.Tabelas;
 using Persistencia.Context;
-using GORDON_STORE_ALPHA.Models.ViewModels;
 using System.Collections.Generic;
 using Servico.Cadastro;
 using GORDON_STORE_BETA.Models.ViewModels;

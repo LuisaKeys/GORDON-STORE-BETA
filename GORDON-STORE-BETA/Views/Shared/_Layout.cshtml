@@ -56,12 +56,12 @@
         </nav>
     </header>
     @RenderBody()
-    
-<footer>
-   
-</footer>
+
+    <footer>
+    </footer>
     <script src="@Url.Content("~/scripts/jquery-1.10.1.js")"></script>
     <script src="@Url.Content("~/scripts/bootstrap.js")"></script>
     @RenderSection("ScriptPage", false)
+    @RenderSection("scripts", required: false)
 </body>
 </html>
