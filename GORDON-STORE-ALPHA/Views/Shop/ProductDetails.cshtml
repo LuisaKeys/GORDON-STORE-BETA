@@ -70,11 +70,6 @@
                             {
                                 <div class="addtocart">
                                     <a class="primary-btn addtocart"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-                                    <a class="primary-btn pull-right" href="/Cart"><i class="fa fa-shopping-cart"></i>Check out</a>
-                                    <span class="loader">
-                                        <img src="~/Content/img/ajax-loader.gif" />
-                                    </span>
-                                    <span class="ajaxmsg">The product has been added to your cart.</span>
                                 </div>
                                 @Html.ActionLink("Back to all products", "Category", "Shop", new { name = Model.Categoria.Nome.Replace(" ", "-").ToLower() }, new { @class = "text-center h4 pull-right  text-primary" })
                             }
@@ -104,8 +99,8 @@
 @section Scripts {
 
     <script src="~/Scripts/jquery.fancybox.js"></script>
-    <script>
-$(function () {
+<script>
+    $(function () {
 
     /*
     * Fancybox
@@ -113,11 +108,6 @@ $(function () {
 
     $(".fancybox").fancybox();
 
-    ////////////////////////////////////////////////////////
-
-    /*
-    * Add to cart
-    */
 
     $("a.addtocart").click(function (e) {
         e.preventDefault();
@@ -141,7 +131,7 @@ $(function () {
     ////////////////////////////////////////////////////////
 
 });
-    </script>
+</script>
 
 }
 

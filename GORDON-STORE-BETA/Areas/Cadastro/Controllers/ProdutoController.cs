@@ -8,7 +8,6 @@ using System.Data.Entity;
 using Modelo.Cadastro;
 using Servico.Cadastro;
 using Servico.Tabelas;
-using GORDON_STORE_BETA.Context;
 using System.Net.NetworkInformation;
 using System.IO;
 using GORDON_STORE_BETA.Models;

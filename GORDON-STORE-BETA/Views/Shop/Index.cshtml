@@ -1,0 +1,64 @@
+﻿@model GORDON_STORE_BETA.Models.ViewModels.Shop
+@using GORDON_STORE_ALPHA.Models;
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Listagem de PRODUTOS";
+}
+
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Em destaque</h2>
+                    <a href="~/Produtos/Index">ver todos os produtos -></a>
+                </div>
+            </div>
+            @foreach (var item in Model.listaprodutos)
+            {
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <a href="#"><img src="@Url.Action("GetLogotipo", "Produtos", new { id = item.ProdutoId })" style="display: block; margin-left: auto; margin-right: auto; height: 200px" /></a>
+                        <div class="down-content">
+                            <a href="#"><h4>@Html.DisplayFor(modelItem => item.Nome)</h4></a>
+                            <h6>@Html.DisplayFor(modelItem => item.ProdutoId)</h6>
+                            <p>Fabricante: @Html.DisplayFor(modelItem => item.Estudio.Nome)</p>
+                            <span>@Html.DisplayFor(modelItem => item.Categoria.Nome)</span>
+                            @Html.ActionLink("Adicionar ao Carrinho", "AddToCartPartial", new { id = item.ProdutoId })
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="latest-products">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="section-heading">
+                    <h2>Últimos 30 dias</h2>
+                    <a href="~/Produtos/Index">ver todos os produtos -></a>
+                </div>
+            </div>
+            @foreach (var item in Model.listaprodutos)
+            {
+                <div class="col-md-4">
+                    <div class="product-item">
+                        <a href="#"><img src="@Url.Action("GetLogotipo", "Produtos", new { id = item.ProdutoId })" style="display: block; margin-left: auto; margin-right: auto; height: 200px" /></a>
+                        <div class="down-content">
+                            <a href="#"><h4>@Html.DisplayFor(modelItem => item.Nome)</h4></a>
+                            <h6>@Html.DisplayFor(modelItem => item.ProdutoId)</h6>
+                            <p>Fabricante: @Html.DisplayFor(modelItem => item.Estudio.Nome)</p>
+                            <span>@Html.DisplayFor(modelItem => item.Categoria.Nome)</span>
+                        </div>
+                    </div>
+                </div>
+            }
+
+        </div>
+    </div>
+</div>
+

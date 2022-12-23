@@ -52,9 +52,14 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
                 {
                     UserName = model.Nome,
                     Email = model.Email,
-                    Nome = model.Nome
-
-
+                    Sobrenome = model.Sobrenome,
+                    Cpf = model.Cpf,
+                    Estado = model.Estado,
+                    Cidade = model.Cidade,
+                    Rua = model.Rua,
+                    Numero = model.Numero,
+                    Complemento = model.Complemento,
+                    DataNascimento = model.DataNascimento
 
                 };
                 IdentityResult result = GerenciadorUsuario.Create(user, model.Senha);

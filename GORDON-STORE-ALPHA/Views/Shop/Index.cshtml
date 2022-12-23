@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GORDON_STORE_ALPHA.Models.ViewModels.ProdutoVM>
+﻿@model GORDON_STORE_ALPHA.Models.ViewModels.HomeClass
 
 @using GridMvc.Html
 
@@ -15,6 +15,41 @@
 <script src="@Url.Content("~/Scripts/gridmvc.min.js")" type="text/javascript"></script>
 <script src="~/Scripts/bootstrap.min.js"></script>
 <link href="@Url.Content("~/Content/Css/bootstrap.min.css")" rel="stylesheet" type="text/css" />
+
+<script>
+    $(function () {
+
+        /*
+        * Fancybox
+        */
+
+        $(".fancybox").fancybox();
+
+
+        $("a.addtocart").click(function (e) {
+            e.preventDefault();
+
+            $("span.loader").addClass("ib");
+
+            var url = "/cart/AddToCartPartial";
+
+            $.get(url, { id: Model.ProdutoId }, function (data) {
+                $(".ajaxcart").html(data);
+            }).done(function () {
+                $("span.loader").removeClass("ib");
+                $("span.ajaxmsg").addClass("ib");
+                setTimeout(function () {
+                    $("span.ajaxmsg").fadeOut("fast");
+                    $("span.ajaxmsg").removeClass("ib");
+                }, 1000);
+            });
+        });
+
+        ////////////////////////////////////////////////////////
+
+    });
+</script>
+
 <style>
     ul.pagination:last-child {
         display: flex;
@@ -50,13 +85,23 @@
 <h2>@ViewBag.CategoryName</h2>
 
 
-@Html.Grid(Model).Columns(columns =>
-                        {
-                            columns.Add(foo => foo.Nome).Titled("Product Name").Sortable(true).Filterable(true).Css("myClass1");
-                            columns.Add(foo => foo.Preco).Sortable(true).Filterable(true).Css("myClass3");
-                            columns.Add().Titled("Details").Encoded(false)
-.Sanitized(false).RenderValueAs(o =>@<a href="/shop/product-details/@o.Slug" class="primary-btn" style="margin-top:35px">Details</a>).Css("myClass5");
-}).WithPaging(3)
+@foreach (var item in Model.listaprodutos)
+{
+    <div class="col-md-4">
+        <div class="product-item">
+            <a href="#"><img src="@Url.Action("GetLogotipo", "Produtos", new { id = item.ProdutoId })" style="display: block; margin-left: auto; margin-right: auto; height: 200px" /></a>
+            <div class="down-content">
+                <a href="#"><h4>@Html.DisplayFor(modelItem => item.Nome)</h4></a>
+                <h6>@Html.DisplayFor(modelItem => item.ProdutoId)</h6>
+                <p>Fabricante: @Html.DisplayFor(modelItem => item.Estudio.Nome)</p>
+                <span>@Html.DisplayFor(modelItem => item.Categoria.Nome)</span>
+            </div>
+            <a class="primary-btn addtocart"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
+            }).WithPaging(3)
+        </div>
+    </div>
+}
+
 
 <br />
 <hr />

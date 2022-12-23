@@ -1,44 +1,47 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
+using System.Xml.Linq;
+using Modelo.Cadastro;
 using Modelo.Tabelas;
-using Modelo.Sistema;
 
-namespace Modelo.Cadastro
+namespace GORDON_STORE_ALPHA.Models.ViewModels
 {
-    public class Produto
+    public class ProdutoVM
     {
-       
+        public ProdutoVM()
+        {
+        }
+        public ProdutoVM(Produto row)
+        {
+            ProdutoId = row.ProdutoId;
+            Nome = row.Nome;
+            Preco = row.Preco;
+            Categoria = row.Categoria;
+            CategoriaId = row.CategoriaId;
+            NomeArquivo = row.NomeArquivo;
+            Slug = row.Slug;
+        }
+
         [DisplayName("Id")]
         public long? ProdutoId { get; set; }
         [StringLength(100, ErrorMessage = "O nome do produto precisa ter no mínimo 10 caracteres", MinimumLength = 10)]
         [Required(ErrorMessage = "Informe o nome do produto")]
         public string Nome { get; set; }
-        [DataType(DataType.Date)]
-        [DisplayName("Data de Cadastro")]
-        [Required(ErrorMessage = "Informe data de cadastro do produto")]
-        public DateTime? DataCadastro { get; set; }
         [DisplayName("Preço")]
         [Range(1, Double.PositiveInfinity)]
         [Required(ErrorMessage = "O preço deve conter um valor válido")]
         public float Preco { get; set; }
-        [DisplayName("Quantidade")]
-        public int Qtd { get; set; }
         [DisplayName("Categoria")]
         public long? CategoriaId { get; set; }
-        [DisplayName("Estúdio")]
-        public long? EstudioId { get; set; }
         public Categoria Categoria { get; set; }
-        public Estudio Estudio { get; set; }
-        //public string Slug { get; set; }
-        public string UpImgMimeType { get; set; }
-        public byte[] UpImg { get; set; }
         public string NomeArquivo { get; set; }
-        public long TamanhoArquivo { get; set; }
+        public IEnumerable<string> GalleryImages { get; set; }
         public string Slug { get; set; }
-        //public virtual ICollection<Cart> Carrinhos { get; set; }
+
     }
 }

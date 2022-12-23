@@ -1,0 +1,21 @@
+﻿@model GORDON_STORE_ALPHA.Models.ViewModels.CartVM
+
+
+<li class="header-cart dropdown default-dropdown ajaxcart">
+    <a class="dropdown-toggle" data-toggle="dropdown" aria-expanded="true">
+        <div class="header-btns-icon">
+            <i class="fa fa-shopping-cart"></i>
+            <span class="qty">@Model.Quantidade</span>
+        </div>
+        <strong class="text-uppercase">Your cart<i class="fa fa-caret-down"></i></strong>
+        <br>
+        <span>$@Model.Preco</span>
+    </a>
+    <div class="custom-menu">
+        <div id="shopping-cart">
+            <div class="shopping-cart-btns text-center">
+                <button class="primary-btn"> @Html.ActionLink("Checkout", "Index") <i class="fa fa-arrow-circle-right"></i></button>
+            </div>
+        </div>
+    </div>
+</li>

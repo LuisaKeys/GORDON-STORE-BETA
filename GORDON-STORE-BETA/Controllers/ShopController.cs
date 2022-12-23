@@ -4,26 +4,25 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using GORDON_STORE_ALPHA.Context;
 using Modelo.Cadastro;
 using Modelo.Tabelas;
 using Persistencia.Context;
 using GORDON_STORE_ALPHA.Models.ViewModels;
 using System.Collections.Generic;
 using Servico.Cadastro;
+using GORDON_STORE_BETA.Models.ViewModels;
 
-namespace WebAppECartDemo.Controllers
+namespace GORDON_STORE_BETA.Controllers
 {
     public class ShopController : Controller
     {
-        private ContextCart cartcontext = new ContextCart();
         private EFContext cadcontext = new EFContext();
         private ProdutoServico produtoServico = new ProdutoServico();
         public ActionResult Index()
         {
-           HomeClass home = new HomeClass();
-            home.listaprodutos = produtoServico.ObterProdutosClassificadosPorNome();
-            return View(home);
+           Shop shop = new Shop();
+            shop.listaprodutos = produtoServico.ObterProdutosClassificadosPorNome();
+            return View(shop);
         }
         //public ActionResult CategoryMenuPartial()
         //{

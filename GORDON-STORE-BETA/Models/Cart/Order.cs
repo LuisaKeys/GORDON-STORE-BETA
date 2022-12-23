@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modelo.Cart
+namespace GORDON_STORE_BETA.Models.Cart
 {
     public class Order
     {

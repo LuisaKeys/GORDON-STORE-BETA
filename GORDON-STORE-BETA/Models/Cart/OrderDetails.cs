@@ -1,14 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Modelo.Cadastro;
-using Modelo.Sistema;
+using GORDON_STORE_BETA.Areas.Seguranca;
+using GORDON_STORE_BETA.Areas.Seguranca.Models;
 
-namespace Modelo.Cart
+namespace GORDON_STORE_BETA.Models.Cart
 {
     public class OrderDetails
     {
@@ -16,7 +19,7 @@ namespace Modelo.Cart
         public long Id { get; set; }
         public long OrderId { get; set; }
         public string UserId { get; set; }
-        public long? ProdutoId { get; set; }
+        public long ProdutoId { get; set; }
         public int Quantidade { get; set; }
 
         [ForeignKey("OrderId")]
