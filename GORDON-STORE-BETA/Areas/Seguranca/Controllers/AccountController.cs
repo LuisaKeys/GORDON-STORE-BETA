@@ -45,7 +45,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
     {
         if (ModelState.IsValid)
         {
-            UsuarioAdm user = UserManager.Find(details.Name, details.Senha);
+            UsuarioAdm user = UserManager.Find(details.UserName, details.Senha);
             if (user == null)
             {
                 ModelState.AddModelError("", "Nome ou senha inválido(s).");
@@ -58,7 +58,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
                 AuthManager.SignIn(new AuthenticationProperties
                 { IsPersistent = false }, ident);
                 if (returnUrl == null)
-                    returnUrl = "/Home";
+                    returnUrl = "/Shop";
                 return Redirect(returnUrl);
             }
         }

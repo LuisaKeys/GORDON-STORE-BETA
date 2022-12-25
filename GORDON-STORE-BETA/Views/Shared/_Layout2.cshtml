@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./index.css">
+    <link rel="stylesheet" href="~/Content/index.css">
+    <link rel="stylesheet" href="~/Content/detalhesproduto.css">
     <title>Gordon Store</title>
 </head>
 <body>
     <header>
         <section>
             <section id="logo-header">
-                <h1><a href="#"><img src="./image/logo.svg" alt="logo-gordon-store" id="logo"></a></h1>
+                <h1><a href="#"><img src="~/Images/Gordon/logo.svg" alt="logo-gordon-store" id="logo"></a></h1>
             </section>
 
             <section id="links-header">
@@ -26,83 +27,40 @@
             <section id="lista-itens-header">
                 <nav>
                     <ul>
-                        <li><a href="javascript:abrir('PopUpSearch')"><img src="./image/search.svg" alt="pesquisar" class="itens-header1"></a></li>
-                        <li><a href="javascript:abrir('PopUpCart')"><img src="./image/cart.svg" alt="carrinho" class="itens-header"></a></li>
-                        <li><a href="javascript:abrir('PopUpUsuario')"><img src="./image/profile.svg" alt="perfil" class="itens-header"></a></li>
-                        <li><a href="javascript:abrir('PopUpUsuario')"><img src="./image/arrow.svg" alt="seta" class="itens-header2"></a></li>
+                        <li><a href="javascript:abrir('PopUpSearch')"><img src="~/Images/Gordon/search.svg" alt="pesquisar" class="itens-header1"></a></li>
+                        <li><a href="javascript:abrir('PopUpCart')"><img src="~/Images/Gordon/cart.svg" alt="carrinho" class="itens-header"></a></li>
+                        <li><a href="javascript:abrir('PopUpUsuario')"><img src="~/Images/Gordon/profile.svg" alt="perfil" class="itens-header"></a></li>
+                        <li><a href="javascript:abrir('PopUpUsuario')"><img src="~/Images/Gordon/arrow.svg" alt="seta" class="itens-header2"></a></li>
                     </ul>
                 </nav>
             </section>
         </section>
         <div id="PopUpUsuario">
             <ul>
-                <li><a href="#"><img src="./image/SignIn.png" alt="">ENTRAR</a></li>
-                <li><a href="#"><img src="./image/UserCirclePlus.png" alt="">CRIAR CONTA</a></li>
-                <li><a href="#"><img src="./image/Question.png" alt="">AJUDA</a></li>
+                <li><a href="#"><img src="~/Images/Gordon/SignIn.png" alt="">ENTRAR</a></li>
+                <li><a href="#"><img src="~/Images/Gordon/UserCirclePlus.png" alt="">CRIAR CONTA</a></li>
+                <li><a href="#"><img src="~/Images/Gordon/Question.png" alt="">AJUDA</a></li>
             </ul>
         </div>
         <div id="PopUpSearch">
             <form>
                 <input type="text" method="get" placeholder="O que está procurando?">
                 <button type="submit">
-                    <img src="./image/search-purple.png" alt="lupa">
+                    <img src="~/Images/Gordon/search-purple.png" alt="lupa">
                 </button>
             </form>
         </div>
 
-        <div id="PopUpCart">
-            <div id="header-cart">
-                <a href="javascript:abrir('PopUpCart')">
-                    <img src="./image/back-white.png" alt="" id="cartback">
-                </a>
-                <h3>Minha cesta</h3>
-                <div id="cart-img">
-                    <img src="./image/cart.svg" alt="">
-                    <div id="cart-indicator">
-                        <div>
-                            <p>1</p>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-
-            <div id="body-cart">
-                <div class="container-product-cart">
-                    <div>
-                        <img src="./image/hq-miranha.png" alt="">
-                    </div>
-                    <div class="content-cart">
-                        <h2>HQ O ESPETACULAR HOMEM ARANHA DE VOLTA AO LAR</h2>
-                        <div class="internal-content1">
-                            <div class="itens-cart">
-                                <p>Preço: </p>
-                                <p>R$ 89,90</p>
-                            </div>
-                            <div class="itens-cart">
-                                <p>Quantidade: </p>
-                                <p>1</p>
-                            </div>
-                        </div>
-                        <div class="itens-cart">
-                            <p>Código do produto: </p>
-                            <p>0112352</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div id="footer-cart">
-                <a href="">Finalizar pedido</a>
-            </div>
-        </div>
+        @Html.Partial("~\\Views\\Cart\\_PartialViewCart.cshtml")
 
     </header>
-    
+
+    @RenderBody()
 
     <section id="bannermail">
         <div id="conteudobannermail">
             <div id="mailimage">
-                <img src="./image/mail.png" alt="E-MAIL">
+                <img src="~/Images/Gordon/mail.png" alt="E-MAIL">
             </div>
             <div id="conteudointernobannermail">
                 <div>
@@ -110,7 +68,7 @@
                 </div>
                 <a href="#" class="btn-3d yellow">
                     CADASTRE-SE
-                    <img class="setacompre" src="./image/Arrow right.png" alt="seta">
+                    <img class="setacompre" src="~/Images/Gordon/Arrow right.png" alt="seta">
                 </a>
             </div>
         </div>
@@ -119,7 +77,7 @@
     <footer>
         <div class="conteudofooter">
             <figure>
-                <img src="./image/logo.svg" alt="">
+                <img src="~/Images/Gordon/logo.svg" alt="">
             </figure>
             <section>
                 <h5>Institucional</h5>
@@ -140,24 +98,24 @@
             <section>
                 <h5>Siga-nos</h5>
                 <ul id="redessociais">
-                    <li><img src="./image/insta.svg" alt=""></li>
-                    <li><img src="./image/face.svg" alt=""></li>
-                    <li><img src="./image/link.svg" alt=""></li>
-                    <li><img src="./image/youtube.svg" alt=""></li>
-                    <li><img src="./image/twitter.svg" alt=""></li>
+                    <li><img src="~/Images/Gordon/insta.svg" alt=""></li>
+                    <li><img src="~/Images/Gordon/face.svg" alt=""></li>
+                    <li><img src="~/Images/Gordon/link.svg" alt=""></li>
+                    <li><img src="~/Images/Gordon/youtube.svg" alt=""></li>
+                    <li><img src="~/Images/Gordon/twitter.svg" alt=""></li>
                 </ul>
             </section>
             <section id="formaspagamento">
                 <h5>Formas de pagamento</h5>
                 <ul>
-                    <li><img src="./image/credito.svg" alt=""><p>Credito</p></li>
-                    <li><img src="./image/debito.svg" alt=""><p>Debito</p></li>
-                    <li><img src="./image/boleto.svg" alt=""><p>Boleto</p></li>
+                    <li><img src="~/Images/Gordon/credito.svg" alt=""><p>Credito</p></li>
+                    <li><img src="~/Images/Gordon/debito.svg" alt=""><p>Debito</p></li>
+                    <li><img src="~/Images/Gordon/boleto.svg" alt=""><p>Boleto</p></li>
                 </ul>
             </section>
         </div>
     </footer>
-    <script src="./index.js"></script>
+    <script src="~/Scripts/index.js"></script>
     <script src="@Url.Content("~/scripts/jquery-1.10.1.js")"></script>
     <script src="@Url.Content("~/scripts/bootstrap.js")"></script>
     @RenderSection("ScriptPage", false)

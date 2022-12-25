@@ -15,7 +15,9 @@
   padding: 0;
   font-family: 'Roboto', sans-serif;
 }
-
+body {
+    overflow-x: hidden;
+}
 header{
   background-color: #2E0F46;
   padding: 0.8em 1em 0.8em 1em;
@@ -106,6 +108,7 @@ header section ul li a{
   right: 150px;
   top: 80px;
   border: 1px solid white;
+  z-index: 20;
 
 }
 
@@ -201,6 +204,7 @@ header section ul li a{
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   display: none;
+  z-index: 20;
 }
 
 #header-cart{
@@ -753,7 +757,6 @@ html {
   background-color: #2E0F46;
   left: 81px;
   top: 1414px;
-  border-radius: 7px;
 }
 
 .conteudocontainer{
@@ -785,18 +788,18 @@ html {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 700;
-  font-size: 20px;
-  line-height: 23px;
+  font-size: 14px;
+  line-height: 14px;
   color: #FFFFFF;
 }
 
-.tituloproduto{
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
-  color: #FFFFFF;
+.tituloproduto {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 15px;
+    color: #FFFFFF;
+    max-width: 178px;
 }
 
 .productbottom{
@@ -810,22 +813,18 @@ html {
   justify-content: right;
 }
 
-.precoproduto{
-  position: absolute;
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  color: #2E0F46;
-  width: 4rem;
-  bottom: 0;
-
-  text-align: center;
-  background: #E0CE0D;
-}
-
-.tipoproduto, .tituloproduto, .productbottom{
-  margin-top: 8px;
+.precoproduto {
+    position: absolute;
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    color: #2E0F46;
+    width: 4rem;
+    bottom: 0;
+    box-shadow: 1px -1px 6px 3px #00000047;
+    text-align: center;
+    background: #E0CE0D;
 }
 
 .bannercontainer{

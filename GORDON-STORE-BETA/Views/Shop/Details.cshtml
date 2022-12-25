@@ -1,93 +1,46 @@
 ﻿@model Modelo.Cadastro.Produto
 
 @{
+    Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewBag.Title = Model.Nome;
 }
 <div id="breadcrumb" style="text-align:left !important">
 </div>
 
-@*/////////////////////*@
-
-<!-- section -->
-<div class="section">
-    <!-- container -->
-    <div class="container">
-        <!-- row -->
-        <div class="row">
-            <!--  Product Details -->
-            <div class="product product-details clearfix">
-                <div class="col-md-6">
-                    <div id="product-main-view">
-                        @*@foreach (var image in Model.UpImg)
-                        {
-                            <div class="product-view fancyboxdiv">
-                                <img src="/Images/Uploads/Products/@Model.ProdutoId/Gallery/@image" style="width:620px !important;height:400px !important" />
-                            </div>
-                        }*@
-                    </div>
-                    <div id="product-view">
-                        <!--
-                            <div class="product-view fancyboxdiv">-->
-                                @*<a class="fancybox" rel="gallery1" href="/Images/Uploads/Products/@Model.ProdutoId/Gallery/@image">
-                                    <img src="/Images/Uploads/Products/@Model.ProdutoId/Gallery/Thumbs/@image" style="width:130px !important;height:130px !important" />
-                                </a>*@
-                            <!--</div>
-                        }-->
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="product-body">
-                        <div class="product-label">
-                            <span>New</span>
-                        </div>
-                        <h2 class="product-name">
-                            @Html.DisplayFor(model => model.Nome)
-                        </h2>
-                        <h3 class="product-price">$@Model.Preco</h3>
-                        <div>
-                            <div class="product-rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o empty"></i>
-                            </div>
-                        </div>
-                        <p><strong>Availability:</strong> In Stock</p>
-                        <p><strong>Brand:</strong>E-LAVAL</p>
-                        <div class="product-btns">
-                            @if (Request.IsAuthenticated)
-                            {
-                                <div class="addtocart">
-                                    <a class="primary-btn addtocart"><i class="fa fa-shopping-cart"></i> Add to Cart</a>
-                                    <a class="primary-btn pull-right" href="/Cart"><i class="fa fa-shopping-cart"></i>Check out</a>
-                                    <span class="loader">
-                                        <img src="~/Content/img/ajax-loader.gif" />
-                                    </span>
-                                    <span class="ajaxmsg">The product has been added to your cart.</span>
-                                </div>
-                                
-                            }
-                            else
-                            {
-                                <a href="/account/login" class="primary-btn">Please Login to add products to your cart</a>
-                                
-                            }
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- /Product Details -->
-        </div>
-        <!-- /row -->
+<div class="container-detalhe">
+    <div class="images">
+        <img src="hq-miranha.png" class="produto" />
     </div>
-    <!-- /container -->
-</div>
-<!-- /section -->
-@*//////////////////////*@
-<hr />
 
+    <div class="product">
+        <p class="p">Histórias em quadrinho</p>
+        <h1 class="h1">Homem-Aranha: De Volta ao Lar</h1>
+        <h3 class="h3">Marvel</h3>
+        <h2 class="h2">R$ 150</h2>
+
+        <div class="buttons">
+            <button class="add" class="button">carrinho</button>
+            <button class="like" class="button"><span>♥</span></button>
+        </div>
+    </div>
+</div>
+
+@if (Request.IsAuthenticated)
+{
+    <div class="addtocart">
+        <a class="addtocart"><i class="fa fa-shopping-cart"></i> Adicionar ao carrinho</a>
+        @*<span class="loader">
+                <img src="~/Content/img/ajax-loader.gif" />
+            </span>*@
+        @*<span class="ajaxmsg">The product has been added to your cart.</span>*@
+    </div>
+
+}
+else
+{
+    <a href="/account/login" class="primary-btn">Entre com uma conta para adicionar o produto ao carrinho</a>
+
+}
 
 <link href="~/Content/jquery.fancybox.css" rel="stylesheet" />
 
@@ -118,7 +71,7 @@ $(function () {
         });
     });
 
-    
+
 
 });
     </script>
