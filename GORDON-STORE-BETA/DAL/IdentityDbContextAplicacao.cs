@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using Microsoft.AspNet.Identity.EntityFramework;
-using GORDON_STORE_BETA.Areas.Seguranca.Models;
+using Modelo.Sistema;
 using System.Data.Entity;
 
 namespace GORDON_STORE_BETA.DAL

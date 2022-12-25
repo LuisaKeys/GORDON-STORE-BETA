@@ -62,6 +62,7 @@
     <script src="@Url.Content("~/scripts/jquery-1.10.1.js")"></script>
     <script src="@Url.Content("~/scripts/bootstrap.js")"></script>
     @RenderSection("ScriptPage", false)
+    @*@Scripts.Render("~/bundles/validation")*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

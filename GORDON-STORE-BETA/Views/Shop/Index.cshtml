@@ -1,10 +1,240 @@
 ﻿@model GORDON_STORE_BETA.Models.ViewModels.Shop
-@using GORDON_STORE_ALPHA.Models;
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewBag.Title = "Listagem de PRODUTOS";
 }
+
+<section id="banner">
+    <div class="conteudobanner">
+        <div id="container1">
+            <h2 id="gordon">Gordon<br>Store</h2>
+            <a href="#" class="btn-3d yellow">
+                Compre<br />Agora
+                <img class="setacompre" src="./image/Arrow right.png" alt="seta">
+            </a>
+        </div>
+        <div id="divimagemcapa">
+            <img id="imagemcapa" src="./image/capa11_dc 1.png" alt="imagemcapa">
+        </div>
+    </div>
+</section>
+<div class="containercarrosel">
+    <div class="carrousel">
+        <svg aria-hidden="true" style="display:none" xmlns="http://www.w3.org/2000/svg">
+
+            <symbol id="icon-left-arrow" viewBox="0 0 29 46" version="1.1">
+                <g transform="translate(-42 -1615)" stroke="#FFFFFF" stroke-width="4" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline transform="translate(56.5 1638) rotate(-90) translate(-56.5 -1638)" points="36 1650 56.5 1626 67.581 1639 77 1650" />
+                </g>
+            </symbol>
+
+            <symbol id="icon-right-arrow" viewBox="0 0 29 46" version="1.1">
+                <g transform="translate(-1349.000000, -1615.000000)" stroke="#FFFFFF" stroke-width="4" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline id="Path-Copy" transform="translate(1363.500000, 1638.000000) scale(-1, 1) rotate(-90.000000) translate(-1363.500000, -1638.000000) " points="1343 1650 1363.5 1626 1384 1650"></polyline>
+                </g>
+            </symbol>
+        </svg>
+
+        <div class="sliderWrapper leftLocked">
+            <div class="slider">
+                <div class="listeLien">
+                    <a class="lien" href="#">
+                        <img src="./image/personagem (1).png" alt="">
+                    </a>
+                    <a class="lien" href="#">
+                        <img src="./image/personagem (2).png" alt="">
+                    </a>
+                    <a class="lien" href="#">
+                        <img src="./image/personagem (3).png" alt="">
+                    </a>
+                    <a class="lien" href="#">
+                        <img src="./image/personagem (4).png" alt="">
+                    </a>
+                    <a class="lien" href="#">
+                        <img src="./image/personagem (5).png" alt="">
+                    </a>
+                    <a class="lien" href="#">
+                        <img src="./image/personagem (6).png" alt="">
+                    </a>
+                    <a class="lien" href="#">
+                        <img src="./image/personagem (1).png" alt="">
+                    </a>
+                    <a class="lien" href="#">
+                        <img src="./image/personagem (2).png" alt="">
+                    </a>
+                    <a class="lien" href="#">
+                        <img src="./image/personagem (3).png" alt="">
+                    </a>
+                    <a class="lien" href="#">
+                        <img src="./image/personagem (4).png" alt="">
+                    </a>
+
+                </div>
+            </div>
+            <div class="navSlider navSliderLeft disabled">
+                <svg aria-hidden="true"><use xlink:href="#icon-left-arrow"></use></svg>
+            </div>
+            <div class="navSlider navSliderRight">
+                <svg aria-hidden="true"><use xlink:href="#icon-right-arrow"></use></svg>
+            </div>
+        </div>
+
+        <div class="sliderMarks">
+        </div>
+    </div>
+</div>
+
+<section class="lista">
+    <h2 class="titulosection">
+        EM DESTAQUE
+    </h2>
+    <div class="listadeprodutos">
+        <div class="containerproduto">
+            <div class="conteudocontainer">
+
+                <div class="containerexterno">
+                    <a href="#"><img src="./image/Heart.png" alt="coração" class="iconfavorito"></a>
+                    <img class="imagemcontainer" src="./image/produto.svg" alt="imagem do produto">
+                    <p class="precoproduto">Preço</p>
+                </div>
+                <h5 class="tipoproduto">Tipo da capa</h5>
+                <p class="tituloproduto">Título da HQ</p>
+                <div class="productbottom">
+                    <a href="#"><img src="./image/cartproduct.svg" alt="cart"></a>
+                </div>
+            </div>
+        </div>
+        <div class="containerproduto">
+            <div class="conteudocontainer">
+
+                <div class="containerexterno">
+                    <a href="#"><img src="./image/Heart.png" alt="coração" class="iconfavorito"></a>
+                    <img class="imagemcontainer" src="./image/produto.svg" alt="imagem do produto">
+                    <p class="precoproduto">Preço</p>
+                </div>
+                <h5 class="tipoproduto">Tipo da capa</h5>
+                <p class="tituloproduto">Título da HQ</p>
+                <div class="productbottom">
+                    <a href="#"><img src="./image/cartproduct.svg" alt="cart"></a>
+                </div>
+            </div>
+        </div>
+        <div class="containerproduto">
+            <div class="conteudocontainer">
+
+                <div class="containerexterno">
+                    <a href="#"><img src="./image/Heart.png" alt="coração" class="iconfavorito"></a>
+                    <img class="imagemcontainer" src="./image/produto.svg" alt="imagem do produto">
+                    <p class="precoproduto">Preço</p>
+                </div>
+                <h5 class="tipoproduto">Tipo da capa</h5>
+                <p class="tituloproduto">Título da HQ</p>
+                <div class="productbottom">
+                    <a href="#"><img src="./image/cartproduct.svg" alt="cart"></a>
+                </div>
+            </div>
+        </div>
+        <div class="containerproduto">
+            <div class="conteudocontainer">
+
+                <div class="containerexterno">
+                    <a href="#"><img src="./image/Heart.png" alt="coração" class="iconfavorito"></a>
+                    <img class="imagemcontainer" src="./image/produto.svg" alt="imagem do produto">
+                    <p class="precoproduto">Preço</p>
+                </div>
+                <h5 class="tipoproduto">Tipo da capa</h5>
+                <p class="tituloproduto">Título da HQ</p>
+                <div class="productbottom">
+                    <a href="#"><img src="./image/cartproduct.svg" alt="cart"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+@*<section class="lista">
+    <h2 class="titulosection">
+        CURTIDOS
+    </h2>
+    <div class="listadeprodutos">
+        <div class="containerproduto">
+            <div class="conteudocontainer">
+
+                <div class="containerexterno">
+                    <a href="#"><img src="./image/filledheart.png" alt="coração" class="iconfavorito"></a>
+                    <img class="imagemcontainer" src="./image/produto.svg" alt="imagem do produto">
+                    <p class="precoproduto">Preço</p>
+                </div>
+                <h5 class="tipoproduto">Tipo da capa</h5>
+                <p class="tituloproduto">Título da HQ</p>
+                <div class="productbottom">
+                    <a href="#"><img src="./image/cartproduct.svg" alt="cart"></a>
+                </div>
+            </div>
+        </div>
+        <div class="containerproduto">
+            <div class="conteudocontainer">
+
+                <div class="containerexterno">
+                    <a href="#"><img src="./image/filledheart.png" alt="coração" class="iconfavorito"></a>
+                    <img class="imagemcontainer" src="./image/produto.svg" alt="imagem do produto">
+                    <p class="precoproduto">Preço</p>
+                </div>
+                <h5 class="tipoproduto">Tipo da capa</h5>
+                <p class="tituloproduto">Título da HQ</p>
+                <div class="productbottom">
+                    <a href="#"><img src="./image/cartproduct.svg" alt="cart"></a>
+                </div>
+            </div>
+        </div>
+        <div class="containerproduto">
+            <div class="conteudocontainer">
+
+                <div class="containerexterno">
+                    <a href="#"><img src="./image/filledheart.png" alt="coração" class="iconfavorito"></a>
+                    <img class="imagemcontainer" src="./image/produto.svg" alt="imagem do produto">
+                    <p class="precoproduto">Preço</p>
+                </div>
+                <h5 class="tipoproduto">Tipo da capa</h5>
+                <p class="tituloproduto">Título da HQ</p>
+                <div class="productbottom">
+                    <a href="#"><img src="./image/cartproduct.svg" alt="cart"></a>
+                </div>
+            </div>
+        </div>
+        <div class="containerproduto">
+            <div class="conteudocontainer">
+
+                <div class="containerexterno">
+                    <a href="#"><img src="./image/filledheart.png" alt="coração" class="iconfavorito"></a>
+                    <img class="imagemcontainer" src="./image/produto.svg" alt="imagem do produto">
+                    <p class="precoproduto">Preço</p>
+                </div>
+                <h5 class="tipoproduto">Tipo da capa</h5>
+                <p class="tituloproduto">Título da HQ</p>
+                <div class="productbottom">
+                    <a href="#"><img src="./image/cartproduct.svg" alt="cart"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="lista">
+    <h2 class="titulosection">
+        O QUE DESEJA COMPRAR?
+    </h2>
+    <div class="bannercontainer">
+        <div class="banner2" style="background-image: url(./image/hqsbanner.png);">
+            <p>HQ's</p>
+        </div>
+        <div class="banner2" style="background-image: url(./image/jogosbanner.png);">
+            <p>Jogos</p>
+        </div>
+    </div>
+
+</section>*@
 
 <div class="latest-products">
     <div class="container">
@@ -12,7 +242,7 @@
             <div class="col-md-12">
                 <div class="section-heading">
                     <h2>Em destaque</h2>
-                    <a href="~/Produtos/Index">ver todos os produtos -></a>
+                    <a href="~//Produtos/Index">ver todos os produtos -></a>
                 </div>
             </div>
             @foreach (var item in Model.listaprodutos)
@@ -25,39 +255,16 @@
                             <h6>@Html.DisplayFor(modelItem => item.ProdutoId)</h6>
                             <p>Fabricante: @Html.DisplayFor(modelItem => item.Estudio.Nome)</p>
                             <span>@Html.DisplayFor(modelItem => item.Categoria.Nome)</span>
-                            @Html.ActionLink("Adicionar ao Carrinho", "AddToCartPartial", new { id = item.ProdutoId })
+                            @Html.ActionLink("Detalhes", "Details", new { id = item.ProdutoId })
+
+                            @*<a href="/shop/ProdutoPartialView/@item.ProdutoId" class="primary-btn" style="margin-top:35px">Details</a>*@
+
+
+
                         </div>
                     </div>
                 </div>
             }
-        </div>
-    </div>
-</div>
-
-<div class="latest-products">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="section-heading">
-                    <h2>Últimos 30 dias</h2>
-                    <a href="~/Produtos/Index">ver todos os produtos -></a>
-                </div>
-            </div>
-            @foreach (var item in Model.listaprodutos)
-            {
-                <div class="col-md-4">
-                    <div class="product-item">
-                        <a href="#"><img src="@Url.Action("GetLogotipo", "Produtos", new { id = item.ProdutoId })" style="display: block; margin-left: auto; margin-right: auto; height: 200px" /></a>
-                        <div class="down-content">
-                            <a href="#"><h4>@Html.DisplayFor(modelItem => item.Nome)</h4></a>
-                            <h6>@Html.DisplayFor(modelItem => item.ProdutoId)</h6>
-                            <p>Fabricante: @Html.DisplayFor(modelItem => item.Estudio.Nome)</p>
-                            <span>@Html.DisplayFor(modelItem => item.Categoria.Nome)</span>
-                        </div>
-                    </div>
-                </div>
-            }
-
         </div>
     </div>
 </div>

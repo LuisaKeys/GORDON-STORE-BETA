@@ -9,7 +9,6 @@ using System.Web;
 
 namespace Modelo.Sistema
 {
-    [Table("Funcionarios")]
     public class UsuarioAdm : IdentityUser
     {
         public string Nome { get; set; }

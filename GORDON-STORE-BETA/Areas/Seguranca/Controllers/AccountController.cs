@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
+using Modelo.Sistema;
 
 namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
 {
@@ -44,7 +45,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
     {
         if (ModelState.IsValid)
         {
-            UsuarioAdm user = UserManager.Find(details.Nome, details.Senha);
+            UsuarioAdm user = UserManager.Find(details.Name, details.Senha);
             if (user == null)
             {
                 ModelState.AddModelError("", "Nome ou senha inválido(s).");

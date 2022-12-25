@@ -225,21 +225,21 @@ namespace GORDON_STORE_BETA.Controllers
 
             int orderId = 0;
 
-            //using (EFContext context = new EFContext())
-            //{
 
                 // Init OrderDTO
                 Order orderDTO = new Order();
 
                 // Get user id
                 var q = db.Users.FirstOrDefault(x => x.Email == username);
+                //string userId = q.Id;
+                
                 string userId = q.Id;
 
-                // Add to OrderDTO and save
+            // Add to OrderDTO and save
                 orderDTO.UserId = userId;
                 orderDTO.CreatedAt = DateTime.Now;
 
-                context.Orders.Add(orderDTO);
+                //context.Orders.Add(orderDTO);
 
                 context.SaveChanges();
 
@@ -257,7 +257,7 @@ namespace GORDON_STORE_BETA.Controllers
                     orderDetailsDTO.ProdutoId = item.ProdutoId;
                     orderDetailsDTO.Quantidade = item.Quantidade;
 
-                    context.OrdersDetails.Add(orderDetailsDTO);
+                    //context.OrdersDetails.Add(orderDetailsDTO);
 
                     context.SaveChanges();
                 }

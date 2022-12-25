@@ -11,7 +11,8 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Models
     {
         public string Id { get; set; }
         [Required]
-        public string Nome { get; set; }
+        public string UserName { get; set; }
+        public string Nome { get; set; } 
         public string Sobrenome { get; set; }
         public string Cpf { get; set; }
         public string Estado { get; set; }

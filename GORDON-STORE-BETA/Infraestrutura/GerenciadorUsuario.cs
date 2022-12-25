@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using GORDON_STORE_BETA.Areas.Seguranca.Models;
+using Modelo.Sistema;
 using GORDON_STORE_BETA.DAL;
 
 namespace GORDON_STORE_BETA.Infraestrutura

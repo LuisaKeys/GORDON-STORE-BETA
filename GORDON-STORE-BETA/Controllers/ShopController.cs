@@ -10,11 +10,27 @@ using Persistencia.Context;
 using System.Collections.Generic;
 using Servico.Cadastro;
 using GORDON_STORE_BETA.Models.ViewModels;
+using System.Net;
+using System.Data;
 
 namespace GORDON_STORE_BETA.Controllers
 {
     public class ShopController : Controller
     {
+        private ActionResult ObterVisaoProdutoPorId(long? id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Produto produto = produtoServico.ObterProdutoPorId((long?)id);
+            if (produto == null)
+            {
+                return HttpNotFound();
+            }
+            return View(produto);
+        }
+
         private EFContext cadcontext = new EFContext();
         private ProdutoServico produtoServico = new ProdutoServico();
         public ActionResult Index()
@@ -23,25 +39,9 @@ namespace GORDON_STORE_BETA.Controllers
             shop.listaprodutos = produtoServico.ObterProdutosClassificadosPorNome();
             return View(shop);
         }
-        //public ActionResult CategoryMenuPartial()
-        //{
-        //    // Declare list of CategoryVM
-        //    List<Categoria> categoryVMList;
-
-        //    // Init the list
-
-        //    using (EFContext cadcontext = new EFContext())
-        //    {
-        //        categoryVMList = cadcontext.Categorias.ToArray().OrderBy(x => x.Nome)/*.Select(x => new CategoriaVM(x, 0)).ToList()*/;
-        //    }
-
-
-        //    // Return partial with list
-        //    return PartialView(categoryVMList);
-        //}
 
         //GET: /shop/category/name
-        public ActionResult Category(long id)
+        public ActionResult Categoria(long id)
         {
             // Declare a list of ProductVM
             List<ProdutoVM> productVMList;
@@ -64,38 +64,40 @@ namespace GORDON_STORE_BETA.Controllers
         }
 
         // GET: /shop/product-details/name
-        [ActionName("product-details")]
-        public ActionResult ProductDetails(string name)
+        //[ActionName("product-details")]
+        public ActionResult Details(long? id)
         {
-            // Declare the VM, DTO, and id
+
+            return ObterVisaoProdutoPorId(id);
+            //// Declare the VM, DTO, and id
             ProdutoVM model;
-            Produto dto;
-            long? id;
+            //Produto dto;
+            //long? id;
 
-            using (EFContext cadcontext = new EFContext())
-            {
-                // Check if product exists
-                //if (!cadcontext.Produtos.Any(x => x.Slug.Equals(name)))
-                //{
-                //    return RedirectToAction("Category", "Shop");
-                //}
+            //using (EFContext cadcontext = new EFContext())
+            //{
+            //    // Check if product exists
+            //    if (!cadcontext.Produtos.Any(x => x.Slug.Equals(name)))
+            //    {
+            //        return RedirectToAction("Index", "Shop");
+            //    }
 
-                // Init productDTO
-                dto = cadcontext.Produtos.Where(x => x.Slug == name).FirstOrDefault();
+            //    // Init productDTO
+            //    dto = cadcontext.Produtos.Where(x => x.Slug == name).FirstOrDefault();
 
-                // Get id
-                id = dto.ProdutoId;
+            //    // Get id
+            //    id = dto.ProdutoId;
 
-                // Init model
-                model = new ProdutoVM(dto);
-            }
+            //    // Init model
+            //    model = new ProdutoVM(dto);
+            //}
 
             // Get gallery images
             model.GalleryImages = Directory.EnumerateFiles(Server.MapPath("~/Images/Uploads/Products/" + id + "/Gallery/Thumbs"))
                                                 .Select(fn => Path.GetFileName(fn));
 
-            // Return view with model
-            return View("ProductDetails", model);
+            //// Return view with model
+            //return View("ProductDetails", model);
         }
 
         //Get: Shop/Search-Results/searchWord

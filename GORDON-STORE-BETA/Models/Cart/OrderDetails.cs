@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using Modelo.Cadastro;
 using GORDON_STORE_BETA.Areas.Seguranca;
 using GORDON_STORE_BETA.Areas.Seguranca.Models;
+using Modelo.Sistema;
 
 namespace GORDON_STORE_BETA.Models.Cart
 {

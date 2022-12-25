@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WebGreaseLibPath>..\packages\WebGrease.1.5.2\lib</WebGreaseLibPath>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -43,6 +44,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Antlr3.Runtime, Version=3.4.1.9004, Culture=neutral, PublicKeyToken=eb42632606e9261f, processorArchitecture=MSIL">
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -89,6 +93,9 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Optimization, Version=1.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Web" />
@@ -96,6 +103,9 @@
     <Reference Include="System.Configuration" />
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebGrease, Version=1.5.2.14234, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Web.Razor">
@@ -223,6 +233,7 @@
     <Content Include="Content\DataTables\images\sort_desc.png" />
     <Content Include="Content\DataTables\images\sort_desc_disabled.png" />
     <Content Include="Content\DataTables\swf\flashExport.swf" />
+    <Content Include="Content\index.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -275,6 +286,152 @@
     <Content Include="Areas\Seguranca\Views\PapelAdmin\Index.cshtml" />
     <Content Include="Areas\Seguranca\Views\PapelAdmin\Create.cshtml" />
     <Content Include="Areas\Seguranca\Views\PapelAdmin\Edit.cshtml" />
+    <Content Include="Images\Uploads\Products\10\6.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\1.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\2.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\3.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\4.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\5.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\6.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\Thumbs\1.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\Thumbs\2.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\Thumbs\3.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\Thumbs\4.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\Thumbs\5.jpg" />
+    <Content Include="Images\Uploads\Products\10\Gallery\Thumbs\6.jpg" />
+    <Content Include="Images\Uploads\Products\10\Thumbs\6.jpg" />
+    <Content Include="Images\Uploads\Products\11\2.jpg" />
+    <Content Include="Images\Uploads\Products\11\Gallery\1.jpg" />
+    <Content Include="Images\Uploads\Products\11\Gallery\2.jpg" />
+    <Content Include="Images\Uploads\Products\11\Gallery\3.jpg" />
+    <Content Include="Images\Uploads\Products\11\Gallery\4.jpg" />
+    <Content Include="Images\Uploads\Products\11\Gallery\5.jpg" />
+    <Content Include="Images\Uploads\Products\11\Gallery\Thumbs\1.jpg" />
+    <Content Include="Images\Uploads\Products\11\Gallery\Thumbs\2.jpg" />
+    <Content Include="Images\Uploads\Products\11\Gallery\Thumbs\3.jpg" />
+    <Content Include="Images\Uploads\Products\11\Gallery\Thumbs\4.jpg" />
+    <Content Include="Images\Uploads\Products\11\Gallery\Thumbs\5.jpg" />
+    <Content Include="Images\Uploads\Products\11\Thumbs\2.jpg" />
+    <Content Include="Images\Uploads\Products\1\467203.jpg" />
+    <Content Include="Images\Uploads\Products\1\Gallery\275134.jpg" />
+    <Content Include="Images\Uploads\Products\1\Gallery\467203.jpg" />
+    <Content Include="Images\Uploads\Products\1\Gallery\793491.jpg" />
+    <Content Include="Images\Uploads\Products\1\Gallery\892605.jpg" />
+    <Content Include="Images\Uploads\Products\1\Gallery\933956.jpg" />
+    <Content Include="Images\Uploads\Products\1\Gallery\Thumbs\275134.jpg" />
+    <Content Include="Images\Uploads\Products\1\Gallery\Thumbs\467203.jpg" />
+    <Content Include="Images\Uploads\Products\1\Gallery\Thumbs\793491.jpg" />
+    <Content Include="Images\Uploads\Products\1\Gallery\Thumbs\892605.jpg" />
+    <Content Include="Images\Uploads\Products\1\Gallery\Thumbs\933956.jpg" />
+    <Content Include="Images\Uploads\Products\1\Thumbs\467203.jpg" />
+    <Content Include="Images\Uploads\Products\2\4.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\4.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\8278_20170515174929_152.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\8372_20170515182505_214.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\8372_20170515182505_215 %281%29.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\8372_20170515182505_215.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\8372_20170515182505_216.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\Thumbs\4.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\Thumbs\8278_20170515174929_152.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\Thumbs\8372_20170515182505_214.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\Thumbs\8372_20170515182505_215 %281%29.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\Thumbs\8372_20170515182505_215.jpg" />
+    <Content Include="Images\Uploads\Products\2\Gallery\Thumbs\8372_20170515182505_216.jpg" />
+    <Content Include="Images\Uploads\Products\2\Thumbs\4.jpg" />
+    <Content Include="Images\Uploads\Products\3\467203.jpg" />
+    <Content Include="Images\Uploads\Products\3\8365_20170515182339_210.jpg" />
+    <Content Include="Images\Uploads\Products\3\Gallery\275134.jpg" />
+    <Content Include="Images\Uploads\Products\3\Gallery\467203.jpg" />
+    <Content Include="Images\Uploads\Products\3\Gallery\793491.jpg" />
+    <Content Include="Images\Uploads\Products\3\Gallery\892605.jpg" />
+    <Content Include="Images\Uploads\Products\3\Gallery\933956.jpg" />
+    <Content Include="Images\Uploads\Products\3\Gallery\Thumbs\275134.jpg" />
+    <Content Include="Images\Uploads\Products\3\Gallery\Thumbs\467203.jpg" />
+    <Content Include="Images\Uploads\Products\3\Gallery\Thumbs\793491.jpg" />
+    <Content Include="Images\Uploads\Products\3\Gallery\Thumbs\892605.jpg" />
+    <Content Include="Images\Uploads\Products\3\Gallery\Thumbs\933956.jpg" />
+    <Content Include="Images\Uploads\Products\3\Thumbs\467203.jpg" />
+    <Content Include="Images\Uploads\Products\3\Thumbs\8365_20170515182339_210.jpg" />
+    <Content Include="Images\Uploads\Products\4\8278_20170515174929_152.jpg" />
+    <Content Include="Images\Uploads\Products\4\8372_20170515182505_215.jpg" />
+    <Content Include="Images\Uploads\Products\4\Gallery\4.jpg" />
+    <Content Include="Images\Uploads\Products\4\Gallery\8372_20170515182505_214.jpg" />
+    <Content Include="Images\Uploads\Products\4\Gallery\8372_20170515182505_215 %281%29.jpg" />
+    <Content Include="Images\Uploads\Products\4\Gallery\8372_20170515182505_215.jpg" />
+    <Content Include="Images\Uploads\Products\4\Gallery\8372_20170515182505_216.jpg" />
+    <Content Include="Images\Uploads\Products\4\Gallery\Thumbs\4.jpg" />
+    <Content Include="Images\Uploads\Products\4\Gallery\Thumbs\8372_20170515182505_214.jpg" />
+    <Content Include="Images\Uploads\Products\4\Gallery\Thumbs\8372_20170515182505_215 %281%29.jpg" />
+    <Content Include="Images\Uploads\Products\4\Gallery\Thumbs\8372_20170515182505_215.jpg" />
+    <Content Include="Images\Uploads\Products\4\Gallery\Thumbs\8372_20170515182505_216.jpg" />
+    <Content Include="Images\Uploads\Products\4\Thumbs\8278_20170515174929_152.jpg" />
+    <Content Include="Images\Uploads\Products\4\Thumbs\8372_20170515182505_215.jpg" />
+    <Content Include="Images\Uploads\Products\5\3.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\1.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\2.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\3.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\4.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\5.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\8365_20170515182338_208.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\8365_20170515182338_209.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\8365_20170515182339_210.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\Thumbs\1.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\Thumbs\2.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\Thumbs\3.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\Thumbs\4.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\Thumbs\5.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\Thumbs\8365_20170515182338_208.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\Thumbs\8365_20170515182338_209.jpg" />
+    <Content Include="Images\Uploads\Products\5\Gallery\Thumbs\8365_20170515182339_210.jpg" />
+    <Content Include="Images\Uploads\Products\5\Thumbs\3.jpg" />
+    <Content Include="Images\Uploads\Products\6\4.jpg" />
+    <Content Include="Images\Uploads\Products\6\Gallery\8278_20170515174927_153 %281%29.jpg" />
+    <Content Include="Images\Uploads\Products\6\Gallery\8278_20170515174929_151.jpg" />
+    <Content Include="Images\Uploads\Products\6\Gallery\8278_20170515174929_152.jpg" />
+    <Content Include="Images\Uploads\Products\6\Gallery\8278_20170515174932_154.jpg" />
+    <Content Include="Images\Uploads\Products\6\Gallery\8278_20170515175031_155.jpg" />
+    <Content Include="Images\Uploads\Products\6\Gallery\Thumbs\8278_20170515174927_153 %281%29.jpg" />
+    <Content Include="Images\Uploads\Products\6\Gallery\Thumbs\8278_20170515174929_151.jpg" />
+    <Content Include="Images\Uploads\Products\6\Gallery\Thumbs\8278_20170515174929_152.jpg" />
+    <Content Include="Images\Uploads\Products\6\Gallery\Thumbs\8278_20170515174932_154.jpg" />
+    <Content Include="Images\Uploads\Products\6\Gallery\Thumbs\8278_20170515175031_155.jpg" />
+    <Content Include="Images\Uploads\Products\6\Thumbs\4.jpg" />
+    <Content Include="Images\Uploads\Products\7\Gallery\Beautiful-Kitchen-Design-With-Bar-2C.jpg" />
+    <Content Include="Images\Uploads\Products\7\Gallery\Elegant-Kitchen-Design-With-Bar-e1j.jpg" />
+    <Content Include="Images\Uploads\Products\7\Gallery\Kitchen-Design-With-Bar-kl.jpg" />
+    <Content Include="Images\Uploads\Products\7\Gallery\Modern-Kitchen-Design-With-Bar-Images-9AS1.jpg" />
+    <Content Include="Images\Uploads\Products\7\Gallery\Thumbs\Beautiful-Kitchen-Design-With-Bar-2C.jpg" />
+    <Content Include="Images\Uploads\Products\7\Gallery\Thumbs\Elegant-Kitchen-Design-With-Bar-e1j.jpg" />
+    <Content Include="Images\Uploads\Products\7\Gallery\Thumbs\Kitchen-Design-With-Bar-kl.jpg" />
+    <Content Include="Images\Uploads\Products\7\Gallery\Thumbs\Modern-Kitchen-Design-With-Bar-Images-9AS1.jpg" />
+    <Content Include="Images\Uploads\Products\7\Kitchen-Design-With-Bar-kl.jpg" />
+    <Content Include="Images\Uploads\Products\7\Thumbs\Kitchen-Design-With-Bar-kl.jpg" />
+    <Content Include="Images\Uploads\Products\9\5.jpg" />
+    <Content Include="Images\Uploads\Products\9\Gallery\1.jpg" />
+    <Content Include="Images\Uploads\Products\9\Gallery\2.jpg" />
+    <Content Include="Images\Uploads\Products\9\Gallery\3.jpg" />
+    <Content Include="Images\Uploads\Products\9\Gallery\4.jpg" />
+    <Content Include="Images\Uploads\Products\9\Gallery\5.jpg" />
+    <Content Include="Images\Uploads\Products\9\Gallery\Thumbs\1.jpg" />
+    <Content Include="Images\Uploads\Products\9\Gallery\Thumbs\2.jpg" />
+    <Content Include="Images\Uploads\Products\9\Gallery\Thumbs\3.jpg" />
+    <Content Include="Images\Uploads\Products\9\Gallery\Thumbs\4.jpg" />
+    <Content Include="Images\Uploads\Products\9\Gallery\Thumbs\5.jpg" />
+    <Content Include="Images\Uploads\Products\9\Thumbs\5.jpg" />
+    <Content Include="fonts\adineue PRO.ttf" />
+    <Content Include="fonts\BatmanForeverAlternate.ttf" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\index.js" />
+    <Content Include="Scripts\jquery.fancybox-buttons.js" />
+    <Content Include="Scripts\jquery.fancybox-media.js" />
+    <Content Include="Scripts\jquery.fancybox-thumbs.js" />
+    <Content Include="Scripts\jquery.fancybox.js" />
+    <Content Include="Scripts\jquery.fancybox.pack.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Views\Home\Index.cshtml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -360,6 +517,7 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Areas\Cadastro\CadastroAreaRegistration.cs" />
@@ -420,6 +578,8 @@
     <Content Include="Views\Cart\CartPartial.cshtml" />
     <Content Include="Views\Cart\Index.cshtml" />
     <Content Include="Views\Cart\PaypalPartial.cshtml" />
+    <Content Include="Views\Shop\Details.cshtml" />
+    <Content Include="Views\Shared\_Layout2.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

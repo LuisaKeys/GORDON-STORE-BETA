@@ -9,7 +9,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Models
     public class LoginViewModel
     {
         [Required]
-        public string Nome { get; set; }
+        public string Name { get; set; }
         [Required]
         public string Senha { get; set; }
     }

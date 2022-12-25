@@ -7,6 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using GORDON_STORE_BETA.Infraestrutura;
 using Microsoft.AspNet.Identity;
 using GORDON_STORE_BETA.Areas.Seguranca.Models;
+using Modelo.Sistema;
 using System.Net;
 
 namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
@@ -50,8 +51,9 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
             {
                 UsuarioAdm user = new UsuarioAdm
                 {
-                    UserName = model.Nome,
+                    UserName = model.UserName,
                     Email = model.Email,
+                    Nome = model.Nome,
                     Sobrenome = model.Sobrenome,
                     Cpf = model.Cpf,
                     Estado = model.Estado,
@@ -88,7 +90,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
             
             var uvm = new UsuarioViewModel();
             uvm.Id = usuario.Id;
-            uvm.Nome = usuario.UserName;
+            uvm.UserName = usuario.UserName;
             uvm.Email = usuario.Email;
             return View(uvm);
         }
@@ -98,7 +100,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
             if (ModelState.IsValid)
             {
                 UsuarioAdm usuario = GerenciadorUsuario.FindById(uvm.Id);
-                usuario.UserName = uvm.Nome;
+                usuario.UserName = uvm.UserName;
                 usuario.Email = uvm.Email;
                 usuario.PasswordHash = GerenciadorUsuario.PasswordHasher.
                 HashPassword(uvm.Senha);
