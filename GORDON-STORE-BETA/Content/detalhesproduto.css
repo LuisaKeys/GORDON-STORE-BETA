@@ -92,4 +92,5 @@ body {
 .images img {
     height: 299px;
     margin: 24px 27px;
+    max-width: 279px;
 }

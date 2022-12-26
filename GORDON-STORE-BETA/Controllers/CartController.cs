@@ -17,7 +17,7 @@ namespace GORDON_STORE_BETA.Controllers
     {
         private EFContext context = new EFContext();
         private IdentityDbContext db = new IdentityDbContext();
-
+        [Authorize]
         // GET: Cart
         public ActionResult Index()
         {
@@ -27,7 +27,7 @@ namespace GORDON_STORE_BETA.Controllers
             // Check if cart is empty
             if (cart.Count == 0 || Session["cart"] == null)
             {
-                ViewBag.Message = "Your cart is empty.";
+                ViewBag.Message = "Seu carrinho está vazio";
                 return View();
             }
 
@@ -92,6 +92,7 @@ namespace GORDON_STORE_BETA.Controllers
             {
                 // Get the product
                 Produto produto = context.Produtos.Find(id);
+                //var quantidade = context.Produtos.(q => q.Qtd);
 
                 // Check if the product is already in cart
                 var produtoInCart = cart.FirstOrDefault(x => x.ProdutoId == id);
@@ -105,13 +106,22 @@ namespace GORDON_STORE_BETA.Controllers
                         ProdutoNome = produto.Nome,
                         Quantidade = 1,
                         Preco = produto.Preco,
-                        UpImg = produto.NomeArquivo
+                        UpImg = produto.NomeArquivo,
                     });
                 }
                 else
                 {
+                    if(produto.Qtd <= produtoInCart.Quantidade)
+                    {
+                        ViewBag.Message = "Não é possível adicionar ao carrinho mais do que o disponível";
+                        return View();
+                    }
+                    else
+                    {
+                        produtoInCart.Quantidade++;
+                    }
                     // If it is, increment
-                    produtoInCart.Quantidade++;
+                    
                 }
             }
 

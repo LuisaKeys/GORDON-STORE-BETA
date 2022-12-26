@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using GORDON_STORE_BETA.Areas.Seguranca.Models;
 using Modelo.Sistema;
 using System.Net;
+using System.Net.Mail;
 
 namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
 {
@@ -67,7 +68,8 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
                 IdentityResult result = GerenciadorUsuario.Create(user, model.Senha);
                 if (result.Succeeded)
                 { 
-                    return RedirectToAction("Index"); 
+                    return RedirectToAction("Index");
+                    
                 }
                 else
                 {

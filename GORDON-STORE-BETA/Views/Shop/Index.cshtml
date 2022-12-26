@@ -105,11 +105,14 @@
                         }
                         else
                         {
-                            <img src="@Url.Action("GetUpImg", "Produtos", new { id = item.ProdutoId })" />
+                    <a href="@Url.Action("Details", new { id = item.ProdutoId })">
+                        <img class="img-thumbnail" src="@Url.Action("GetUpImg", "Produto", new { id = item.ProdutoId })"
+                             style="display: block; margin-left: auto; margin-right: auto; height: 275px; width: 177.52px" />
+                    </a>
                         }
 
                         <p class="precoproduto">R$ @Html.DisplayFor(modelItem => item.Preco)</p>
-                    </div>
+</div>
                     <h5 class="tipoproduto" style="margin-top: 12px">@Html.DisplayFor(modelItem => item.Categoria.Nome)</h5>
                     <p class="tituloproduto">@Html.DisplayFor(modelItem => item.Nome)</p>
                     <p class="tipoproduto">@Html.DisplayFor(modelItem => item.Estudio.Nome)</p>

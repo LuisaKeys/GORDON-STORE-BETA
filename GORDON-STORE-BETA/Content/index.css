@@ -786,13 +786,14 @@ html {
   height: 274px;  
 }
 
-.tipoproduto{
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 700;
-  font-size: 14px;
-  line-height: 14px;
-  color: #FFFFFF;
+.tipoproduto {
+    font-family: 'Roboto';
+    font-style: normal;
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 14px;
+    color: #FFFFFF;
+    max-width: 179px;
 }
 
 .tituloproduto {
@@ -822,7 +823,7 @@ html {
     font-weight: 400;
     font-size: 20px;
     color: #2E0F46;
-    width: 4rem;
+    width: 6rem;
     bottom: 0;
     box-shadow: 1px -1px 6px 3px #00000047;
     text-align: center;

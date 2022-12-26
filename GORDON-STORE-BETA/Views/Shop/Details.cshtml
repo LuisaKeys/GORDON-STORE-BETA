@@ -9,7 +9,6 @@
 
 <div id="breadcrumb" style="text-align:left !important">
 </div>
-
 <div class="container-detalhe">
     <div class="images">
         @if (Model.UpImg == null)
@@ -18,7 +17,8 @@
         }
         else
         {
-            <img src="@Url.Action("GetUpImg", "Produtos", new { id = Model.ProdutoId })" />
+            <img class="img-thumbnail" src="@Url.Action("GetUpImg", "Produto", new { id = Model.ProdutoId })"
+                   style="" />
         }
     </div>
 
@@ -26,18 +26,19 @@
         <p class="p">@Html.DisplayFor(modelItem => Model.Categoria.Nome)</p>
         <h1 class="h1">@Html.DisplayFor(modelItem => Model.Nome)</h1>
         <h3 class="h3">@Html.DisplayFor(modelItem => Model.Estudio.Nome)</h3>
-        <h2 class="h2">@Html.DisplayFor(modelItem => Model.Preco)</h2>
+        <h2 class="h2">R$ @Html.DisplayFor(modelItem => Model.Preco)</h2>
 
         <div class="buttons">
             @if (Request.IsAuthenticated)
             {
-                
-                
+
+
                 <div class="addtocart">
-                    <button class="add" class="button"><a class="addtocart"><i class="fa fa-shopping-cart"></i>Carrinho</a></button>
-                    <button class="like" class="button"><span>♥</span></button>
-                    
+                    <button class="add"><a class="addtocart"><i class="fa fa-shopping-cart"></i>Carrinho</a></button>
+                    <button class="like"><span>♥</span></button>
+
                 </div>
+                <p>@ViewBag.Message</p>
 
             }
             else
@@ -49,6 +50,7 @@
         </div>
     </div>
 </div>
+ 
 
 
 

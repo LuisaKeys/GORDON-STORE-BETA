@@ -9,7 +9,7 @@
 @if (ViewBag.Message != null)
 {
     <div class="text-center " style="min-height:150px">
-        <h3>@ViewBag.Message</h3>
+        <h3 style="text-align: center; margin-top: 27px">@ViewBag.Message</h3>
     </div>
     <hr />
 }
@@ -34,7 +34,7 @@ else
                                 <div>
                                     @if (item.UpImg == null)
                                     {
-                                        <img src="~/Images/Gordon/hq-miranha.png" alt="">
+                                        <img src="~/Images/Gordon/img-indisponivel.jpg" alt="" height="200px">
                                     }
                                     else
                                     {
@@ -57,9 +57,7 @@ else
                                         <p>Código do produto: </p>
                                         <p>@Html.DisplayFor(modelItem => item.ProdutoId)</p>
                                     </div>
-                                    <a href="#" class="incrproduct" data-id="@item.ProdutoId">+</a>
-                                    <a href="#" class="decrproduct" data-id="@item.ProdutoId">-</a>
-                                    <a href="#" class="removeproduct " data-id="@item.ProdutoId">remover</i></a>
+                                    <a class="removeproduct" data-id="@item.ProdutoId" style="font-weight: bold" href="#">excluir</a>
                                 </div>
                             </div>
                         </div>
