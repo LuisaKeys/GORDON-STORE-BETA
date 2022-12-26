@@ -5,17 +5,6 @@
     ViewBag.Title = "Cart Details";
     int count = 1;
 }
-<!-- BREADCRUMB -->
-<div id="breadcrumb">
-    <div class="container">
-        <ul class="breadcrumb">
-            <li><a href="/Home/Index">Home</a></li>
-            <li class="active">Checkout</li>
-        </ul>
-    </div>
-
-</div>
-<!-- /BREADCRUMB -->
 
 @if (ViewBag.Message != null)
 {
@@ -27,9 +16,9 @@
 else
 {
     <div class="ajaxbg">
-        <span>
+        @*<span>
             <img src="~/Content/img/ajax-loader.gif" />
-        </span>
+        </span>*@
     </div>
     <!-- section -->
     <div class="section">
@@ -38,96 +27,57 @@ else
             <!-- row -->
             <div class="row">
                 <form id="checkout-form" class="clearfix">
-                    <div class="col-md-12">
-                        <div class="order-summary clearfix">
-                            <div class="section-title">
-                                <h3 class="title">Order Review</h3>
-                            </div>
-                            <table class="shopping-cart-table table">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">
-                                            Image
-                                        </th>
-                                        <th class="text-center">
-                                            Name
-                                        </th>
-                                        <th class="text-center">
-                                            Price
-                                        </th>
-                                        <th class="text-center">
-                                            Quantity
-
-                                        </th>
-
-                                        <th class="text-center">
-                                            Total
-                                        </th>
-                                        <th>
-
-                                        </th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach (var item in Model)
+                    @foreach (var item in Model)
+                    {
+                        <div id="body-cart">
+                            <div class="container-product-cart">
+                                <div>
+                                    @if (item.UpImg == null)
                                     {
-                                        <tr>
-                                            <td class=" text-center h4">
-                                                <a href="/shop/product-details/@item.ProdutoNome">
-                                                    <img src="/Images/Uploads/Products/@item.ProdutoId/Thumbs/@item.Image" class="img-circle" />
-                                                </a>
-                                            </td>
-                                            <td class="details  text-center h4">
-                                                @Html.DisplayFor(modelItem => item.ProdutoNome)
-                                            </td>
-                                            <td class="price text-center h4">
-                                                $@Html.DisplayFor(modelItem => item.Preco)
-                                            </td>
-                                            <td class="qty@(item.ProdutoId) qty text-center h4">
-                                                @Html.DisplayFor(modelItem => item.Quantidade)
-                                            </td>
-
-                                            <td class="total@(item.ProdutoId) text-center h4">
-                                                $@Html.DisplayFor(modelItem => item.Total)
-                                            </td>
-                                            <td class=" text-center">
-                                                <a href="#" class="incrproduct" data-id="@item.ProdutoId"><i class="fa fa-cart-plus fa-3x"></i></a>
-                                                <a href="#" class="decrproduct" data-id="@item.ProdutoId"><i class="fa fa-cart-arrow-down fa-3x"></i></a>
-                                                <a href="#" class="removeproduct " data-id="@item.ProdutoId"><i class="fa fa-trash fa-3x"></i></a>
-                                                @*<a href="/shop/product-details/@item.ProductName.Replace("","-").ToLower()">
-                                                    <i class="fa fa-undo fa-3x"></i>
-                                                </a>*@
-                                            </td>
-                                        </tr>
+                                        <img src="~/Images/Gordon/hq-miranha.png" alt="">
                                     }
-                                </tbody>
-                                <tfoot>
-                                    <tr>
-                                        <th class="empty" colspan="3"></th>
-                                        <th>TOTAL</th>
-                                        <th colspan="2" class="grandtotal"><span>@ViewBag.GrandTotal</span></th>
-                                    </tr>
-                                </tfoot>
-                            </table>
-
-                            <div class="pull-right">
-                                <a href="#" class="placeorder primary-btn ">Place Order</a>
+                                    else
+                                    {
+                                        <img src="@Url.Action("GetUpImg", "Produtos", new { id = item.ProdutoId })" />
+                                    }
+                                </div>
+                                <div class="content-cart">
+                                    <h2>@Html.DisplayFor(modelItem => item.ProdutoNome)</h2>
+                                    <div class="internal-content1">
+                                        <div class="itens-cart">
+                                            <p>Preço: </p>
+                                            <p>R$ @Html.DisplayFor(modelItem => item.Preco)</p>
+                                        </div>
+                                        <div class="itens-cart">
+                                            <p>Quantidade: </p>
+                                            <p>@Html.DisplayFor(modelItem => item.Quantidade)</p>
+                                        </div>
+                                    </div>
+                                    <div class="itens-cart">
+                                        <p>Código do produto: </p>
+                                        <p>@Html.DisplayFor(modelItem => item.ProdutoId)</p>
+                                    </div>
+                                    <a href="#" class="incrproduct" data-id="@item.ProdutoId">+</a>
+                                    <a href="#" class="decrproduct" data-id="@item.ProdutoId">-</a>
+                                    <a href="#" class="removeproduct " data-id="@item.ProdutoId">remover</i></a>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
-            </div>
-            <!-- /row -->
+                            
+                    }
+                    </form>
+             </div>
         </div>
-        <!-- /container -->
     </div>
-    <!-- /section -->
+
+
+
 <div class="paypaldiv">
     <input class="paypalform" type="hidden" name="cmd" value="_ext-enter">
     <form class="paypalform" action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post">
         <input type="hidden" name="cmd" value="_cart">
         <input type="hidden" name="upload" value="1">
-        <input type="hidden" name="business" value="ao.ahmed-facilitator@outlook.com">
+        <input type="hidden" name="business" value="ao.luisalima0602@gmail.com">
 
         @foreach (var item in Model)
         {
@@ -136,7 +86,7 @@ else
             <input type="hidden" name="quantity_@count" value="@item.Quantidade">
             count++;
         }
-        <input type="hidden" name="currency_code" value="USD">
+        <input type="hidden" name="currency_code" value="BRL">
         <input type="image" src="http://www.paypal.com/en_US/i/btn/x-click-but01.gif" name="submit"
                alt="Make payments with PayPal - it's fast, free and secure!">
     </form>
@@ -165,7 +115,7 @@ else
                     $("td.qty" + produtoId).html(data.qty);
 
                     var price = data.qty * data.preco;
-                    var precoHtml = "$" + preco.toFixed(2);
+                    var precoHtml = "R$" + preco.toFixed(2);
 
                     $("td.total" + produtoId).html(precoHtml);
 

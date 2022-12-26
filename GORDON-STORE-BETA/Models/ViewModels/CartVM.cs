@@ -16,6 +16,6 @@ namespace GORDON_STORE_BETA.Models.ViewModels
         public int Quantidade { get; set; }
         public double Preco { get; set; }
         public double Total { get { return Quantidade * Preco; } }
-        public string Image { get; set; }
+        public string UpImg { get; set; }
     }
 }
