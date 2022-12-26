@@ -146,9 +146,10 @@
                         }
                         else
                         {
-                            <a href="@Url.Action("Details", new { id = item.ProdutoId })">
-                                <img src="@Url.Action("GetUpImg", "Produtos", new { id = item.ProdutoId })" />
-                            </a>
+                    <a href="@Url.Action("Details", new { id = item.ProdutoId })">
+                        <img class="img-thumbnail" src="@Url.Action("GetUpImg", "Produto", new { id = item.ProdutoId })"
+                             style="display: block; margin-left: auto; margin-right: auto; height: 275px; width: 177.52px" />
+                    </a>
                         }
 
                         <p class="precoproduto">R$ @Html.DisplayFor(modelItem => item.Preco)</p>
