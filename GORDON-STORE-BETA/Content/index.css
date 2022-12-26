@@ -7,7 +7,7 @@
 
 @font-face {
   font-family: adineue PRO;
-  src: url(./fonts/adineue\ PRO.ttf);
+  src: url('../fonts/adineue PRO.ttf');
 }
 
 *{
