@@ -135,6 +135,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\cadastro.css" />
     <Content Include="Content\CRUD.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.css" />
     <Content Include="Content\DataTables\css\autoFill.bootstrap.min.css" />
@@ -298,6 +299,7 @@
     <Content Include="Images\Gordon\debito.svg" />
     <Content Include="Images\Gordon\face.svg" />
     <Content Include="Images\Gordon\filledheart.png" />
+    <Content Include="Images\Gordon\header-cadastro.png" />
     <Content Include="Images\Gordon\Heart.png" />
     <Content Include="Images\Gordon\hq-miranha.png" />
     <Content Include="Images\Gordon\hqsbanner.png" />
@@ -323,6 +325,7 @@
     <Content Include="Images\Gordon\twitter.svg" />
     <Content Include="Images\Gordon\UserCirclePlus.png" />
     <Content Include="Images\Gordon\youtube.svg" />
+    <Content Include="Images\logo2.svg" />
     <Content Include="Images\Uploads\Products\10\6.jpg" />
     <Content Include="Images\Uploads\Products\10\Gallery\1.jpg" />
     <Content Include="Images\Uploads\Products\10\Gallery\2.jpg" />
@@ -457,7 +460,10 @@
     <Content Include="Images\Uploads\Products\9\Thumbs\5.jpg" />
     <Content Include="fonts\adineue PRO.ttf" />
     <Content Include="fonts\BatmanForeverAlternate.ttf" />
+    <Content Include="fonts\adineue PRO Bold.ttf" />
+    <Content Include="Areas\Seguranca\Views\Admin\Register.cshtml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\cadastro.js" />
     <Content Include="Scripts\index.js" />
     <Content Include="Scripts\jquery.fancybox-buttons.js" />
     <Content Include="Scripts\jquery.fancybox-media.js" />
@@ -595,6 +601,7 @@
     <Compile Include="Models\Estudio.cs" />
     <Compile Include="Models\Produto.cs" />
     <Compile Include="Models\ViewModels\CartVM.cs" />
+    <Compile Include="Models\ViewModels\CreateCartVMPartial.cs" />
     <Compile Include="Models\ViewModels\OrderDetailsModel.cs" />
     <Compile Include="Models\ViewModels\OrderModel.cs" />
     <Compile Include="Models\ViewModels\OrderVM.cs" />
@@ -619,6 +626,7 @@
     <Content Include="Views\Shared\_Layout2.cshtml" />
     <Content Include="Views\Cart\_PartialViewCart.cshtml" />
     <Content Include="Views\Shared\_MenuAdmin.cshtml" />
+    <Content Include="Views\Shared\_Layout3.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

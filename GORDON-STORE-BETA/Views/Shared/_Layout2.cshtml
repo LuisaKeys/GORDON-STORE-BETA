@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="~/Content/index.css">
-    <link rel="stylesheet" href="~/Content/detalhesproduto.css">
+    @using GORDON_STORE_BETA.Infraestrutura
     <title>Gordon Store</title>
 </head>
 <body>
@@ -37,9 +37,38 @@
         </section>
         <div id="PopUpUsuario">
             <ul>
-                <li><a href="#"><img src="~/Images/Gordon/SignIn.png" alt="">ENTRAR</a></li>
-                <li><a href="#"><img src="~/Images/Gordon/UserCirclePlus.png" alt="">CRIAR CONTA</a></li>
+
+                @if (Request.IsAuthenticated)
+                {
+
+                    <li>
+                        <a href="#"><img src="~/Images/Gordon/UserCirclePlus.png" alt="">@Html.GetAuthenticatedUser()</a>
+                    </li>
+
+                    <li>
+                        <a href="@Url.Action("Logout", "Account",
+                           new { area = "Seguranca" }, null)"><img src="~/Images/Gordon/SignIn.png" alt="">SAIR</a>
+                    </li>
+
+
+
+                }
+                else
+                {
+                    <li>
+                        <a href="@Url.Action("Login", "Account",
+                           new { area = "Seguranca" }, null)"><img src="~/Images/Gordon/SignIn.png" alt="">ENTRAR</a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Create", "Admin",
+                           new { area = "Seguranca" }, null)"><img src="~/Images/Gordon/UserCirclePlus.png" alt="">CRIAR CONTA</a>
+                    </li>
+
+
+                }
+
                 <li><a href="#"><img src="~/Images/Gordon/Question.png" alt="">AJUDA</a></li>
+
             </ul>
         </div>
         <div id="PopUpSearch">
@@ -51,8 +80,7 @@
             </form>
         </div>
 
-        @Html.Partial("~\\Views\\Cart\\_PartialViewCart.cshtml")
-
+        
     </header>
 
     @RenderBody()

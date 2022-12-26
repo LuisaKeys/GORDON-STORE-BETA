@@ -4,43 +4,53 @@
     Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewBag.Title = Model.Nome;
 }
+
+<link rel="stylesheet" href="~/Content/detalhesproduto.css">
+
 <div id="breadcrumb" style="text-align:left !important">
 </div>
 
 <div class="container-detalhe">
     <div class="images">
-        <img src="hq-miranha.png" class="produto" />
+        @if (Model.UpImg == null)
+        {
+            <img src="~/Images/Gordon/img-indisponivel.jpg" />
+        }
+        else
+        {
+            <img src="@Url.Action("GetUpImg", "Produtos", new { id = Model.ProdutoId })" />
+        }
     </div>
 
     <div class="product">
-        <p class="p">Histórias em quadrinho</p>
-        <h1 class="h1">Homem-Aranha: De Volta ao Lar</h1>
-        <h3 class="h3">Marvel</h3>
-        <h2 class="h2">R$ 150</h2>
+        <p class="p">@Html.DisplayFor(modelItem => Model.Categoria.Nome)</p>
+        <h1 class="h1">@Html.DisplayFor(modelItem => Model.Nome)</h1>
+        <h3 class="h3">@Html.DisplayFor(modelItem => Model.Estudio.Nome)</h3>
+        <h2 class="h2">@Html.DisplayFor(modelItem => Model.Preco)</h2>
 
         <div class="buttons">
-            <button class="add" class="button">carrinho</button>
-            <button class="like" class="button"><span>♥</span></button>
+            @if (Request.IsAuthenticated)
+            {
+                
+                
+                <div class="addtocart">
+                    <button class="add" class="button"><a class="addtocart"><i class="fa fa-shopping-cart"></i>Carrinho</a></button>
+                    <button class="like" class="button"><span>♥</span></button>
+                    
+                </div>
+
+            }
+            else
+            {
+                <a href="/Seguranca/Account/Login" class="primary-btn">Entre com uma conta para adicionar o produto ao carrinho</a>
+
+            }
+
         </div>
     </div>
 </div>
 
-@if (Request.IsAuthenticated)
-{
-    <div class="addtocart">
-        <a class="addtocart"><i class="fa fa-shopping-cart"></i> Adicionar ao carrinho</a>
-        @*<span class="loader">
-                <img src="~/Content/img/ajax-loader.gif" />
-            </span>*@
-        @*<span class="ajaxmsg">The product has been added to your cart.</span>*@
-    </div>
 
-}
-else
-{
-    <a href="/account/login" class="primary-btn">Entre com uma conta para adicionar o produto ao carrinho</a>
-
-}
 
 <link href="~/Content/jquery.fancybox.css" rel="stylesheet" />
 

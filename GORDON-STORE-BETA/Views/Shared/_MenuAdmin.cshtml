@@ -5,15 +5,19 @@
           charset="utf-8" />
     <title>@ViewBag.Title</title>
     <link rel="shortcut icon" href="~/Imagens/logo-gordonstore.png" type="image/x-icon">
-    <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />
     <link href="@Url.Content("~/content/CRUD.css")" rel="stylesheet" />
+    <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />
+
     @using GORDON_STORE_BETA.Infraestrutura
     @RenderSection("styles", false)
 
 </head>
 <body>
-   
+
     @RenderBody()
 
+
+    <script src="~/Scripts/cadastro.js"></script>
+    @RenderSection("ScriptPage", false)
 </body>
 </html>

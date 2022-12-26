@@ -1,0 +1,31 @@
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/cadastro.css">
+<title>@ViewBag.Title</title>
+</head>
+<body>
+    <header>
+        <div>
+            <div>
+                <a href="#"><img src="~/Images/logo2.svg" alt="logo"></a>
+            </div>
+            <div>
+                <h2>CADASTRO</h2>
+            </div>
+        </div>
+    </header>
+
+    @RenderBody()
+
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+    <script src="~/Scripts/cadastro.js"></script>
+    @RenderSection("ScriptPage", false)
+    @*@Scripts.Render("~/bundles/validation")*@
+    @RenderSection("scripts", required: false)
+</body>
+</html>

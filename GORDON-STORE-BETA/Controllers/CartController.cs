@@ -230,7 +230,7 @@ namespace GORDON_STORE_BETA.Controllers
                 Order orderDTO = new Order();
 
                 // Get user id
-                var q = db.Users.FirstOrDefault(x => x.Email == username);
+                var q = db.Users.FirstOrDefault(x => x.UserName == username);
                 //string userId = q.Id;
                 
                 string userId = q.Id;
@@ -257,9 +257,9 @@ namespace GORDON_STORE_BETA.Controllers
                     orderDetailsDTO.ProdutoId = item.ProdutoId;
                     orderDetailsDTO.Quantidade = item.Quantidade;
 
-                    //context.OrdersDetails.Add(orderDetailsDTO);
+                context.OrdersDetails.Add(orderDetailsDTO);
 
-                    context.SaveChanges();
+                context.SaveChanges();
                 }
             //}
 

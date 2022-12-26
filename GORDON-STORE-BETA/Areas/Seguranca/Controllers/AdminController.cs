@@ -162,6 +162,10 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
             }
             return View(usuario);
         }
+        public ActionResult Register()
+        {
+            return View();
+        }
     }
 }
 

@@ -1,20 +1,37 @@
-﻿<div id="PopUpCart">
-    <div id="header-cart">
-        <a href="javascript:abrir('PopUpCart')">
-            <img src="~/Images/Gordon/back-white.png" alt="" id="cartback">
-        </a>
-        <h3>Minha cesta</h3>
-        <div id="cart-img">
-            <img src="~/Images/Gordon/cart.svg" alt="">
-            <div id="cart-indicator">
-                <div>
-                    <p>1</p>
-                </div>
+﻿@model IEnumerable<GORDON_STORE_BETA.Models.ViewModels.CartVM>
 
-            </div>
-        </div>
-    </div>
+<div id="PopUpCart">
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td class=" text-center h4">
+                <a href="/shop/product-details/@item.ProdutoNome">
+                    <img src="/Images/Uploads/Products/@item.ProdutoId/Thumbs/@item.Image" class="img-circle" />
+                </a>
+            </td>
+            <td class="details  text-center h4">
+                @Html.DisplayFor(modelItem => item.ProdutoNome)
+            </td>
+            <td class="price text-center h4">
+                $@Html.DisplayFor(modelItem => item.Preco)
+            </td>
+            <td class="qty@(item.ProdutoId) qty text-center h4">
+                @Html.DisplayFor(modelItem => item.Quantidade)
+            </td>
 
+            <td class="total@(item.ProdutoId) text-center h4">
+                $@Html.DisplayFor(modelItem => item.Total)
+            </td>
+            <td class=" text-center">
+                <a href="#" class="incrproduct" data-id="@item.ProdutoId"><i class="fa fa-cart-plus fa-3x"></i></a>
+                <a href="#" class="decrproduct" data-id="@item.ProdutoId"><i class="fa fa-cart-arrow-down fa-3x"></i></a>
+                <a href="#" class="removeproduct " data-id="@item.ProdutoId"><i class="fa fa-trash fa-3x"></i></a>
+                @*<a href="/shop/product-details/@item.ProductName.Replace("","-").ToLower()">
+                        <i class="fa fa-undo fa-3x"></i>
+                    </a>*@
+            </td>
+        </tr>
+    }
     <div id="body-cart">
         <div class="container-product-cart">
             <div>

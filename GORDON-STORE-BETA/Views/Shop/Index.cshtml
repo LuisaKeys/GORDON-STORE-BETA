@@ -1,5 +1,5 @@
 ﻿@model GORDON_STORE_BETA.Models.ViewModels.Shop
-
+@using GORDON_STORE_BETA.Models.ViewModels;
 @{
     Layout = "~/Views/Shared/_Layout2.cshtml";
     ViewBag.Title = "Listagem de PRODUTOS";
@@ -94,7 +94,7 @@
         {
 
 
-<div class="containerproduto">
+            <div class="containerproduto">
                 <div class="conteudocontainer">
 
                     <div class="containerexterno">
@@ -110,7 +110,7 @@
 
                         <p class="precoproduto">R$ @Html.DisplayFor(modelItem => item.Preco)</p>
                     </div>
-                    <h5 class="tipoproduto" style="margin-top: 5px">Nintendo Switch</h5>
+                    <h5 class="tipoproduto" style="margin-top: 12px">@Html.DisplayFor(modelItem => item.Categoria.Nome)</h5>
                     <p class="tituloproduto">@Html.DisplayFor(modelItem => item.Nome)</p>
                     <p class="tipoproduto">@Html.DisplayFor(modelItem => item.Estudio.Nome)</p>
 
@@ -120,12 +120,12 @@
                 </div>
             </div>
         }
-        </div>
+    </div>
 </section>
 
 <section class="lista">
     <h2 class="titulosection">
-        RECENTES 
+        RECENTES
     </h2>
     <div class="listadeprodutos">
         @foreach (var item in Model.listaprodutos)
@@ -143,12 +143,14 @@
                         }
                         else
                         {
-                            <img src="@Url.Action("GetUpImg", "Produtos", new { id = item.ProdutoId })" />
+                            <a href="@Url.Action("Details", new { id = item.ProdutoId })">
+                                <img src="@Url.Action("GetUpImg", "Produtos", new { id = item.ProdutoId })" />
+                            </a>
                         }
 
                         <p class="precoproduto">R$ @Html.DisplayFor(modelItem => item.Preco)</p>
                     </div>
-                    <h5 class="tipoproduto" style="margin-top: 12px">Nintendo Switch</h5>
+                    <h5 class="tipoproduto" style="margin-top: 12px">@Html.DisplayFor(modelItem => item.Categoria.Nome)</h5>
                     <p class="tituloproduto">@Html.DisplayFor(modelItem => item.Nome)</p>
                     <p class="tituloproduto">@Html.DisplayFor(modelItem => item.Estudio.Nome)</p>
                     <div class="productbottom">

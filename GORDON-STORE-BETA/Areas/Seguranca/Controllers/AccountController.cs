@@ -67,7 +67,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
         public ActionResult Logout()
         {
             AuthManager.SignOut();
-            return RedirectToAction("Index", "Home", new { area = "" });
+            return RedirectToAction("Index", "Shop", new { area = "" });
         }
     }
 }
