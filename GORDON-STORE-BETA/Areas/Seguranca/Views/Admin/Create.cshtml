@@ -1,153 +1,87 @@
 ﻿@model GORDON_STORE_BETA.Areas.Seguranca.Models.UsuarioViewModel
-
 @{
-    Layout = "~/Views/Shared/_MenuAdmin.cshtml";
-    ViewBag.Title = "CADASTRE-SE";
+    Layout = "~/Views/Shared/_Layout3.cshtml";
+    ViewBag.Title = "Cadastre-se";
 }
 
-@using (Html.BeginForm())
-{
-    @Html.AntiForgeryToken()
-    <br />
-    <br />
-    <main>
-        <div class="formlogin">
-            <div class="cabecalhologin">
-                <img src="~/Images/Gordon/header-cadastro.png" />
+<main>
+    @using (Html.BeginForm("Create", "Admin", FormMethod.Post, new { @id = "msform", enctype = "multipart/form-data" }))
+    {
 
+        <!-- progressbar -->
+        <ul id="progressbar">
+            <li class="active">DADOS PESSOAIS</li>
+            <li>CONTA</li>
+            <li>ENDEREÇO</li>
+        </ul>
+        <!-- fieldsets -->
+        <fieldset>
+            <h2 class="fs-title">PASSO 1 PARA CRIAR SUA CONTA</h2>
+            <p>NOME:</p>
+            <div class="flexform">
+                <input type="text" name="Nome" placeholder="Primeiro nome" />
+                <input type="text" name="Sobrenome" placeholder="Sobrenome" />
             </div>
+            <p>CPF:</p>
+            <input type="text" name="Cpf" placeholder="000.000.000-00" />
+            <p>DATA DE NASCIMENTO:</p>
+            <input type="text" name="DataNascimento" placeholder="dd/mm/aaaa" />
+            <p>SEXO:</p>
+            <select name="Sexo" class="personalizar-select">
+                <option value="Feminino">Feminino</option>
+                <option value="Masculino">Masculino</option>
+            </select>
+            <input type="button" name="next" class="next action-button" value="Próximo" />
+            <span>
+                <p>Já tem conta?</p>
+                <a href="#">Fazer login</a>
+            </span>
+        </fieldset>
 
-            <div class="panel-body">
-                <div class="form-horizontal">
-                    @if (ViewData.ModelState.Keys.Any(k => ViewData.ModelState[k].Errors.Count() > 0))
-                    {
-                        <div class="alert alert-danger alert-dismissable">
-                            @Html.ValidationSummary(false,
-                            "Verifique os seguintes erros:")
+        <fieldset>
+            <h2 class="fs-title">PASSO 2 PARA CRIAR SUA CONTA</h2>
+            <p>E-MAIL:</p>
+            <input type="text" name="Email" placeholder="E-mail" />
+            <p>USERNAME:</p>
+            <input type="text" name="UserName" placeholder="Nome de usuário" />
+            <p>CRIE UMA SENHA:</p>
+            <input type="password" name="Senha" placeholder="Crie aqui uma senha para sua conta" />
+            <p>CONFIRMAR SENHA:</p>
+            <input type="password" name="confsenha" placeholder="Confirme sua senha" />
+            <input type="button" name="previous" class="previous action-button" value="Voltar" />
+            <input type="button" name="next" class="next action-button" value="Próximo" />
+        </fieldset>
 
-                        </div>
-                    }
-
-
-                    <div class="form-group">
-                        <p>PRIMEIRO NOME</p>
-                        <div class="">
-                            @Html.EditorFor(model => model.Nome,
-                            new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Nome, "",
-                            new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <p>SOBRENOME</p>
-                        <div class="">
-                            @Html.EditorFor(model => model.Sobrenome,
-                            new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Sobrenome, "",
-                            new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <p>CPF</p>
-                        <div class="">
-                            @Html.EditorFor(model => model.Cpf,
-                            new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Cpf, "",
-                            new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <p>ESTADO</p>
-                        <div class="">
-                            @Html.EditorFor(model => model.Estado,
-                            new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Estado, "",
-                            new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <p>CIDADE</p>
-                        <div class="">
-                            @Html.EditorFor(model => model.Cidade,
-                            new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Cidade, "",
-                            new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <p>RUA</p>
-                        <div class="">
-                            @Html.EditorFor(model => model.Rua,
-                            new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Rua, "",
-                            new { @class = "text-danger" })
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <p>COMPLEMENTO</p>
-                        <div class="">
-                            @Html.EditorFor(model => model.Complemento,
-                            new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Complemento, "",
-                            new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <p>EMAIL</p>
-                        <div class="">
-                            @Html.EditorFor(model => model.Email,
-                            new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Email, "",
-                            new { @class = "text-danger" })
-
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <p>USERNAME</p>
-
-                        <div class="">
-                            @Html.EditorFor(model => model.UserName,
-                            new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.UserName, "",
-                            new { @class = "text-danger" })
-                        </div>
-                    </div>
-
-
-
-                    <div class="form-group">
-                        <p>SENHA </p>
-
-                        <div class="senha">
-                            @Html.PasswordFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
-                            @Html.ValidationMessageFor(model => model.Senha, "",
-                            new { @class = "text-danger" })
-                        </div>
-                    </div>
+        <fieldset>
+            <h2 class="fs-title">PASSO 3 PARA CRIAR SUA CONTA</h2>
+            <div class="flexform">
+                <div>
+                    <p>ESTADO:</p>
+                    <input type="text" name="Estado" placeholder="Estado" />
+                </div>
+                <div>
+                    <p>CIDADE:</p>
+                    <input type="text" name="Cidade" placeholder="Cidade" />
                 </div>
             </div>
-            <div>
-                <div class="footerlogin">
-                    <input type="submit" value="CADASTRAR" class="btn btn-adicionar" />
-                    <br />
-                    @Html.ActionLink("Já tem conta? Entre aqui", "Account", "Login",
-                null, new { @class = "" })
-                </div>
-                <br />
-                <br />
+            <div class="flexform">
+                @*<div>
+                        <p>CEP:</p>
+                        <input type="text" name="Cep" placeholder="00000-00" />
+                    </div>*@
+                @*<div>
+                        <p>BAIRRO:</p>
+                        <input type="text" name="Bairro" placeholder="Bairro" />
+                    </div>*@
             </div>
-        </div>
-    </main>
-    <br />
-    <br />
-}
+            <p>RUA:</p>
+            <input type="text" name="Rua" placeholder="Rua" />
+            <p>COMPLEMENTO:</p>
+            <input type="text" name="Complemento" placeholder="Complemento (opcional)" />
+            <input type="button" name="previous" class="previous action-button" value="Voltar" />
+            <input type="submit" value="CADASTRAR" class="submit action-button" />
 
-@section ScriptPage {
-    <script type="text/javascript">
-        $(document).ready(function () {
-        });
-    </script>
-}
+        </fieldset>
+       
+    }
+</main>
