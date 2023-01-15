@@ -58,7 +58,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
                 AuthManager.SignIn(new AuthenticationProperties
                 { IsPersistent = false }, ident);
                 if (returnUrl == null)
-                    returnUrl = "/Shop";
+                    returnUrl = "/Shop/Index";
                 return Redirect(returnUrl);
             }
         }
