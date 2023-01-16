@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
+@font-face {
+    font-family: adineue PRO;
+    src: url('../fonts/adineue PRO.ttf');
+}
+
+@font-face {
+    font-family: BatmanForeverAlternate;
+    src: url(../fonts/BatmanForeverAlternate.ttf);
+}
+
 html {
     display: grid;
     min-height: 100%;
@@ -8,7 +18,7 @@ html {
 body {
     display: grid;
     background: #ffffff;
-    font-family: 'Lato', sans-serif, sans-serif;
+    font-family: '';
     text-transform: uppercase;
 }
 
@@ -33,6 +43,7 @@ body {
     font-size: 1.2em;
     color: white;
     margin-top: -5px;
+    font-family: 'adineue PRO', sans-serif;
 }
 
 .h3 {
@@ -42,8 +53,10 @@ body {
 }
 
 .h2 {
+    font-size: 1em;
     color: #ffffff;
     margin-top: -5px;
+    font-family: 'BatmanForeverAlternate', sans-serif;
 }
 
 .produto {
