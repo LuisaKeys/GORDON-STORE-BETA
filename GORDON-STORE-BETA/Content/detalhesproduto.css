@@ -1,5 +1,15 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
+@font-face {
+    font-family: adineue PRO;
+    src: url('../fonts/adineue PRO.ttf');
+}
+
+@font-face {
+    font-family: BatmanForeverAlternate;
+    src: url(../fonts/BatmanForeverAlternate.ttf);
+}
+
 html {
     display: grid;
     min-height: 100%;
@@ -8,7 +18,7 @@ html {
 body {
     display: grid;
     background: #ffffff;
-    font-family: 'Lato', sans-serif, sans-serif;
+    font-family: '';
     text-transform: uppercase;
 }
 
@@ -16,8 +26,8 @@ body {
     position: relative;
     margin: 50px auto;
     overflow: hidden;
-    width: 570px;
-    height: 350px;
+    width: 870px;
+    height: 550px;
     background: #2E0F46;
     box-shadow: 5px 5px 15px #2e0f464f;
     border-radius: 10px;
@@ -33,6 +43,7 @@ body {
     font-size: 1.2em;
     color: white;
     margin-top: -5px;
+    font-family: 'adineue PRO', sans-serif;
 }
 
 .h3 {
@@ -42,8 +53,10 @@ body {
 }
 
 .h2 {
+    font-size: 1em;
     color: #ffffff;
     margin-top: -5px;
+    font-family: 'BatmanForeverAlternate', sans-serif;
 }
 
 .produto {
@@ -61,26 +74,27 @@ body {
 
 .buttons {
     margin-top: 120px;
+    display: normal;
 }
 
 .addtocart button {
-        background: #ffffff;
-        padding: 10px;
-        display: inline-block;
-        outline: 0;
-        border: 0;
-        margin: -1px;
-        border-radius: 2px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #2E0F46;
-        cursor: pointer;
- }
-
-.addtocart button:hover {
-    background: #1e0a2e;
-    transition: all 0.4s ease-in-out;
+    background: #ffffff;
+    padding: 10px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    margin: -1px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2E0F46;
+    cursor: pointer;
 }
+
+    .addtocart button:hover {
+        background: #1e0a2e;
+        transition: all 0.4s ease-in-out;
+    }
 
 .add {
     width: 67%;
@@ -89,8 +103,10 @@ body {
 .like {
     width: 22%;
 }
-.images img {
-    height: 299px;
+
+.images {
+    height: 1000px;
+    width: 870px;
     margin: 24px 27px;
-    max-width: 279px;
+    max-width: 879px;
 }

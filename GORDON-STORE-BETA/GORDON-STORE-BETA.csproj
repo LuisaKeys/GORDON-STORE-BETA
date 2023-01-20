@@ -317,6 +317,8 @@
     <Content Include="Images\Gordon\personagem %286%29.png" />
     <Content Include="Images\Gordon\personagem %287%29.png" />
     <Content Include="Images\Gordon\produto.svg" />
+    <Content Include="Images\Gordon\produto2.svg" />
+    <Content Include="Images\Gordon\produto3.svg" />
     <Content Include="Images\Gordon\profile.svg" />
     <Content Include="Images\Gordon\Question.png" />
     <Content Include="Images\Gordon\search-purple.png" />

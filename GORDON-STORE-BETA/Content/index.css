@@ -422,6 +422,14 @@ header{
 				0 0 0 1px rgba(0,0,0,0.4);
 }
 
+.btn-3d.white {
+    background: white;
+    box-shadow: 8px -8px 0 0 #2E0F46, 8px -8px 0 1px #E0CE0D
+}
+.btn-3d.white:active {
+    box-shadow: 0 0 0 1px white;
+}
+
 #imagemcapa{
   width: 696px;
   height: 470.05px;
