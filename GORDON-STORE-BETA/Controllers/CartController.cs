@@ -106,7 +106,9 @@ namespace GORDON_STORE_BETA.Controllers
                         ProdutoNome = produto.Nome,
                         Quantidade = 1,
                         Preco = produto.Preco,
-                        UpImg = produto.NomeArquivo,
+                        NomeArquivo = produto.NomeArquivo,
+                        UpImgMimeType = produto.UpImgMimeType,
+                        UpImg = produto.UpImg,
                     });
                 }
                 else

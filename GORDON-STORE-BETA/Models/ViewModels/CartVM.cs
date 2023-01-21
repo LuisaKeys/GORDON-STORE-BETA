@@ -16,6 +16,9 @@ namespace GORDON_STORE_BETA.Models.ViewModels
         public int Quantidade { get; set; }
         public double Preco { get; set; }
         public double Total { get { return Quantidade * Preco; } }
-        public string UpImg { get; set; }
+        public string UpImgMimeType { get; set; }
+        public byte[] UpImg { get; set; }
+        public string NomeArquivo { get; set; }
+        public long TamanhoArquivo { get; set; }
     }
 }

@@ -38,7 +38,7 @@ else
                                     }
                                     else
                                     {
-                                        <img src="@Url.Action("GetUpImg", "Produtos", new { id = item.ProdutoId })" />
+                                        <img src="@Url.Action("GetUpImg", "Produto", new { id = item.ProdutoId })" style="height: 235px; width: 145px"/>
                                     }
                                 </div>
                                 <div class="content-cart">
@@ -70,7 +70,7 @@ else
 
 
 
-<div class="paypaldiv">
+<div class="paypaldiv" style="margin-left: 17px">
     <input class="paypalform" type="hidden" name="cmd" value="_ext-enter">
     <form class="paypalform" action="https://www.sandbox.paypal.com/us/cgi-bin/webscr" method="post">
         <input type="hidden" name="cmd" value="_cart">
