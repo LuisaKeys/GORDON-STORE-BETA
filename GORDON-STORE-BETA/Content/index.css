@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: BatmanForeverAlternate;
-  src: url(./fonts/BatmanForeverAlternate.ttf);
+  src: url(../fonts/BatmanForeverAlternate.ttf);
 }
 
 @font-face {
@@ -42,7 +42,7 @@ header section ul li a{
   color: white;
   display: flex;
   align-items: center;
-  font-family: 'BatmanForeverAlternate', sans-serif;;
+  font-family: 'BatmanForeverAlternate', sans-serif;
   text-decoration: none;
   font-size: 1.1em;
   font-weight: 500;
@@ -613,7 +613,7 @@ header{
 
   /*
     
-    nav-slider
+    nav-slider i
 
   */
   .navSlider {

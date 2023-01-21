@@ -1,64 +1,274 @@
-﻿@model Modelo.Cadastro.Produto
+﻿<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/index.css">
+    <title>Gordon Store</title>
+</head>
+<body>
+    <header>
+        <section>
+            <section id="logo-header">
+                <h1><a href="#"><img src="/Images/Gordon/logo.svg" alt="logo-gordon-store" id="logo"></a></h1>
+            </section>
 
-@{
-    Layout = "~/Views/Shared/_Layout2.cshtml";
-    ViewBag.Title = Model.Nome;
-}
+            <section id="links-header">
+                <nav>
+                    <ul>
+                        <li><a href="#">JOGOS</a></li>
+                        <li><a href="#">HQS</a></li>
+                        <li><a href="#">ESTUDIOS</a></li>
+                    </ul>
+                </nav>
+            </section>
+            <section id="lista-itens-header">
+                <nav>
+                    <ul>
+                        <li><a href="javascript:abrir('PopUpSearch')"><img src="/Images/Gordon/search.svg" alt="pesquisar" class="itens-header1"></a></li>
+                        <li><a href="/Cart/Index"><img src="/Images/Gordon/cart.svg" alt="carrinho" class="itens-header"></a></li>
+                        <li><a href="javascript:abrir('PopUpUsuario')"><img src="/Images/Gordon/profile.svg" alt="perfil" class="itens-header"></a></li>
+                        <li><a href="javascript:abrir('PopUpUsuario')"><img src="/Images/Gordon/arrow.svg" alt="seta" class="itens-header2"></a></li>
+                    </ul>
+                </nav>
+            </section>
+        </section>
+        <div id="PopUpUsuario">
+            <ul>
+                    <li>
+                        <a href="/Seguranca/Account/Login"><img src="/Images/Gordon/SignIn.png" alt="">ENTRAR</a>
+                    </li>
+                    <li>
+                        <a href="/Seguranca/Admin/Create"><img src="/Images/Gordon/UserCirclePlus.png" alt="">CRIAR CONTA</a>
+                    </li>
 
-<link rel="stylesheet" href="~/Content/detalhesproduto.css">
+                <li><a href="#"><img src="/Images/Gordon/Question.png" alt="">AJUDA</a></li>
+            </ul>
+        </div>
+        <div id="PopUpSearch">
+            <form>
+                <input type="text" method="get" placeholder="O que está procurando?">
+                <button type="submit">
+                    <img src="/Images/Gordon/search-purple.png" alt="lupa">
+                </button>
+            </form>
+        </div>
+
+        <div id="PopUpCart">
+            <div id="header-cart">
+                <a href="javascript:abrir('PopUpCart')">
+                    <img src="./Image/back-white.png" alt="" id="cartback">
+                </a>
+                <h3>Minha cesta</h3>
+                <div id="cart-img">
+                    <img src="./Image/cart.svg" alt="">
+                    <div id="cart-indicator">
+                        <div>
+                            <p>1</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <div id="body-cart">
+                <div class="container-product-cart">
+                    <div>
+                        <img src="./Image/hq-miranha.png" alt="">
+                    </div>
+                    <div class="content-cart">
+                        <h2>HQ O ESPETACULAR HOMEM ARANHA DE VOLTA AO LAR</h2>
+                        <div class="internal-content1">
+                            <div class="itens-cart">
+                                <p>Preço: </p>
+                                <p>R$ 89,90</p>
+                            </div>
+                            <div class="itens-cart">
+                                <p>Quantidade: </p>
+                                <p>1</p>
+                            </div>
+                        </div>
+                        <div class="itens-cart">
+                            <p>Código do produto: </p>
+                            <p>0112352</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="footer-cart">
+                <a href="">Finalizar pedido</a>
+            </div>
+        </div>
+
+    </header>
+
+    
+
+<link rel="stylesheet" href="/Content/detalhesproduto.css">
 
 <div id="breadcrumb" style="text-align:left !important">
 </div>
 <div class="container-detalhe">
     <div class="images">
-        @if (Model.UpImg == null)
-        {
-            <img src="~/Images/Gordon/img-indisponivel.jpg" />
-        }
-        else
-        {
-            <img class="img-thumbnail" src="@Url.Action("GetUpImg", "Produto", new { id = Model.ProdutoId })"
+            <img class="img-thumbnail" src="/Produto/GetUpImg/9"
                    style="" />
-        }
     </div>
 
     <div class="product">
-        <p class="p">@Html.DisplayFor(modelItem => Model.Categoria.Nome)</p>
-        <h1 class="h1">@Html.DisplayFor(modelItem => Model.Nome)</h1>
-        <h3 class="h3">@Html.DisplayFor(modelItem => Model.Estudio.Nome)</h3>
-        <h2 class="h2">R$ @Html.DisplayFor(modelItem => Model.Preco)</h2>
+        <p class="p">Hist&#243;rias em Quadrinhos</p>
+        <h1 class="h1">Homem-Aranha: De volta ao lar</h1>
+        <h3 class="h3">Marvel</h3>
+        <h2 class="h2">R$ 89</h2>
 
         <div class="buttons">
-            @if (Request.IsAuthenticated)
-            {
-
-
-                <div class="addtocart">
-                    <button class="add"><a class="addtocart"><i class="fa fa-shopping-cart"></i>Carrinho</a></button>
-                    <button class="like"><span>♥</span></button>
-
-                </div>
-                <p>@ViewBag.Message</p>
-
-            }
-            else
-            {
                 <a href="/Seguranca/Account/Login" class="primary-btn">Entre com uma conta para adicionar o produto ao carrinho</a>
-
-            }
 
         </div>
     </div>
 </div>
  
+    <section class="lista">
+        <h2 class="titulosection">
+            EM DESTAQUE
+        </h2>
+        <div class="listadeprodutos">
+            <div class="containerproduto">
+                <div class="conteudocontainer">
+
+                    <div class="containerexterno">
+                        <a href="#"><img src="~/Images/Gordon/Heart.png" alt="coração" class="iconfavorito"></a>
+                        <img class="imagemcontainer" src="~/Images/Gordon/produto.svg" alt="imagem do produto">
+                        <p class="precoproduto">Preço</p>
+                    </div>
+                    <h5 class="tipoproduto">Tipo da capa</h5>
+                    <p class="tituloproduto">Título da HQ</p>
+                    <div class="productbottom">
+                        <a href="#"><img src="~/Images/Gordon/cartproduct.svg" alt="cart"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="containerproduto">
+                <div class="conteudocontainer">
+
+                    <div class="containerexterno">
+                        <a href="#"><img src="~/Images/Gordon/Heart.png" alt="coração" class="iconfavorito"></a>
+                        <img class="imagemcontainer" src="~/Images/Gordon/produto2.svg" alt="imagem do produto">
+                        <p class="precoproduto">Preço</p>
+                    </div>
+                    <h5 class="tipoproduto">Tipo da capa</h5>
+                    <p class="tituloproduto">Título da HQ</p>
+                    <div class="productbottom">
+                        <a href="#"><img src="~/Images/Gordon/cartproduct.svg" alt="cart"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="containerproduto">
+                <div class="conteudocontainer">
+
+                    <div class="containerexterno">
+                        <a href="#"><img src="~/Images/Gordon/Heart.png" alt="coração" class="iconfavorito"></a>
+                        <img class="imagemcontainer" src="~/Images/Gordon/produto3.svg" alt="imagem do produto">
+                        <p class="precoproduto">Preço</p>
+                    </div>
+                    <h5 class="tipoproduto">Tipo da capa</h5>
+                    <p class="tituloproduto">Título da HQ</p>
+                    <div class="productbottom">
+                        <a href="#"><img src="~/Images/Gordon/cartproduct.svg" alt="cart"></a>
+                    </div>
+                </div>
+            </div>
+            <div class="containerproduto">
+                <div class="conteudocontainer">
+
+                    <div class="containerexterno">
+                        <a href="#"><img src="~/Images/Gordon/Heart.png" alt="coração" class="iconfavorito"></a>
+                        <img class="imagemcontainer" src="~/Images/Gordon/produto.svg" alt="imagem do produto">
+                        <p class="precoproduto">Preço</p>
+                    </div>
+                    <h5 class="tipoproduto">Tipo da capa</h5>
+                    <p class="tituloproduto">Título da HQ</p>
+                    <div class="productbottom">
+                        <a href="#"><img src="~/Images/Gordon/cartproduct.svg" alt="cart"></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<link href="/Content/jquery.fancybox.css" rel="stylesheet" />
 
 
 
-<link href="~/Content/jquery.fancybox.css" rel="stylesheet" />
 
-@section Scripts {
+    <section id="bannermail">
+        <div id="conteudobannermail">
+            <div id="mailimage">
+                <img src="/Images/Gordon/mail.png" alt="E-MAIL">
+            </div>
+            <div id="conteudointernobannermail">
+                <div>
+                    <h3>INSCREVA-SE AQUI PARA RECEBER<br>NOVIDADES POR E-MAIL</h3>
+                </div>
+                <a href="#" class="btn-3d yellow">
+                    CADASTRE-SE
+                    <img class="setacompre" src="/Images/Gordon/Arrow right.png" alt="seta">
+                </a>
+            </div>
+        </div>
+    </section>
 
-    <script src="~/Scripts/jquery.fancybox.js"></script>
+    <footer>
+        <div class="conteudofooter">
+            <figure>
+                <img src="/Images/Gordon/logo.svg" alt="">
+            </figure>
+            <section>
+                <h5>Institucional</h5>
+                <ul>
+                    <li><p>Quem somos</p></li>
+                    <li><p>Contato</p></li>
+                    <li><p>Equipe</p></li>
+                </ul>
+            </section>
+            <section>
+                <h5>Suporte</h5>
+                <ul>
+                    <li><p>Fale conosco</p></li>
+                    <li><p>Dúvidas frequentes</p></li>
+                    <li><p>Política de privacidade</p></li>
+                </ul>
+            </section>
+            <section>
+                <h5>Siga-nos</h5>
+                <ul id="redessociais">
+                    <li><img src="/Images/Gordon/insta.svg" alt=""></li>
+                    <li><img src="/Images/Gordon/face.svg" alt=""></li>
+                    <li><img src="/Images/Gordon/link.svg" alt=""></li>
+                    <li><img src="/Images/Gordon/youtube.svg" alt=""></li>
+                    <li><img src="/Images/Gordon/twitter.svg" alt=""></li>
+                </ul>
+            </section>
+            <section id="formaspagamento">
+                <h5>Formas de pagamento</h5>
+                <ul>
+                    <li><img src="/Images/Gordon/credito.svg" alt=""><p>Crédito</p></li>
+                    <li><img src="/Images/Gordon/debito.svg" alt=""><p>Débito</p></li>
+                    <li><img src="/Images/Gordon/boleto.svg" alt=""><p>Boleto</p></li>
+                </ul>
+            </section>
+        </div>
+    </footer>
+
+    <script src="/Scripts/index.js"></script>
+    <script src="/scripts/jquery-1.10.1.js"></script>
+    <script src="/scripts/bootstrap.js"></script>
+    
+    
+    
+
+    <script src="/Scripts/jquery.fancybox.js"></script>
     <script>
 $(function () {
 
@@ -71,7 +281,7 @@ $(function () {
 
         var url = "/cart/AddToCartPartial";
 
-        $.get(url, { id: @Model.ProdutoId }, function (data) {
+        $.get(url, { id: 9 }, function (data) {
             $(".ajaxcart").html(data);
         }).done(function () {
             $("span.loader").removeClass("ib");
@@ -88,4 +298,6 @@ $(function () {
 });
     </script>
 
-}
+
+</body>
+</html>
