@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
 @font-face {
     font-family: adineue PRO;
@@ -42,20 +42,19 @@ body {
 .h1 {
     font-size: 1.2em;
     color: white;
-    margin-top: -5px;
+    line-height: 1em;
     font-family: 'adineue PRO', sans-serif;
 }
 
 .h3 {
     font-size: 1em;
     color: white;
-    margin-top: -5px;
+    margin-top: 2px;
 }
 
 .h2 {
     font-size: 1em;
     color: #ffffff;
-    margin-top: -5px;
     font-family: 'BatmanForeverAlternate', sans-serif;
 }
 
@@ -66,42 +65,44 @@ body {
 
 .product {
     position: absolute;
-    width: 40%;
+    width: 38%;
     height: 100%;
-    top: 10%;
-    left: 60%;
+    top: 7%;
+    left: 56%;
 }
 
 .buttons {
-    margin-top: 120px;
+    position: absolute;
+    bottom: 52px;
 }
 
 .addtocart button {
-        background: #ffffff;
-        padding: 10px;
-        display: inline-block;
-        outline: 0;
-        border: 0;
-        margin: -1px;
-        border-radius: 2px;
-        text-transform: uppercase;
-        letter-spacing: 1px;
-        color: #2E0F46;
-        cursor: pointer;
- }
-
-.addtocart button:hover {
-    background: #1e0a2e;
-    transition: all 0.4s ease-in-out;
+    background: #ffffff;
+    padding: 10px;
+    display: inline-block;
+    outline: 0;
+    border: 0;
+    margin: -1px;
+    border-radius: 2px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #2E0F46;
+    cursor: pointer;
 }
 
+    .addtocart button:hover {
+        background: #1e0a2e;
+        transition: all 0.4s ease-in-out;
+    }
+
 .add {
-    width: 67%;
+    width: 78%;
 }
 
 .like {
     width: 22%;
 }
+
 .images img {
     height: 299px;
     margin: 24px 27px;

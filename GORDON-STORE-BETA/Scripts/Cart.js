@@ -1,8 +1,21 @@
-﻿$(function () {
+﻿
 
-    /*
-    * Increment product
-    */
+$("a.addtocart").click(function (e) {
+    e.preventDefault();
+    $("span.loader").addClass("ib");
+    var url = "/cart/AddToCartPartial";
+   /* $.get(url, { id: @Model.ProdutoId }, function (data) {*/
+    $(".ajaxcart").html(data);
+}).done(function () {
+    $("span.loader").removeClass("ib");
+    $("span.ajaxmsg").addClass("ib");
+    setTimeout(function () {
+        $("span.ajaxmsg").fadeOut("fast");
+        $("span.ajaxmsg").removeClass("ib");
+    }, 1000);
+});
+
+
 
     $("a.incrproduct").click(function (e) {
         e.preventDefault();

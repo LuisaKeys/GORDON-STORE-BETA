@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using System.Data.Entity;
-using Modelo.Cadastro;
-using Servico.Cadastro;
-using Servico.Tabelas;
+using GORDON_STORE_BETA.Modelo.Cadastro;
+using GORDON_STORE_BETA.Servico.Cadastro;
+using GORDON_STORE_BETA.Servico.Tabelas;
 using System.Net.NetworkInformation;
 using System.IO;
 using GORDON_STORE_BETA.Models;
@@ -151,7 +151,6 @@ namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
         [HttpPost]
         public ActionResult Create(Produto produto, HttpPostedFileBase upimg = null, string chkRemoverImagem = null)
         {
-            produto.Slug = produto.Nome;
             return GravarProduto(produto, upimg, chkRemoverImagem);
         }
 

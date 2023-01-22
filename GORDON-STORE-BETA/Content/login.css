@@ -1,0 +1,253 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;700&display=swap');
+
+@font-face {
+    font-family: BatmanForeverAlternate;
+    src: url(../fonts/BatmanForeverAlternate.ttf);
+}
+
+@font-face {
+    font-family: adineue PRO;
+    src: url('../fonts/adineue PRO.ttf');
+}
+
+@font-face {
+    font-family: adineue;
+    src: url('../fonts/adineue PRO Bold.ttf');
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    padding-top: 4em;
+    padding-bottom: 4em;
+    font-family: 'adineue PRO';
+    color: #2E0F46;
+}
+
+header div > div:first-child {
+    display: flex;
+    justify-content: center;
+}
+
+header div div {
+    text-align: center;
+}
+
+header div > div > a img {
+    height: 35px;
+}
+
+header div > div h2 {
+    color: #2E0F46;
+    font-family: 'BatmanForeverAlternate';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 45px;
+    margin-bottom: 10px;
+}
+
+#redeslogin {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+    list-style: none;
+}
+
+    #redeslogin li img {
+        width: 40px;
+    }
+
+
+#msform {
+    width: 350px;
+    margin: 50px auto;
+    text-align: center;
+    position: relative;
+}
+
+    #msform fieldset {
+        background: white;
+        border: 0 none;
+        border: 4px solid #2E0F46;
+        border-radius: 10px;
+        padding: 20px 30px;
+        box-sizing: border-box;
+        width: 80%;
+        margin: 0 10%;
+        /*stacking fieldsets above each other*/
+        position: relative;
+    }
+        /*Hide all except first fieldset*/
+        #msform fieldset:not(:first-of-type) {
+            display: none;
+        }
+    /*inputs*/
+    #msform .txt input, #msform textarea {
+        padding: 15px;
+        border: 3px solid #2E0F46;
+        border-radius: 5px;
+        margin-bottom: 10px;
+        width: 100%;
+        box-sizing: border-box;
+        font-family: 'Roboto';
+        color: rgba(46, 15, 70, 0.5);
+        font-size: 15px;
+    }
+
+    /*buttons*/
+    #msform .action-button {
+        width: 100px;
+        background: #2E0F46;
+        font-weight: bold;
+        color: white;
+        border: 0 none;
+        border-radius: 1px;
+        cursor: pointer;
+        padding: 10px;
+        margin: 10px 5px;
+        text-decoration: none;
+        font-size: 14px;
+    }
+
+        #msform .action-button:hover, #msform .action-button:focus {
+            box-shadow: 0 0 0 2px white, 0 0 0 3px #2E0F46;
+        }
+
+main form h2 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-family: 'adineue PRO';
+    font-size: 18px;
+    text-align: left;
+    color: #2E0F46;
+}
+
+main form span:first-child {
+    display: flex;
+    justify-content: left;
+    font-family: 'adineue PRO' !important;
+    font-size: 12px !important;
+}
+
+    main form span:first-child label:first-child, main form span label a:first-child {
+        font-family: 'adineue PRO' !important;
+        font-size: 12px !important;
+    }
+
+#conectedspan {
+    display: flex;
+    justify-content: space-between;
+    font-family: 'adineue PRO';
+    font-size: 13px;
+}
+
+#alertconect {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+}
+
+#conected {
+    margin: 0 3px 0 0 !important;
+    display: flex;
+    display: flex;
+    align-self: center;
+    width: 15px !important;
+}
+
+#accept {
+    font-size: 13px !important;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+/*buttons*/
+#msform .action-button {
+    width: 100px;
+    background: #2E0F46;
+    font-weight: bold;
+    color: white;
+    border: 0 none;
+    border-radius: 1px;
+    cursor: pointer;
+    padding: 10px;
+    margin: 10px 5px;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+    #msform .action-button:hover, #msform .action-button:focus {
+        box-shadow: 0 0 0 2px white, 0 0 0 3px #2E0F46;
+    }
+
+#cadastro {
+    display: flex;
+    justify-content: center;
+    font-family: 'adineue PRO' !important;
+    font-size: 13px !important;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+    #cadastro p {
+        margin-right: 5px;
+    }
+
+form a {
+    color: #2E0F46;
+    text-decoration: none;
+}
+
+/* 3D Button */
+.btn-3d {
+    font-family: 'BatmanForeverAlternate', sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    align-items: center;
+    font-size: 24px;
+    line-height: 24px;
+    text-decoration: none;
+    color: white;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 22px;
+    box-shadow: 0 !important;
+    width: 349px;
+    transition: top .01s linear;
+    background: #E0CE0D;
+    border: 0;
+    padding: 13px;
+}
+
+    .btn-3d:active {
+        top: 9px;
+        right: 9px;
+    }
+
+    .btn-3d.yellow {
+        background: #2e0f46;
+        box-shadow: -8px 9px 0 0 white, -8px 9px 0 1px #2e0f46;
+    }
+
+        .btn-3d.yellow:active {
+            box-shadow: 0 0 0 1px rgba(0,0,0,0.4);
+        }
+
+#imagemcapa {
+    width: 696px;
+    height: 470.05px;
+}
+
+#container1 {
+    align-self: center;
+}
+
+.errorMsg {
+    color: #e71818;
+    text-align: left;
+    font-size: 13px;
+}

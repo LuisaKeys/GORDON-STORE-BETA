@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using Modelo.Sistema;
+using GORDON_STORE_BETA.Modelo.Sistema;
 
 namespace GORDON_STORE_BETA.Areas.Seguranca.Models
 {

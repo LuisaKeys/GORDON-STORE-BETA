@@ -6,7 +6,7 @@ using GORDON_STORE_BETA.Infraestrutura;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
-using Servico.Cadastro;
+using GORDON_STORE_BETA.Servico.Cadastro;
 
 namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
 {

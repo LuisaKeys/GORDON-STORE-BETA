@@ -9,7 +9,7 @@ using System.Linq;
 using System.Security.Claims;
 using System.Web;
 using System.Web.Mvc;
-using Modelo.Sistema;
+using GORDON_STORE_BETA.Modelo.Sistema;
 
 namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
 {

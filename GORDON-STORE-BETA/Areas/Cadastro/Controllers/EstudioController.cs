@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using System.Data.Entity;
-using Modelo.Cadastro;
-using Servico.Cadastro;
+using GORDON_STORE_BETA.Modelo.Cadastro;
+using GORDON_STORE_BETA.Servico.Cadastro;
 
 namespace GORDON_STORE_BETA.Areas.Cadastro.Controllers
 {

@@ -236,6 +236,7 @@
     <Content Include="Content\DataTables\swf\flashExport.swf" />
     <Content Include="Content\detalhesproduto.css" />
     <Content Include="Content\index.css" />
+    <Content Include="Content\login.css" />
     <Content Include="Content\Site.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -327,6 +328,7 @@
     <Content Include="Images\Gordon\twitter.svg" />
     <Content Include="Images\Gordon\UserCirclePlus.png" />
     <Content Include="Images\Gordon\youtube.svg" />
+    <Content Include="Images\logo-gordonstore.png" />
     <Content Include="Images\logo2.svg" />
     <Content Include="Images\Uploads\Products\10\6.jpg" />
     <Content Include="Images\Uploads\Products\10\Gallery\1.jpg" />
@@ -464,7 +466,9 @@
     <Content Include="fonts\BatmanForeverAlternate.ttf" />
     <Content Include="fonts\adineue PRO Bold.ttf" />
     <Content Include="Areas\Seguranca\Views\Admin\Register.cshtml" />
+    <None Include="Properties\PublishProfiles\GORDONSTORE - Web Deploy.pubxml" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="logo-gordon.ico" />
     <Content Include="Scripts\cadastro.js" />
     <Content Include="Scripts\Cart.js" />
     <Content Include="Scripts\index.js" />
@@ -578,6 +582,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Areas\Seguranca\Controllers\PapelAdminController.cs" />
     <Compile Include="Controllers\ShopController.cs" />
+    <Compile Include="Modelo\Cadastro\Estudio.cs" />
+    <Compile Include="Modelo\Cadastro\Produto.cs" />
+    <Compile Include="Modelo\Cart\Order.cs" />
+    <Compile Include="Modelo\Cart\OrderDetails.cs" />
+    <Compile Include="Modelo\Sistema\Cart.cs" />
+    <Compile Include="Modelo\Sistema\Cidade.cs" />
+    <Compile Include="Modelo\Sistema\UsuarioAdm.cs" />
+    <Compile Include="Modelo\Tabelas\Categoria.cs" />
     <Compile Include="Models\Cart.cs" />
     <Compile Include="Models\Cart\Order.cs" />
     <Compile Include="Models\Cart\OrderDetails.cs" />
@@ -612,7 +624,14 @@
     <Compile Include="Models\ViewModels\Shop.cs" />
     <Compile Include="Models\ViewModels\ShoppingCartModel.cs" />
     <Compile Include="Models\ViewModels\ShoppingViewModel.cs" />
+    <Compile Include="Persistencia\Context\EFContext.cs" />
+    <Compile Include="Persistencia\DAL\Cadastro\EstudioDAL.cs" />
+    <Compile Include="Persistencia\DAL\Cadastro\ProdutoDAL.cs" />
+    <Compile Include="Persistencia\DAL\Tabelas\CategoriaDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Servico\Cadastro\EstudioServico.cs" />
+    <Compile Include="Servico\Cadastro\ProdutoServico.cs" />
+    <Compile Include="Servico\Tabelas\CategoriaServico.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -645,23 +664,12 @@
     <Folder Include="Areas\Seguranca\Views\Cliente\" />
     <Folder Include="Areas\Tabelas\Data\" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Modelo\Modelo.csproj">
-      <Project>{8d25b7d3-b0ce-41fa-99f7-fff5e0f28406}</Project>
-      <Name>Modelo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Persistencia\Persistencia.csproj">
-      <Project>{8a65ba7d-8dee-4213-939e-1ad44e5a0d63}</Project>
-      <Name>Persistencia</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Servico\Servico.csproj">
-      <Project>{16864167-725a-4ec1-8721-366c7fd1e272}</Project>
-      <Name>Servico</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>logo-gordon.ico</ApplicationIcon>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />

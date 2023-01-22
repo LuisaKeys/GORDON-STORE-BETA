@@ -14,7 +14,7 @@
 <body>
 
     <header>
-        <a href="#"><img src="~/Imagens\logo-gordonstore.png" alt="LOGO GORDON STORE"></a>
+        <a href="#"><img src="~/Images/logo-gordonstore.png" alt="LOGO GORDON STORE"></a>
         <nav>
             <ul>
                 <li role="presentation">
@@ -41,8 +41,7 @@
                         if (Html.GetAuthenticatedUser().ToString() != "")
                         {
                             <img></img>
-                            @Html.GetAuthenticatedUser();
-                            @Html.ActionLink("Sair", "Logout", "Account")
+                            <a href="/Seguranca/Admin/Details/@Html.GetAuthenticatedUserId()}))">@Html.GetAuthenticatedUser()</a> 
                         }
                         else
                         {

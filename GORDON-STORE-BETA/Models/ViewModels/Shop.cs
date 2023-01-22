@@ -1,4 +1,4 @@
-﻿using Modelo.Cadastro;
+﻿using GORDON_STORE_BETA.Modelo.Cadastro;
 using System;
 using System.Collections.Generic;
 using System.Linq;

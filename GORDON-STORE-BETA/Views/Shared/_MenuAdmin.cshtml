@@ -1,18 +1,37 @@
-﻿<!DOCTYPE html>
-<html>
+﻿@*@using GORDON_STORE_BETA.Infraestrutura
+    @RenderSection("styles", false)*@
+
+<!DOCTYPE html>
+<html lang="pt-br">
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"
-          charset="utf-8" />
-    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="~/Content/login.css">
     <link rel="shortcut icon" href="~/Imagens/logo-gordonstore.png" type="image/x-icon">
-    <link href="@Url.Content("~/content/CRUD.css")" rel="stylesheet" />
-    <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />
-
-    @using GORDON_STORE_BETA.Infraestrutura
-    @RenderSection("styles", false)
-
+    @*<link rel="shortcut icon" href="~/Imagens/logo-gordonstore.png" type="image/x-icon">
+        <link href="@Url.Content("~/content/CRUD.css")" rel="stylesheet" />
+        <link href="@Url.Content("~/content/bootstrap.css")" rel="stylesheet" />*@
 </head>
+
 <body>
+    <header>
+        <div>
+            <div>
+                <a href="#"><img src="~/Images/logo2.svg" alt="logo"></a>
+            </div>
+            <div>
+                <h2>LOGIN</h2>
+                <p style="font-family: 'adineue PRO'">CONTINUAR COM</p>
+                <ul id="redeslogin">
+                    <li><a href="#"><img src="~/Images/Gordon/googlelogin.svg" alt=""></a></li>
+                    <li><a href="#"></a><img src="~/Images/Gordon/facebooklogin.svg" alt=""></li>
+                    <li><a href="#"></a><img src="~/Images/Gordon/applelogin.svg" alt=""></li>
+                </ul>
+            </div>
+        </div>
+    </header>
 
     @RenderBody()
 

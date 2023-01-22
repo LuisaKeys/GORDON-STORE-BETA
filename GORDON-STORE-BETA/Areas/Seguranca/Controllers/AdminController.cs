@@ -7,7 +7,7 @@ using Microsoft.AspNet.Identity.Owin;
 using GORDON_STORE_BETA.Infraestrutura;
 using Microsoft.AspNet.Identity;
 using GORDON_STORE_BETA.Areas.Seguranca.Models;
-using Modelo.Sistema;
+using GORDON_STORE_BETA.Modelo.Sistema;
 using System.Net;
 using System.Net.Mail;
 
@@ -35,7 +35,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
 
         //---------------- ACTIONS ABAIXO ----------------
         // GET: Seguranca/Admin
-        [Authorize/*(Roles = "Administradores")*/]
+        [Authorize(Roles = "Administradores")]
         public ActionResult Index()
         {
             return View(GerenciadorUsuario.Users);
@@ -78,6 +78,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
             }
             return View(model);
         }
+        [Authorize]
         public ActionResult Edit(string id)
         {
             if (id == null)
@@ -114,6 +115,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
             }
             return View(uvm);
         }
+        [Authorize(Roles = "Administradores")]
         public ActionResult Delete(string id)
         {
             if (id == null)
@@ -150,6 +152,7 @@ namespace GORDON_STORE_BETA.Areas.Seguranca.Controllers
                 return HttpNotFound();
             }
         }
+        [Authorize]
         public ActionResult Details(string id)
         {
             if (id == null)

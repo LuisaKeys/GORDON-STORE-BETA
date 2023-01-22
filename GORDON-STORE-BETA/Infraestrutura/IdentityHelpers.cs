@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNet.Identity.Owin;
+﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,10 @@ namespace GORDON_STORE_BETA.Infraestrutura
         public static MvcHtmlString GetAuthenticatedUser(this HtmlHelper html)
         {
             return new MvcHtmlString(HttpContext.Current.User.Identity.Name);
+        }
+        public static MvcHtmlString GetAuthenticatedUserId(this HtmlHelper html)
+        {
+            return new MvcHtmlString(HttpContext.Current.User.Identity.GetUserId());
         }
     }
 

@@ -7,10 +7,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Modelo.Cadastro;
+using GORDON_STORE_BETA.Modelo.Cadastro;
 using GORDON_STORE_BETA.Areas.Seguranca;
 using GORDON_STORE_BETA.Areas.Seguranca.Models;
-using Modelo.Sistema;
+using GORDON_STORE_BETA.Modelo.Sistema;
 
 namespace GORDON_STORE_BETA.Models.Cart
 {

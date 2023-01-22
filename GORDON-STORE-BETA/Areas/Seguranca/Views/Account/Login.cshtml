@@ -4,9 +4,52 @@
     ViewBag.Title = "Acessando o sistema";
 }
 
+<main>
+    @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @id = "msform", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="txt">
+            <h2>E-MAIL:</h2>
+            @Html.EditorFor(model => model.UserName,
+             new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.UserName, "",
+                                new { @class = "errorMsg" })
+
+            @*<input type="text" name="e-mail" placeholder="Digite seu e-mail" />*@
+            <h2>SENHA:</h2>
+            @Html.PasswordFor(model => model.Senha, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Senha, "",
+                                    new { @class = "errorMsg" })
+        </div>
+
+        @*<input type="password" name="senha" placeholder="Digite sua senha" />*@
+        <span id="conectedspan">
+            <div id="alertconect">
+                <input type="checkbox" name="conected" id="conected">
+                <label for="conected">Continuar conectado</label>
+            </div>
+
+            <a href="#">Esqueceu a senha?</a>
+        </span>
+        <p id="accept">
+            Ao fazer login, você concorda com a Política de privacidade e com os Termos de uso do Gordonstore.com.br.
+        </p>
+        <div id="container1">
+
+            <input type="submit" href="#" class="btn-3d yellow" value="ENTRAR" />
 
 
-    @using (Html.BeginForm())
+        </div>
+        <span id="cadastro">
+            <p>Não tem conta?</p>
+            <a href="../Admin/Create" style="text-decoration: underline">cadastre-se aqui</a>
+        </span>
+    }
+
+</main>
+
+
+@*@using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
         <main style="display: flex">
@@ -56,6 +99,4 @@
                 </div>
             </div>
         </main>
-    }
-
-
+    }*@

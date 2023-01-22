@@ -5,8 +5,8 @@ using System.Web;
 using System.Web.Mvc;
 using System.Net;
 using System.Data.Entity;
-using Modelo.Tabelas;
-using Servico.Tabelas;
+using GORDON_STORE_BETA.Modelo.Tabelas;
+using GORDON_STORE_BETA.Servico.Tabelas;
 
 namespace GORDON_STORE_BETA.Areas.Tabelas.Controllers
 {

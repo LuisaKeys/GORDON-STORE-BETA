@@ -38,7 +38,7 @@ else
                                     }
                                     else
                                     {
-                                        <img src="@Url.Action("GetUpImg", "Produto", new { id = item.ProdutoId })" style="height: 235px; width: 145px"/>
+                                        <img src="@Url.Action("GetUpImg", "Produto", new { id = item.ProdutoId })" style="height: 235px; width: 145px" />
                                     }
                                 </div>
                                 <div class="content-cart">
@@ -61,14 +61,12 @@ else
                                 </div>
                             </div>
                         </div>
-                            
+
                     }
-                    </form>
+                </form>
              </div>
         </div>
     </div>
-
-
 
 <div class="paypaldiv" style="margin-left: 17px">
     <input class="paypalform" type="hidden" name="cmd" value="_ext-enter">
@@ -127,6 +125,20 @@ else
                     $.get(url2, {}, function (data) {
                         $("div.paypaldiv").html(data);
                     });
+                });
+            });
+
+            $$("a.makeOrder").click(function (e) {
+                e.preventDefault();
+                var url = "/cart/MakeOrder";
+
+                $(".ajaxbg").show();
+
+                $.post(url, {}, function (data) {
+                    $(".ajaxbg span").html("<h3>Thank you. You will automatically be redirected to paypal.</h1>");
+                    setTimeout(function () {
+                        $('form input[name="submit"]').click();
+                    }, 2000);
                 });
             });
 
@@ -194,7 +206,7 @@ else
             * Place order
             */
 
-            $("a.placeorder").click(function (e) {
+            $("a.makeOrder").click(function (e) {
                 e.preventDefault();
                 var url = "/cart/MakeOrder";
 

@@ -46,15 +46,5 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tabelas\CategoriaServico.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Modelo\Modelo.csproj">
-      <Project>{8d25b7d3-b0ce-41fa-99f7-fff5e0f28406}</Project>
-      <Name>Modelo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Persistencia\Persistencia.csproj">
-      <Project>{8a65ba7d-8dee-4213-939e-1ad44e5a0d63}</Project>
-      <Name>Persistencia</Name>
-    </ProjectReference>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

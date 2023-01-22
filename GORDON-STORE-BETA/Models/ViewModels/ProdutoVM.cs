@@ -6,8 +6,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
-using Modelo.Cadastro;
-using Modelo.Tabelas;
+using GORDON_STORE_BETA.Modelo.Cadastro;
+using GORDON_STORE_BETA.Modelo.Tabelas;
 
 namespace GORDON_STORE_BETA.Models.ViewModels
 {
