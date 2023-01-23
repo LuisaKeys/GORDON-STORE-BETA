@@ -144,8 +144,8 @@ namespace GORDON_STORE_BETA.Controllers
             // Save cart back to session
             Session["cart"] = cart;
 
-            // Return partial view with model
-            return PartialView(model);
+
+            return RedirectToAction("Index");
         }
 
         // GET: /Cart/IncrementProduct
@@ -203,7 +203,7 @@ namespace GORDON_STORE_BETA.Controllers
         }
 
         // GET: /Cart/RemoveProduct
-        public void RemoveProduct(long produtoId)
+        public ActionResult RemoveProduct(long produtoId)
         {
             // Init cart list
             List<CartVM> cart = Session["cart"] as List<CartVM>;
@@ -215,7 +215,10 @@ namespace GORDON_STORE_BETA.Controllers
 
                 // Remove model from list
                 cart.Remove(model);
+
+                return RedirectToAction("Index");
             }
+            
         }
 
         public ActionResult PaypalPartial()

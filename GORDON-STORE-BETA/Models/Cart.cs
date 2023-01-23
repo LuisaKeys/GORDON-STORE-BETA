@@ -10,7 +10,7 @@ namespace Modelo.Cart
 {
     public class Cart
     {
-        public long? ProdutoId { get; set; }
+        public long ProdutoId { get; set; }
 
         [Display(Name = "Nome do Produto")]
         public string ProdutoNome { get; set; }

@@ -48,22 +48,26 @@ else
                                             <p>Preço: </p>
                                             <p>R$ @Html.DisplayFor(modelItem => item.Preco)</p>
                                         </div>
-                                        <div class="itens-cart">
-                                            <p>Quantidade: </p>
-                                            <p>@Html.DisplayFor(modelItem => item.Quantidade)</p>
-                                        </div>
+
                                     </div>
                                     <div class="itens-cart">
                                         <p>Código do produto: </p>
                                         <p>@Html.DisplayFor(modelItem => item.ProdutoId)</p>
                                     </div>
-                                    <a class="removeproduct" data-id="@item.ProdutoId" style="font-weight: bold" href="#">excluir</a>
+                                    <div class="itens-cart">
+                                        <p>Quantidade: </p>
+                                        <p>@Html.DisplayFor(modelItem => item.Quantidade)</p>
+                                    </div>
+                                    <a class="removeproduct" style="font-weight: bold" href="@Url.Action("RemoveProduct", "Cart", new { item.ProdutoId })"><img src="../Images/Trash.Png" style="height: 25px"></a>
                                 </div>
                             </div>
                         </div>
 
                     }
+
+  
                 </form>
+                
              </div>
         </div>
     </div>

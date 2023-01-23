@@ -253,8 +253,9 @@ header section ul li a{
   align-items: center;
 }
 
-#body-cart{
-  min-height: 300px;
+#body-cart {
+    display: flex;
+    justify-content: center;
 }
 
 .container-product-cart {
@@ -262,9 +263,10 @@ header section ul li a{
     margin: 1em;
     background: rgba(255, 255, 255, 0.23);
     border: 2px solid #2E0F46;
-    border-radius: 10px;
+    border-radius: 5px;
     display: flex;
-    width: 435px;
+    width: 90%;
+}
 }
 }
 
@@ -290,8 +292,6 @@ header section ul li a{
 
 .internal-content1{
  
-  display: flex;
-  justify-content: space-between;
 }
 
 .itens-cart{
@@ -305,8 +305,6 @@ header section ul li a{
 .itens-cart p{
   margin-top: 8px;
 }
-
-
 
 
 #footer-cart{
@@ -824,7 +822,7 @@ html {
     font-size: 20px;
     color: #2E0F46;
     width: 6rem;
-    bottom: 0;
+    bottom: -1px;
     box-shadow: 1px -1px 6px 3px #00000047;
     text-align: center;
     background: #E0CE0D;
@@ -956,4 +954,14 @@ footer section ul li p{
 
 #formaspagamento li{
   display: flex;
+}
+
+.removeproduct {
+    text-decoration: none;
+    background-color: #2E0F46;
+    padding-top: 3px;
+    border-radius: 3px;
+    position: absolute;
+  
+    margin-top: 10px;
 }
