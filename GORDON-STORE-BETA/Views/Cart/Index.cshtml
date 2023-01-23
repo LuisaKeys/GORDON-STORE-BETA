@@ -26,6 +26,7 @@ else
         <div class="container">
             <!-- row -->
             <div class="row">
+                <div id="titulo"><h1>Meu carrinho</h1></div>
                 <form id="checkout-form" class="clearfix">
                     @foreach (var item in Model)
                     {
@@ -43,16 +44,17 @@ else
                                 </div>
                                 <div class="content-cart">
                                     <h2>@Html.DisplayFor(modelItem => item.ProdutoNome)</h2>
-                                    <div class="internal-content1">
-                                        <div class="itens-cart">
-                                            <p>Preço: </p>
-                                            <p>R$ @Html.DisplayFor(modelItem => item.Preco)</p>
-                                        </div>
 
-                                    </div>
+
+
+
                                     <div class="itens-cart">
                                         <p>Código do produto: </p>
                                         <p>@Html.DisplayFor(modelItem => item.ProdutoId)</p>
+                                    </div>
+                                    <div class="itens-cart">
+                                        <p>Preço: </p>
+                                        <p>R$ @Html.DisplayFor(modelItem => item.Preco)</p>
                                     </div>
                                     <div class="itens-cart">
                                         <p>Quantidade: </p>
